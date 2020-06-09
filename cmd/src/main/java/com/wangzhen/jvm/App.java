@@ -1,6 +1,6 @@
 package com.wangzhen.jvm;
 
-public class Args {
+public class App {
     //public static  String MINUS_HELP = "-help";
    // public static  String
     public static void main(String[] args) {
