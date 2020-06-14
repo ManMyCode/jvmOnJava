@@ -33,21 +33,19 @@ public abstract class ConstantInof {
     public static final int CONSTANT_InvokeDynamic_info = 18;
 
 
+
+
     // 读取具体的
     abstract void readInfo(ClassReader classReader);
 
     int type;
-
     public int getType() {
         return type;
     }
 
-    public ConstantInof[] createConstantPool(ClassReader classReader,int constantPoolCount){
-        for(int i=1;i< constantPoolCount;i++){
 
-        }
-        return null;
-    }
+
+
 
 
 
