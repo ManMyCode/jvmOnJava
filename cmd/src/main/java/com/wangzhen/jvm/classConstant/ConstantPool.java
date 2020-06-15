@@ -69,6 +69,11 @@ public class ConstantPool {
 
     }
 
+    // 获取常量池中的 静态字符
+    public String getConstantPoolUtf8Value(int index){
+        ConstantUtf8Info constantUtf8Info = (ConstantUtf8Info) constantInofs[index];
+        return  constantUtf8Info.getValue();
+    }
 
     public int getConstantPoolCount() {
         return constantPoolCount;
