@@ -46,7 +46,7 @@ public class ByteUtils {
             return bytesToU16(bytes);
         if (bytes.length ==4 )
             return byteToInt32(bytes);
-        return 0;
+        return -1;
     }
 
     //Java中并没有u16,所以这里使用int来表示;

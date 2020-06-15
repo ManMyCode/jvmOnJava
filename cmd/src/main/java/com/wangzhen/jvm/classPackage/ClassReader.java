@@ -1,5 +1,7 @@
 package com.wangzhen.jvm.classPackage;
 
+import com.wangzhen.jvm.utils.ByteUtils;
+
 public class ClassReader {
     // 存放所有字节码的文件
     byte [] data;
@@ -28,6 +30,10 @@ public class ClassReader {
         return readNByte(8);
     }
 
+    public int readNByteToInt(int count){
+        byte[] NByte = readNByte(count);
+        return ByteUtils.bytesToInt(NByte);
+    }
 
     public byte[] readNByte(int count){
         byte[] NByte = new byte[count];
