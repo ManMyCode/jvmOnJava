@@ -1,4 +1,21 @@
 package com.wangzhen.jvm.classConstant;
 
-public class ConstantMethodRefInfo {
+import com.wangzhen.jvm.classPackage.ClassReader;
+import com.wangzhen.jvm.utils.ByteUtils;
+
+public class ConstantMethodRefInfo extends ConstantInof{
+    public  ConstantPool constantPool;
+    public int classIndex;
+    public int nameAndTyeIndex;
+
+    public ConstantMethodRefInfo(ConstantPool constantPool,ClassReader classReader) {
+        readInfo(classReader);
+        this.constantPool = constantPool;
+    }
+
+    @Override
+    void readInfo(ClassReader classReader) {
+        classIndex = ByteUtils.bytesToInt(classReader.readNByte(2));
+        nameAndTyeIndex = ByteUtils.bytesToInt(classReader.readNByte(2));
+    }
 }

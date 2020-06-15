@@ -1,5 +1,6 @@
 package com.wangzhen.jvm.classConstant;
 
+import com.sun.org.apache.bcel.internal.classfile.ConstantInterfaceMethodref;
 import com.wangzhen.jvm.classPackage.ClassReader;
 import com.wangzhen.jvm.utils.ByteUtils;
 
@@ -12,9 +13,14 @@ public class ConstantPool {
         // 读取 2个字节的 常量池大小数量
         constantPoolCount = ByteUtils.bytesToInt(classReader.readUint2());
         constantInofs = new ConstantInof[constantPoolCount];
-        for (int i =1;i<= constantPoolCount;i++){
+        for (int i =1;i< constantPoolCount;i++){
             constantInofs[i] = createConstantInfo(classReader);
+            realConstantPoolCount++;
+            if ((constantInofs[i] instanceof ConstantLongInfo) || (constantInofs[i] instanceof ConstantDoubleInfo)) {
+                i++;
+            }
         }
+        System.out.println(constantInofs.toString());
     }
 
     public ConstantInof createConstantInfo(ClassReader classReader){
@@ -25,11 +31,66 @@ public class ConstantPool {
                 return new ConstantUtf8Info(classReader);
             case ConstantInof.CONSTANT_Integer_info:
                 return new ConstantIntegerInfo(classReader);
+            case ConstantInof.CONSTANT_Float_info:
+                return new ConstantFloatInfo(classReader);
+            case ConstantInof.CONSTANT_Long_info:
+                return new ConstantLongInfo(classReader);
+            case ConstantInof.CONSTANT_Double_info:
+                return new ConstantDoubleInfo(classReader);
+            case ConstantInof.CONSTANT_Class_info:
+                return new ConstantClassInfo(this,classReader);
+            case ConstantInof.CONSTANT_String_info:
+                return new ConstantStringInfo(this,classReader);
+            case ConstantInof.CONSTANT_Fieldref_info:
+                return new ConstantFieldRefInfo(this,classReader);
+            case ConstantInof.CONSTANT_Methodref_info:
+                return new ConstantMethodRefInfo(this,classReader);
+            case ConstantInof.CONSTANT_InterfaceMethodref_info:
+                return new ConstantInterfaceMethodRefInfo(this,classReader);
+            case ConstantInof.CONSTANT_NameAndType_info:
+                return new ConstantNameAndTypeInfo(this,classReader);
+            case ConstantInof.CONSTANT_MethodHandle_info:
+                return new ConstantMethodHandleInfo(classReader);
+            case ConstantInof.CONSTANT_MothodType_info:
+                return new ConstantMethodTypeInfo(classReader);
+            case ConstantInof.CONSTANT_InvokeDynamic_info:
+                return new ConstantInvokeDynamicInfo(classReader);
+            default:
+               throw new RuntimeException("java.lang.ClassFormatError: constant pool tag!");
+               // return null;
+
+
+
+
+
 
 
         }
-        return null;
+
     }
 
 
+    public int getConstantPoolCount() {
+        return constantPoolCount;
+    }
+
+    public void setConstantPoolCount(int constantPoolCount) {
+        this.constantPoolCount = constantPoolCount;
+    }
+
+    public int getRealConstantPoolCount() {
+        return realConstantPoolCount;
+    }
+
+    public void setRealConstantPoolCount(int realConstantPoolCount) {
+        this.realConstantPoolCount = realConstantPoolCount;
+    }
+
+    public ConstantInof[] getConstantInofs() {
+        return constantInofs;
+    }
+
+    public void setConstantInofs(ConstantInof[] constantInofs) {
+        this.constantInofs = constantInofs;
+    }
 }
