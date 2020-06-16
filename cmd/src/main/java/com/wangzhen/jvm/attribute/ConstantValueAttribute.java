@@ -24,7 +24,6 @@ public class ConstantValueAttribute extends AttributeInfo{
     @Override
     public void readInfo(ClassReader classReader) {
         constantvalueIndex = ByteUtils.bytesToInt(classReader.readNByte(2));
-        constantvalueIndexVaule = constantPool.getConstantPoolUtf8Value(constantvalueIndex);
 
     }
 }

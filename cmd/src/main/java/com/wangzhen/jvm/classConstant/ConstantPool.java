@@ -11,7 +11,7 @@ public class ConstantPool {
 
     public ConstantPool(ClassReader classReader) {
         // 读取 2个字节的 常量池大小数量
-        constantPoolCount = ByteUtils.bytesToInt(classReader.readUint2());
+        constantPoolCount = classReader.readNByteToInt(2);
         constantInofs = new ConstantInof[constantPoolCount];
         for (int i =1;i< constantPoolCount;i++){
             constantInofs[i] = createConstantInfo(classReader);
@@ -20,7 +20,6 @@ public class ConstantPool {
                 i++;
             }
         }
-        System.out.println(constantInofs.toString());
     }
 
     public ConstantInof createConstantInfo(ClassReader classReader){

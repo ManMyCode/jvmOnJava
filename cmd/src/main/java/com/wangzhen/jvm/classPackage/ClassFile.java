@@ -1,8 +1,11 @@
 package com.wangzhen.jvm.classPackage;
 
 
+import com.wangzhen.jvm.attribute.AttributeInfo;
 import com.wangzhen.jvm.classConstant.ConstantInof;
 import com.wangzhen.jvm.classConstant.ConstantPool;
+import com.wangzhen.jvm.field.FieldInfo;
+import com.wangzhen.jvm.method.MethodInfo;
 import com.wangzhen.jvm.utils.ByteUtils;
 
 import java.util.Arrays;
@@ -30,13 +33,13 @@ public class ClassFile {
     int[] interfaces;
 
     // 字段
-    Object[] fields;
+    FieldInfo[] fields;
 
     // 方法
-    Object[] methods;
+    MethodInfo[] methods;
 
     // 属性
-    Object[] attributes;
+    AttributeInfo[] attributes;
 
 
     public ClassFile(byte[] classData) {
@@ -61,6 +64,12 @@ public class ClassFile {
         this.superClassIndex = ByteUtils.bytesToInt(classReader.readNByte(2));
        //  读取接口索引，和接口内容
         readInterfaces(classReader);
+        // 读取字段
+        fields = FieldInfo.readFieldInfos(classReader,constantPool);
+        // 读取方法
+        methods = MethodInfo.readMethodInfos(classReader,constantPool);
+        // 读取属性
+        attributes = AttributeInfo.readAttributeInfos(classReader,constantPool);
 
 
 
@@ -70,9 +79,9 @@ public class ClassFile {
     public void readInterfaces(ClassReader classReader){
 
         // 读取 接口数量
-        this.interfacesCount = ByteUtils.bytesToInt(classReader.readNByte(2));
+        this.interfacesCount = classReader.readNByteToInt(2);
         for (int i =0 ;i<interfacesCount;i++){
-            interfaces[i]=ByteUtils.bytesToInt(classReader.readNByte(2));
+            interfaces[i]=classReader.readNByteToInt(2);
         }
     }
 

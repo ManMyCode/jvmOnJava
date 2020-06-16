@@ -61,17 +61,6 @@ public class Main {
             }
 
 
-//                String database = cli.getOptionValue("d");
-//                System.out.println("database: " + database);
-//                String table = cli.getOptionValue("t");
-//                System.out.println("table: " + table);
-//                String[] files = cli.getOptionValues("f");
-//                System.out.println("files: " + Arrays.asList(files));
-//                Properties properties = cli.getOptionProperties("D");
-//                String ext = properties.getProperty("ext");
-//                System.out.println("property ext = " + ext);
-
-
 
         } catch (Exception e) {
             e.printStackTrace();

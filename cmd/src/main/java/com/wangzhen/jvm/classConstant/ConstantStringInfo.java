@@ -15,12 +15,11 @@ public class ConstantStringInfo extends ConstantInof{
 
     @Override
     void readInfo(ClassReader classReader) {
-
-        stringIndex = ByteUtils.bytesToInt(classReader.readNByte(2));
+        stringIndex = classReader.readNByteToInt(2);
     }
 
     public String getStringValue() {
-        ConstantUtf8Info constantUtf8Info = (ConstantUtf8Info) constantPool.getConstantInofs()[stringIndex];
-        return constantUtf8Info.getValue();
+        stringValue = constantPool.getConstantPoolUtf8Value(stringIndex);
+        return stringValue;
     }
 }
