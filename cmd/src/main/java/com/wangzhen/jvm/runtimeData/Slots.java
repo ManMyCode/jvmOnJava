@@ -65,4 +65,5 @@ public class Slots {
     public void setSlot(int index, Slot slot) {
         slots[index] = slot;
     }
+
 }

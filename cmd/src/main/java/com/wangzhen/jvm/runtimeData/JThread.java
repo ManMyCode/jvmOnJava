@@ -6,6 +6,10 @@ public class JThread {
     //Stack 结构体（Java 虚拟机栈）的引用;
     JStack jstack;
 
+    public JThread() {
+        jstack = new JStack(1024);
+    }
+
     public int getPc() {
         return pc;
     }
