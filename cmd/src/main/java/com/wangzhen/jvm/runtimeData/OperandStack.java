@@ -79,7 +79,7 @@ public class OperandStack {
        return Double.longBitsToDouble(popLong());
     }
 
-    public void pushJObject(JObject jObject){
+    public void pushRef(JObject jObject){
         if(size==maxStack){
             throw new StackOverflowError("操作数栈溢出");
         }
@@ -89,7 +89,7 @@ public class OperandStack {
         size++;
     }
 
-    public JObject popJObject(){
+    public JObject popRef(){
         size --;
         return slots[size].ref;
     }

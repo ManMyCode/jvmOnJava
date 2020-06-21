@@ -7,5 +7,5 @@ public interface Instruction {
     void fetchOperands(ByteCodeReader codeReader);
 
     // 执行指令逻辑
-    void execute(JFrame jFrame);
+    void execute(JFrame frame);
 }
