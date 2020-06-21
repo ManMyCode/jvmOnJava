@@ -16,16 +16,16 @@ public class Load {
     }
     public static void fLoad(JFrame frame,int index){
         float f =frame.getLocalVars().getFloat(index);
-        frame.getOperandStack().pushDouble(f);
+        frame.getOperandStack().pushFLoat(f);
     }
     public static void iLoad(JFrame frame,int index){
         int  i =frame.getLocalVars().getInt(index);
-        frame.getOperandStack().pushDouble(i);
+        frame.getOperandStack().pushInt(i);
     }
 
     public static void lLoad(JFrame frame,int index){
         long  l =frame.getLocalVars().getLong(index);
-        frame.getOperandStack().pushDouble(l);
+        frame.getOperandStack().pushLong(l);
     }
 
     //用在 load 数组元素时，检测数组是否为 null
