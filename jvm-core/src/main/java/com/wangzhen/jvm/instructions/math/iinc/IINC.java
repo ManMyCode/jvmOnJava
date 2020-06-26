@@ -2,7 +2,7 @@ package com.wangzhen.jvm.instructions.math.iinc;
 
 import com.wangzhen.jvm.instructions.base.ByteCodeReader;
 import com.wangzhen.jvm.instructions.base.Instruction;
-import com.wangzhen.jvm.runtimeData.JFrame;
+import com.wangzhen.jvm.runtimeData.ZFrame;
 import com.wangzhen.jvm.runtimeData.LocalVars;
 
 public class IINC implements Instruction {
@@ -15,7 +15,7 @@ public class IINC implements Instruction {
     }
 
     @Override
-    public void execute(JFrame frame) {
+    public void execute(ZFrame frame) {
         LocalVars localVars = frame.getLocalVars();
         int num1= localVars.getInt(index);
         int result = num1 + offset;

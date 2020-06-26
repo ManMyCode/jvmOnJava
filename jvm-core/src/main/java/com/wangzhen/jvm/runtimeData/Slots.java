@@ -1,6 +1,6 @@
 package com.wangzhen.jvm.runtimeData;
 
-import com.wangzhen.jvm.runtimeData.helap.JObject;
+import com.wangzhen.jvm.runtimeData.helap.ZObject;
 
 public class Slots {
     private Slot[] slots;
@@ -54,11 +54,11 @@ public class Slots {
         return Double.longBitsToDouble(bits);
     }
 
-    public void setRef(int index, JObject ref) {
+    public void setRef(int index, ZObject ref) {
         slots[index].ref = ref;
     }
 
-    public JObject getRef(int index) {
+    public ZObject getRef(int index) {
         return slots[index].ref;
     }
 

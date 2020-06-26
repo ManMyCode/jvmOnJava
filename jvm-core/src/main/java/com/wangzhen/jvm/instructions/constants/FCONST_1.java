@@ -1,7 +1,7 @@
 package com.wangzhen.jvm.instructions.constants;
 
 import com.wangzhen.jvm.instructions.base.NoOperandsInstruction;
-import com.wangzhen.jvm.runtimeData.JFrame;
+import com.wangzhen.jvm.runtimeData.ZFrame;
 
 
 /**
@@ -11,7 +11,7 @@ import com.wangzhen.jvm.runtimeData.JFrame;
  */
 public class FCONST_1 extends NoOperandsInstruction {
     @Override
-    public void execute(JFrame frame) {
+    public void execute(ZFrame frame) {
         frame.getOperandStack().pushFLoat(1.0f);
     }
 }

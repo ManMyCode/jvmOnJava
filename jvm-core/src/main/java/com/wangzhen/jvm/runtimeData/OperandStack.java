@@ -1,7 +1,7 @@
 package com.wangzhen.jvm.runtimeData;
 
 
-import com.wangzhen.jvm.runtimeData.helap.JObject;
+import com.wangzhen.jvm.runtimeData.helap.ZObject;
 
 public class OperandStack {
     Slot [] slots;
@@ -79,17 +79,17 @@ public class OperandStack {
        return Double.longBitsToDouble(popLong());
     }
 
-    public void pushRef(JObject jObject){
+    public void pushRef(ZObject zObject){
         if(size==maxStack){
             throw new StackOverflowError("操作数栈溢出");
         }
         Slot slot =new Slot();
-        slot.ref = jObject;
+        slot.ref = zObject;
         slots[size] = slot;
         size++;
     }
 
-    public JObject popRef(){
+    public ZObject popRef(){
         size --;
         return slots[size].ref;
     }
@@ -104,7 +104,7 @@ public class OperandStack {
     }
 
     //新添加的方法,根据参数n,返回操作数栈中的倒数第n个引用;
-    public JObject getRefFromTop(int n) {
+    public ZObject getRefFromTop(int n) {
         return slots[size - 1 - n].ref;
     }
 

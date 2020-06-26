@@ -2,7 +2,7 @@ package com.wangzhen.jvm.instructions.constants;
 
 import com.wangzhen.jvm.instructions.base.ByteCodeReader;
 import com.wangzhen.jvm.instructions.base.Instruction;
-import com.wangzhen.jvm.runtimeData.JFrame;
+import com.wangzhen.jvm.runtimeData.ZFrame;
 
 public class BIPUSH implements Instruction {
     int val;
@@ -12,7 +12,7 @@ public class BIPUSH implements Instruction {
     }
 
     @Override
-    public void execute(JFrame frame) {
+    public void execute(ZFrame frame) {
         frame.getOperandStack().pushInt((val + 256) % 256);
     }
 

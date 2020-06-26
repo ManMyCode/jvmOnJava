@@ -1,34 +1,34 @@
 package com.wangzhen.jvm.instructions.loads;
 
-import com.wangzhen.jvm.runtimeData.JFrame;
-import com.wangzhen.jvm.runtimeData.helap.JObject;
+import com.wangzhen.jvm.runtimeData.ZFrame;
+import com.wangzhen.jvm.runtimeData.helap.ZObject;
 
 public class Load {
-    public static void aLoad(JFrame frame,int index){
-        JObject object =frame.getLocalVars().getRef(index);
+    public static void aLoad(ZFrame frame, int index){
+        ZObject object =frame.getLocalVars().getRef(index);
         frame.getOperandStack().pushRef(object);
     }
-    public static void dLoad(JFrame frame,int index){
+    public static void dLoad(ZFrame frame, int index){
         double d =frame.getLocalVars().getDouble(index);
         frame.getOperandStack().pushDouble(d);
 
     }
-    public static void fLoad(JFrame frame,int index){
+    public static void fLoad(ZFrame frame, int index){
         float f =frame.getLocalVars().getFloat(index);
         frame.getOperandStack().pushFLoat(f);
     }
-    public static void iLoad(JFrame frame,int index){
+    public static void iLoad(ZFrame frame, int index){
         int  i =frame.getLocalVars().getInt(index);
         frame.getOperandStack().pushInt(i);
     }
 
-    public static void lLoad(JFrame frame,int index){
+    public static void lLoad(ZFrame frame, int index){
         long  l =frame.getLocalVars().getLong(index);
         frame.getOperandStack().pushLong(l);
     }
 
     //用在 load 数组元素时，检测数组是否为 null
-    public static void checkNotNull(JObject arrRef) {
+    public static void checkNotNull(ZObject arrRef) {
         if (arrRef == null) {
             throw new NullPointerException();
         }

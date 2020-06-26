@@ -1,7 +1,7 @@
 package com.wangzhen.jvm.instructions.constants;
 
 import com.wangzhen.jvm.instructions.base.NoOperandsInstruction;
-import com.wangzhen.jvm.runtimeData.JFrame;
+import com.wangzhen.jvm.runtimeData.ZFrame;
 
 
 /**
@@ -9,7 +9,7 @@ import com.wangzhen.jvm.runtimeData.JFrame;
  */
 public class NOP extends NoOperandsInstruction {
     @Override
-    public void execute(JFrame jFrame) {
+    public void execute(ZFrame zFrame) {
 
     }
 }

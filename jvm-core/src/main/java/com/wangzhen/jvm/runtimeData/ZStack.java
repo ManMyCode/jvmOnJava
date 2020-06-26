@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.List;
 
-public class JStack {
+public class ZStack {
     // 虚拟机栈中包含的最大的栈帧的容量
     int maxSize;
 
     // 使用ArrayList 存放栈帧比较简单
-    private List<JFrame> jFrames = new ArrayList<JFrame>();
+    private List<ZFrame> zFrames = new ArrayList<ZFrame>();
 
-    public JStack(int maxSize) {
+    public ZStack(int maxSize) {
         this.maxSize = maxSize;
     }
 
@@ -20,26 +20,26 @@ public class JStack {
         List list = new ArrayList(10);
         System.out.println(list.size());
     }
-    public void push(JFrame jFrame){
+    public void push(ZFrame zFrame){
 
-        if(jFrames.size()>maxSize){
+        if(zFrames.size()>maxSize){
             throw new StackOverflowError("栈溢出异常");
         }
-        jFrames.add(jFrame);
+        zFrames.add(zFrame);
 
     }
-    public JFrame pop(){
-        if(jFrames.size()==0){
+    public ZFrame pop(){
+        if(zFrames.size()==0){
             throw new EmptyStackException();
         }
-        JFrame popjFrame = jFrames.remove(jFrames.size());
+        ZFrame popjFrame = zFrames.remove(zFrames.size());
         return popjFrame;
     }
-    public JFrame top(){
-        if(jFrames.size()==0){
+    public ZFrame top(){
+        if(zFrames.size()==0){
             throw new EmptyStackException();
         }
-        return jFrames.get(jFrames.size());
+        return zFrames.get(zFrames.size());
     }
 
 

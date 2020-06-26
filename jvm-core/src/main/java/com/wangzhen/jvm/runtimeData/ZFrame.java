@@ -1,22 +1,22 @@
 package com.wangzhen.jvm.runtimeData;
 
-import com.wangzhen.jvm.runtimeData.helap.JMethod;
+import com.wangzhen.jvm.runtimeData.helap.ZMethod;
 
-public class JFrame {
+public class ZFrame {
     LocalVars localVars;    //局部变量表的引用;
     OperandStack operandStack;  //操作数栈的引用;
-    JThread thread;         //当前栈帧所在的线程;
-    JMethod method;
+    ZThread thread;         //当前栈帧所在的线程;
+    ZMethod method;
     //frame中并不改变PC的值,其PC值是由ByteReader读取字节码不断改变的
     int nextPC;
 
-    public JFrame(JThread thread,int maxLocal,int maxStack) {
+    public ZFrame(ZThread thread, int maxLocal, int maxStack) {
         localVars = new LocalVars(maxLocal);
         operandStack = new OperandStack(maxStack);
         this.thread = thread;
     }
 
-    public JFrame(JThread thread, JMethod method) {
+    public ZFrame(ZThread thread, ZMethod method) {
         this.thread = thread;
         this.method = method;
     }
@@ -37,19 +37,19 @@ public class JFrame {
         this.operandStack = operandStack;
     }
 
-    public JThread getThread() {
+    public ZThread getThread() {
         return thread;
     }
 
-    public void setThread(JThread thread) {
+    public void setThread(ZThread thread) {
         this.thread = thread;
     }
 
-    public JMethod getMethod() {
+    public ZMethod getMethod() {
         return method;
     }
 
-    public void setMethod(JMethod method) {
+    public void setMethod(ZMethod method) {
         this.method = method;
     }
 

@@ -2,7 +2,7 @@ package com.wangzhen.jvm.instructions.stores.storelong;
 
 import com.wangzhen.jvm.instructions.base.NoOperandsInstruction;
 import com.wangzhen.jvm.instructions.stores.Store;
-import com.wangzhen.jvm.runtimeData.JFrame;
+import com.wangzhen.jvm.runtimeData.ZFrame;
 
 /**
  * Author: zhangxin
@@ -11,7 +11,7 @@ import com.wangzhen.jvm.runtimeData.JFrame;
  */
 public class LSTORE_2 extends NoOperandsInstruction {
     @Override
-    public void execute(JFrame frame) {
+    public void execute(ZFrame frame) {
         Store.lstore(frame,2);
     }
 }

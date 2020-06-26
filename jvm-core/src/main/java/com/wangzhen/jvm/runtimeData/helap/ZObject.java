@@ -1,4 +1,4 @@
 package com.wangzhen.jvm.runtimeData.helap;
 
-public class JMethod {
+public class ZObject {
 }

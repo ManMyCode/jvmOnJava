@@ -1,12 +1,12 @@
 package com.wangzhen.jvm.instructions.math.sub;
 
 import com.wangzhen.jvm.instructions.base.NoOperandsInstruction;
-import com.wangzhen.jvm.runtimeData.JFrame;
+import com.wangzhen.jvm.runtimeData.ZFrame;
 import com.wangzhen.jvm.runtimeData.OperandStack;
 
 public class FSUB extends NoOperandsInstruction {
     @Override
-    public void execute(JFrame frame) {
+    public void execute(ZFrame frame) {
         OperandStack stack = frame.getOperandStack();
         float num1 = stack.popFLoat();
         float num2 = stack.popFLoat();

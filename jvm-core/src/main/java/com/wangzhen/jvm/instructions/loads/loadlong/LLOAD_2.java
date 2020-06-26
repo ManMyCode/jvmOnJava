@@ -3,7 +3,7 @@ package com.wangzhen.jvm.instructions.loads.loadlong;
 
 import com.wangzhen.jvm.instructions.base.Index8Instruction;
 import com.wangzhen.jvm.instructions.loads.Load;
-import com.wangzhen.jvm.runtimeData.JFrame;
+import com.wangzhen.jvm.runtimeData.ZFrame;
 
 /**
  * Author: zhangxin
@@ -14,7 +14,7 @@ public class LLOAD_2 extends Index8Instruction {
 
 
     @Override
-    public void execute(JFrame frame) {
+    public void execute(ZFrame frame) {
         Load.lLoad(frame,2);
     }
 }

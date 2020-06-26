@@ -2,7 +2,7 @@ package com.wangzhen.jvm.instructions.stores.storeint;
 
 import com.wangzhen.jvm.instructions.base.Index8Instruction;
 import com.wangzhen.jvm.instructions.stores.Store;
-import com.wangzhen.jvm.runtimeData.JFrame;
+import com.wangzhen.jvm.runtimeData.ZFrame;
 
 /**
  * Author: zhangxin
@@ -11,7 +11,7 @@ import com.wangzhen.jvm.runtimeData.JFrame;
  */
 public class ISTORE extends Index8Instruction {
     @Override
-    public void execute(JFrame frame) {
+    public void execute(ZFrame frame) {
         Store.istore(frame,index);
     }
 }

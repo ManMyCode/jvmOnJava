@@ -1,10 +1,10 @@
 package com.wangzhen.jvm.runtimeData;
 
-import com.wangzhen.jvm.runtimeData.helap.JObject;
+import com.wangzhen.jvm.runtimeData.helap.ZObject;
 
 public class Slot {
     public int num;
-    public JObject ref;
+    public ZObject ref;
 
     public Slot() {}
 
@@ -16,11 +16,11 @@ public class Slot {
         this.num = num;
     }
 
-    public JObject getRef() {
+    public ZObject getRef() {
         return ref;
     }
 
-    public void setRef(JObject ref) {
+    public void setRef(ZObject ref) {
         this.ref = ref;
     }
 }
