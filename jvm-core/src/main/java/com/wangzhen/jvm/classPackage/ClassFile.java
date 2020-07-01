@@ -100,4 +100,60 @@ public class ClassFile {
                 ", attributes=" + Arrays.toString(attributes) +
                 '}';
     }
+
+    public String getThisClassName(){
+        return  this.constantPool.getConstantPoolUtf8Value(thisClassIndex);
+    }
+
+    public String getSuperClassName(){
+        return this.constantPool.getConstantPoolUtf8Value(superClassIndex);
+    }
+
+    public String getMagic() {
+        return magic;
+    }
+
+    public int getMinorVersion() {
+        return minorVersion;
+    }
+
+    public int getMajorVersion() {
+        return majorVersion;
+    }
+
+    public ConstantPool getConstantPool() {
+        return constantPool;
+    }
+
+    public int getAccessFlags() {
+        return accessFlags;
+    }
+
+    public int getThisClassIndex() {
+        return thisClassIndex;
+    }
+
+    public int getSuperClassIndex() {
+        return superClassIndex;
+    }
+
+    public int getInterfacesCount() {
+        return interfacesCount;
+    }
+
+    public int[] getInterfaces() {
+        return interfaces;
+    }
+
+    public FieldInfo[] getFields() {
+        return fields;
+    }
+
+    public MethodInfo[] getMethods() {
+        return methods;
+    }
+
+    public AttributeInfo[] getAttributes() {
+        return attributes;
+    }
 }
