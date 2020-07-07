@@ -45,4 +45,130 @@ public class ZClass {
        // RuntimeConstantPool runtimeConstantPool = new RuntimeConstantPool();
 
     }
+
+    public ZObject newObject() {
+        return new ZObject(this);
+    }
+
+    public boolean isPublic() {
+        return 0 != (accessFlags & AccessFlag.ACC_PUBLIC);
+    }
+
+    public boolean isFinal() {
+        return 0 != (accessFlags & AccessFlag.ACC_FINAL);
+    }
+
+    public boolean isSuper() {
+        return 0 != (accessFlags & AccessFlag.ACC_SUPER);
+    }
+
+    public boolean isInterface() {
+        return 0 != (accessFlags & AccessFlag.ACC_INTERFACE);
+    }
+
+    public boolean isAbstract() {
+        return 0 != (accessFlags & AccessFlag.ACC_ABSTRACT);
+    }
+
+    public boolean isSynthetic() {
+        return 0 != (accessFlags & AccessFlag.ACC_SYNTHETIC);
+    }
+
+    public boolean isAnnotation() {
+        return 0 != (accessFlags & AccessFlag.ACC_ANNOTATION);
+    }
+
+    public boolean isEnum() {
+        return 0 != (accessFlags & AccessFlag.ACC_ENUM);
+    }
+
+    public boolean isAccessibleTo(ZClass other) {
+        return isPublic() || getPackageName().equals(other.getPackageName());
+    }
+
+    public String getPackageName() {
+        int i = thisClassName.lastIndexOf("/");
+        if (i > 0) {
+            return thisClassName.substring(0, i);
+        }
+        return "";
+    }
+
+
+    public int getAccessFlags() {
+        return accessFlags;
+    }
+
+    public String getThisClassName() {
+        return thisClassName;
+    }
+
+    public String getSuperClassName() {
+        return superClassName;
+    }
+
+    public String[] getInterfaceNames() {
+        return interfaceNames;
+    }
+
+    public RuntimeConstantPool getRuntimeConstantPool() {
+        return runtimeConstantPool;
+    }
+
+    public ZField[] getFileds() {
+        return fileds;
+    }
+
+    public ZMethod[] getMethods() {
+        return methods;
+    }
+
+    public ZClassLoader getLoader() {
+        return loader;
+    }
+
+    public ZClass getSuperClass() {
+        return superClass;
+    }
+
+    public ZClass[] getInterfaces() {
+        return interfaces;
+    }
+
+    public int getInstanceSlotCount() {
+        return instanceSlotCount;
+    }
+
+    public int getStaticSlotCount() {
+        return staticSlotCount;
+    }
+
+    public Slots getStaticVars() {
+        return staticVars;
+    }
+
+    public boolean isInitStarted() {
+        return initStarted;
+    }
+
+    public ZObject getjObject() {
+        return jObject;
+    }
+
+    public String getSourceFile() {
+        return sourceFile;
+    }
+
+    public boolean isSubClassOf(ZClass parent) {
+        for (ZClass c = superClass; c != null; c = c.superClass) {
+            if (c == parent) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isSuperClassOf(ZClass sub) {
+        return sub.isSubClassOf(this);
+    }
 }

@@ -2,6 +2,8 @@ package com.wangzhen.jvm.runtimeData.helap;
 
 import com.wangzhen.jvm.classConstant.*;
 
+import java.util.NoSuchElementException;
+
 public class RuntimeConstantPool {
     ZClass zClass;
     RuntimeConstantInfo[] infos;
@@ -57,5 +59,16 @@ public class RuntimeConstantPool {
             }
 
         }
+
+
+    }
+    //这里只是把ConstantInfo返回，至于具体是那种数据，可以根据其中保存的type字段来判断，并拿到对应类型的值；
+    public RuntimeConstantInfo getRuntimeConstant(int index) {
+        RuntimeConstantInfo info = infos[index];
+        if (info != null) {
+            return info;
+        }
+
+        throw new NoSuchElementException("No constants at index " + index);
     }
 }

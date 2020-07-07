@@ -26,4 +26,8 @@ public class ConstantValueAttribute extends AttributeInfo{
         constantvalueIndex = ByteUtils.bytesToInt(classReader.readNByte(2));
 
     }
+
+    public int getConstantvalueIndex() {
+        return constantvalueIndex;
+    }
 }

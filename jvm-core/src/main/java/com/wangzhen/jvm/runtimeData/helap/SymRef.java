@@ -19,6 +19,11 @@ public class SymRef {
 
     private void resolvedClassRef() {
         ZClass d = runtimeConstantPool.zClass;
-       // ZClass c = d.loader;
+        ZClass c = d.loader.loadClass(className);
+        //在这里判断下 d 能否访问 c
+        if (!c.isAccessibleTo(d)) {
+            throw new IllegalAccessError(d.thisClassName + " can't access " + c.thisClassName);
+        }
+        zClass = c;
     }
 }
