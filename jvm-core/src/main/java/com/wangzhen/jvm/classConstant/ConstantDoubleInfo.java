@@ -15,4 +15,8 @@ public class ConstantDoubleInfo extends ConstantInof{
         byte [] doubleBytes = classReader.readNByte(8);
         value = ByteUtils.byteToDouble64(doubleBytes);
     }
+
+    public Double getValue() {
+        return value;
+    }
 }

@@ -15,4 +15,8 @@ public class ConstantFloatInfo extends ConstantInof{
         byte [] floatBytes = classReader.readNByte(4);
         value = ByteUtils.byteToFloat32(floatBytes);
     }
+
+    public float getValue() {
+        return value;
+    }
 }

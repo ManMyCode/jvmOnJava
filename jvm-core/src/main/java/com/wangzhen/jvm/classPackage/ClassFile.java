@@ -105,6 +105,16 @@ public class ClassFile {
         return  this.constantPool.getConstantPoolUtf8Value(thisClassIndex);
     }
 
+    public String[] getInterfaceNames() {
+        String [] interfaceNames = new String[interfaces.length];
+        for(int i =0;i<interfaces.length;i++){
+            interfaceNames[i] = constantPool.getConstantPoolUtf8Value(interfaces[i]);
+        }
+        return interfaceNames;
+
+    }
+
+
     public String getSuperClassName(){
         return this.constantPool.getConstantPoolUtf8Value(superClassIndex);
     }

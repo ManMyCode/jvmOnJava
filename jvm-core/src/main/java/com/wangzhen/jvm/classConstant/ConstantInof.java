@@ -28,7 +28,7 @@ public abstract class ConstantInof {
     // 表示方法句柄
     public static final int CONSTANT_MethodHandle_info = 15;
     // 标志方法类型
-    public static final int CONSTANT_MothodType_info = 16;
+    public static final int CONSTANT_MethodType_info = 16;
     // 表示一个动态方法调用点
     public static final int CONSTANT_InvokeDynamic_info = 18;
 

@@ -15,4 +15,8 @@ public class ConstantIntegerInfo extends ConstantInof{
         byte [] intBytes = classReader.readNByte(4);
         value = ByteUtils.bytesToInt(intBytes);
     }
+
+    public int getValue() {
+        return value;
+    }
 }

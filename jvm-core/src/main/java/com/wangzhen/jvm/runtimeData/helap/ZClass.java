@@ -39,5 +39,10 @@ public class ZClass {
     public ZClass(ClassFile classFile) {
         this.accessFlags = classFile.getAccessFlags();
         //this.thisClassName = classFile.get
+        this.thisClassName=classFile.getThisClassName();
+        this.superClassName=classFile.getSuperClassName();
+        this.interfaceNames = classFile.getInterfaceNames();
+       // RuntimeConstantPool runtimeConstantPool = new RuntimeConstantPool();
+
     }
 }

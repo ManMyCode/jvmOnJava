@@ -50,7 +50,7 @@ public class ConstantPool {
                 return new ConstantNameAndTypeInfo(this,classReader);
             case ConstantInof.CONSTANT_MethodHandle_info:
                 return new ConstantMethodHandleInfo(classReader);
-            case ConstantInof.CONSTANT_MothodType_info:
+            case ConstantInof.CONSTANT_MethodType_info:
                 return new ConstantMethodTypeInfo(classReader);
             case ConstantInof.CONSTANT_InvokeDynamic_info:
                 return new ConstantInvokeDynamicInfo(classReader);
