@@ -67,13 +67,13 @@ public class ClassMember {
             return true;
         }
 
-//        if (isProtected()) {
-//            return d == clazz || d.isSubClassOf(clazz) || d.getPackageName().equals(clazz.getPackageName());
-//        }
+        if (isProtected()) {
+            return d == clazz || d.isSubClassOf(clazz) || d.getPackageName().equals(clazz.getPackageName());
+        }
 
-//        if (!isPrivate()) {
-//            return d.getPackageName().equals(clazz.getPackageName());
-//        }
+        if (!isPrivate()) {
+            return d.getPackageName().equals(clazz.getPackageName());
+        }
 
         return d == clazz;
     }

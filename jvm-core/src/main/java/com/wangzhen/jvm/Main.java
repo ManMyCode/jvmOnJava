@@ -43,19 +43,8 @@ public class Main {
                 String []cpParameters = cli.getOptionValues("cp");
                 DirEntry dirEntry = new DirEntry(cpParameters[0]);
                 byte [] classFileData = dirEntry.readClass(cpParameters[1]);
-//                for (byte b:classFile){
-//                    System.out.println(b);
-//                }
-//                // 打印字符串
-//                dirEntry.printString(classFile);
-//                // 打印 16进制编码
-//                dirEntry.printHexString(classFile);
                 ClassFile classFile = new ClassFile(classFileData);
                 System.out.println(classFile.toString());
-
-
-
-
             }
 
 
