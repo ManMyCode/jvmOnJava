@@ -40,11 +40,11 @@ public class ConstantPool {
             case ConstantInfo.CONSTANT_String_info:
                 return new ConstantStringInfo(this,classReader);
             case ConstantInfo.CONSTANT_Fieldref_info:
-                return new ConstantFieldRefInfo(this,classReader);
+                return new ConstantFieldRefInfo(this,tag,classReader);
             case ConstantInfo.CONSTANT_Methodref_info:
-                return new ConstantMethodRefInfo(this,classReader);
+                return new ConstantMethodRefInfo(this,tag,classReader);
             case ConstantInfo.CONSTANT_InterfaceMethodref_info:
-                return new ConstantInterfaceMethodRefInfo(this,classReader);
+                return new ConstantInterfaceMethodRefInfo(this,tag,classReader);
             case ConstantInfo.CONSTANT_NameAndType_info:
                 return new ConstantNameAndTypeInfo(this,classReader);
             case ConstantInfo.CONSTANT_MethodHandle_info:

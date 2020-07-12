@@ -41,7 +41,7 @@ public class ZClass {
         this.thisClassName=classFile.getThisClassName();
         this.superClassName=classFile.getSuperClassName();
         this.interfaceNames = classFile.getInterfaceNames();
-       // RuntimeConstantPool runtimeConstantPool = new RuntimeConstantPool();
+        RuntimeConstantPool runtimeConstantPool = new RuntimeConstantPool(this,classFile.getConstantPool());
 
     }
 

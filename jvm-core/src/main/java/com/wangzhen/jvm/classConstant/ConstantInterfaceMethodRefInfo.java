@@ -9,19 +9,9 @@ import com.wangzhen.jvm.utils.ByteUtils;
  * Time: 2017/5/3 0003.
  * Desc: 接口方法引用消息
  */
-public class ConstantInterfaceMethodRefInfo extends ConstantInfo {
-    public  ConstantPool constantPool;
-    public int classIndex;
-    public int nameAndTyeIndex;
+public class ConstantInterfaceMethodRefInfo extends ConstantMemberRefInfo {
 
-    public ConstantInterfaceMethodRefInfo(ConstantPool constantPool, ClassReader classReader) {
-        readInfo(classReader);
-        this.constantPool = constantPool;
-    }
-
-    @Override
-    void readInfo(ClassReader classReader) {
-        classIndex = ByteUtils.bytesToInt(classReader.readNByte(2));
-        nameAndTyeIndex = ByteUtils.bytesToInt(classReader.readNByte(2));
+    public ConstantInterfaceMethodRefInfo(ConstantPool constantPool, int type,ClassReader reader) {
+        super(constantPool, type,reader);
     }
 }

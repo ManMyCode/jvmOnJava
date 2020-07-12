@@ -1,8 +1,10 @@
 package com.wangzhen.jvm.runtimeData.helap;
 
+
 import com.wangzhen.jvm.classConstant.*;
 
 import java.util.NoSuchElementException;
+import java.util.logging.FileHandler;
 
 public class RuntimeConstantPool {
     ZClass zClass;
@@ -46,11 +48,15 @@ public class RuntimeConstantPool {
                     break;
                 case ConstantInfo.CONSTANT_Fieldref_info:
                     ConstantFieldRefInfo constantFieldRefInfo = (ConstantFieldRefInfo) classFileConstantInfo;
-                    //this.infos[i] = new RuntimeConstantInfo<>
+                    this.infos[i] = new RuntimeConstantInfo<FieldRef>(new FieldRef(this,constantFieldRefInfo),ConstantInfo.CONSTANT_Fieldref_info);
                     break;
                 case ConstantInfo.CONSTANT_Methodref_info:
+                    ConstantMethodRefInfo constantMethodRefInfo = (ConstantMethodRefInfo) classFileConstantInfo;
+                    this.infos[i] = new RuntimeConstantInfo<MethodRef>(new MethodRef(this,constantMethodRefInfo),ConstantInfo.CONSTANT_Methodref_info);
                     break;
                 case ConstantInfo.CONSTANT_InterfaceMethodref_info:
+                    ConstantInterfaceMethodRefInfo constantInterfaceMethodRefInfo = (ConstantInterfaceMethodRefInfo) classFileConstantInfo;
+                    this.infos[i] = new RuntimeConstantInfo<InterfaceMethodRef>(new InterfaceMethodRef(this,constantInterfaceMethodRefInfo),ConstantInfo.CONSTANT_InterfaceMethodref_info);
                     break;
                 case ConstantInfo.CONSTANT_NameAndType_info:
                     break;
@@ -61,6 +67,7 @@ public class RuntimeConstantPool {
                 case ConstantInfo.CONSTANT_InvokeDynamic_info:
                     break;
                 default:
+                    ////还有一些jdk1.7才开始支持的动态属性,不在本虚拟机的实现范围内
                     break;
 
             }

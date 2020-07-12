@@ -32,9 +32,10 @@ public class ConstantMemberRefInfo extends ConstantInfo {
 //    }
 
     //    该构造方法是供外部调用的;
-    public ConstantMemberRefInfo(ConstantPool constantPool, int type) {
+    public ConstantMemberRefInfo(ConstantPool constantPool, int type,ClassReader reader) {
         this.constantPool = constantPool;
         this.type = type; //因为接口,方法,字段通用这一个类,所以在构造方法中传入 i 来区分不同的类型;
+        readInfo(reader);
     }
 
 
