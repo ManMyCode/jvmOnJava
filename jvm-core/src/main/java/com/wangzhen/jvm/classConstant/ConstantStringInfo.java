@@ -1,9 +1,8 @@
 package com.wangzhen.jvm.classConstant;
 
-import com.wangzhen.jvm.classPackage.ClassReader;
-import com.wangzhen.jvm.utils.ByteUtils;
+import com.wangzhen.jvm.classfile.classPackage.ClassReader;
 
-public class ConstantStringInfo extends ConstantInof{
+public class ConstantStringInfo extends ConstantInfo {
     public int stringIndex;
     public ConstantPool constantPool;
     public String stringValue;

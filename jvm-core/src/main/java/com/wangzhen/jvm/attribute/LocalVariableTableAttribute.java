@@ -1,8 +1,7 @@
 package com.wangzhen.jvm.attribute;
 
 
-import com.wangzhen.jvm.classPackage.ClassReader;
-import com.wangzhen.jvm.utils.ByteUtils;
+import com.wangzhen.jvm.classfile.classPackage.ClassReader;
 
 /**
  * Author: zhangxin

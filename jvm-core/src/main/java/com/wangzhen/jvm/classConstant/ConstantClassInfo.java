@@ -1,9 +1,9 @@
 package com.wangzhen.jvm.classConstant;
 
-import com.wangzhen.jvm.classPackage.ClassReader;
+import com.wangzhen.jvm.classfile.classPackage.ClassReader;
 import com.wangzhen.jvm.utils.ByteUtils;
 
-public class ConstantClassInfo extends ConstantInof{
+public class ConstantClassInfo extends ConstantInfo {
     public ConstantPool constantPool;
 
     // 类的全限定名索引
@@ -22,7 +22,7 @@ public class ConstantClassInfo extends ConstantInof{
     }
 
     public String getClassName() {
-        ConstantUtf8Info constantUtf8Info = (ConstantUtf8Info) this.constantPool.getConstantInofs()[nameIndex];
+        ConstantUtf8Info constantUtf8Info = (ConstantUtf8Info) this.constantPool.getConstantInfos()[nameIndex];
         return constantUtf8Info.getValue();
     }
 

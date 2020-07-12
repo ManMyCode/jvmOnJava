@@ -1,6 +1,6 @@
 package com.wangzhen.jvm.runtimeData.helap;
 
-import com.wangzhen.jvm.classPackage.ClassFile;
+import com.wangzhen.jvm.classfile.classPackage.ClassFile;
 import com.wangzhen.jvm.runtimeData.Slots;
 
 public class ZClass {
@@ -38,7 +38,6 @@ public class ZClass {
 
     public ZClass(ClassFile classFile) {
         this.accessFlags = classFile.getAccessFlags();
-        //this.thisClassName = classFile.get
         this.thisClassName=classFile.getThisClassName();
         this.superClassName=classFile.getSuperClassName();
         this.interfaceNames = classFile.getInterfaceNames();

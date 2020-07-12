@@ -1,11 +1,9 @@
 package com.wangzhen.jvm.classConstant;
 
-import com.wangzhen.jvm.classPackage.ClassReader;
+import com.wangzhen.jvm.classfile.classPackage.ClassReader;
 import com.wangzhen.jvm.utils.ByteUtils;
 
-import javax.print.DocFlavor;
-
-public class ConstantInvokeDynamicInfo extends ConstantInof{
+public class ConstantInvokeDynamicInfo extends ConstantInfo {
 
     int bootstrapMethodAttrIndex;
     int nameAndTypeIndex;

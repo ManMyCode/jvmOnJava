@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.List;
 
+/**
+ *  jvm 虚拟机栈
+ */
 public class ZStack {
     // 虚拟机栈中包含的最大的栈帧的容量
     int maxSize;
@@ -16,10 +19,6 @@ public class ZStack {
         this.maxSize = maxSize;
     }
 
-    public static void main(String[] args) {
-        List list = new ArrayList(10);
-        System.out.println(list.size());
-    }
     public void push(ZFrame zFrame){
 
         if(zFrames.size()>maxSize){

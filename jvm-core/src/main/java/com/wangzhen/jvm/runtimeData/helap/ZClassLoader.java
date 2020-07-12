@@ -1,7 +1,7 @@
 package com.wangzhen.jvm.runtimeData.helap;
 
-import com.wangzhen.jvm.classPackage.ClassFile;
-import com.wangzhen.jvm.classPath.ClassPath;
+import com.wangzhen.jvm.classfile.classPackage.ClassFile;
+import com.wangzhen.jvm.classfile.classPath.ClassPath;
 
 import java.util.HashMap;
 

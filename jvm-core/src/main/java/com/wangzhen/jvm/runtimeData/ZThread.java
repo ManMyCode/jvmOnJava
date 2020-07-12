@@ -1,5 +1,9 @@
 package com.wangzhen.jvm.runtimeData;
 
+/**
+ *
+ * 自定义线程
+ */
 public class ZThread {
     // 程序计数器
     int pc;

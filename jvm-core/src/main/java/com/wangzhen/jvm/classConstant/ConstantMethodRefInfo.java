@@ -1,9 +1,9 @@
 package com.wangzhen.jvm.classConstant;
 
-import com.wangzhen.jvm.classPackage.ClassReader;
+import com.wangzhen.jvm.classfile.classPackage.ClassReader;
 import com.wangzhen.jvm.utils.ByteUtils;
 
-public class ConstantMethodRefInfo extends ConstantInof{
+public class ConstantMethodRefInfo extends ConstantInfo {
     public  ConstantPool constantPool;
     public int classIndex;
     public int nameAndTyeIndex;

@@ -1,6 +1,6 @@
 package com.wangzhen.jvm.runtimeData.helap;
 
-import com.wangzhen.jvm.classPackage.MemberInfo;
+import com.wangzhen.jvm.classfile.classPackage.MemberInfo;
 
 public class ClassMember {
     // 访问标识

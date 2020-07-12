@@ -1,9 +1,9 @@
 package com.wangzhen.jvm.classConstant;
 
-import com.wangzhen.jvm.classPackage.ClassReader;
+import com.wangzhen.jvm.classfile.classPackage.ClassReader;
 import com.wangzhen.jvm.utils.ByteUtils;
 
-public class ConstantLongInfo extends ConstantInof{
+public class ConstantLongInfo extends ConstantInfo {
     public long value;
 
     public ConstantLongInfo(ClassReader classReader) {

@@ -1,9 +1,9 @@
 package com.wangzhen.jvm.classConstant;
 
-import com.wangzhen.jvm.classPackage.ClassReader;
+import com.wangzhen.jvm.classfile.classPackage.ClassReader;
 import com.wangzhen.jvm.utils.ByteUtils;
 
-public class ConstantDoubleInfo extends ConstantInof{
+public class ConstantDoubleInfo extends ConstantInfo {
     public Double value;
 
     public ConstantDoubleInfo(ClassReader classReader) {

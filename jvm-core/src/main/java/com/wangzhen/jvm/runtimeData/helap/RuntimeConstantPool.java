@@ -10,50 +10,57 @@ public class RuntimeConstantPool {
 
     public RuntimeConstantPool(ZClass zClass, ConstantPool classFileConstantPool) {
         this.zClass = zClass;
-        ConstantInof [] classFileConstantInofs  = classFileConstantPool.getConstantInofs();
-        this.infos = new RuntimeConstantInfo[classFileConstantInofs.length];
-        for (int i =0;i<classFileConstantInofs.length;i++){
-            ConstantInof classFileConstantInof = classFileConstantInofs[i];
-            switch (classFileConstantInof.getType()){
-                case ConstantInof.CONSTANT_utf8_info :
-                    ConstantUtf8Info constantUtf8Info = (ConstantUtf8Info) classFileConstantInof;
-                    this.infos[i] = new RuntimeConstantInfo<String>(constantUtf8Info.getValue(),ConstantInof.CONSTANT_utf8_info);
+        ConstantInfo[] classFileConstantInfos = classFileConstantPool.getConstantInfos();
+        this.infos = new RuntimeConstantInfo[classFileConstantInfos.length];
+        for (int i = 0; i< classFileConstantInfos.length; i++){
+            ConstantInfo classFileConstantInfo = classFileConstantInfos[i];
+            switch (classFileConstantInfo.getType()){
+                case ConstantInfo.CONSTANT_utf8_info :
+                    ConstantUtf8Info constantUtf8Info = (ConstantUtf8Info) classFileConstantInfo;
+                    this.infos[i] = new RuntimeConstantInfo<String>(constantUtf8Info.getValue(), ConstantInfo.CONSTANT_utf8_info);
                     break;
-                case ConstantInof.CONSTANT_Integer_info:
-                    ConstantIntegerInfo constantIntegerInfo = (ConstantIntegerInfo) classFileConstantInof;
-                    this.infos[i] = new RuntimeConstantInfo<Integer>(constantIntegerInfo.getValue(),ConstantInof.CONSTANT_Integer_info);
+                case ConstantInfo.CONSTANT_Integer_info:
+                    ConstantIntegerInfo constantIntegerInfo = (ConstantIntegerInfo) classFileConstantInfo;
+                    this.infos[i] = new RuntimeConstantInfo<Integer>(constantIntegerInfo.getValue(), ConstantInfo.CONSTANT_Integer_info);
                     break;
-                case ConstantInof.CONSTANT_Float_info:
-                    ConstantFloatInfo constantFloatInfo = (ConstantFloatInfo) classFileConstantInof;
-                    this.infos[i] = new RuntimeConstantInfo<Float>(constantFloatInfo.getValue(),ConstantInof.CONSTANT_Float_info);
+                case ConstantInfo.CONSTANT_Float_info:
+                    ConstantFloatInfo constantFloatInfo = (ConstantFloatInfo) classFileConstantInfo;
+                    this.infos[i] = new RuntimeConstantInfo<Float>(constantFloatInfo.getValue(), ConstantInfo.CONSTANT_Float_info);
                     break;
-                case ConstantInof.CONSTANT_Long_info:
-                    ConstantLongInfo constantLongInfo = (ConstantLongInfo) classFileConstantInof;
-                    this.infos[i] = new RuntimeConstantInfo<Long>(constantLongInfo.value,ConstantInof.CONSTANT_Long_info);
+                case ConstantInfo.CONSTANT_Long_info:
+                    ConstantLongInfo constantLongInfo = (ConstantLongInfo) classFileConstantInfo;
+                    this.infos[i] = new RuntimeConstantInfo<Long>(constantLongInfo.value, ConstantInfo.CONSTANT_Long_info);
                     break;
-                case ConstantInof.CONSTANT_Double_info:
-                    ConstantDoubleInfo constantDoubleInfo = (ConstantDoubleInfo) classFileConstantInof;
-                    this.infos[i] = new RuntimeConstantInfo<Double>(constantDoubleInfo.getValue(),ConstantInof.CONSTANT_Double_info);
+                case ConstantInfo.CONSTANT_Double_info:
+                    ConstantDoubleInfo constantDoubleInfo = (ConstantDoubleInfo) classFileConstantInfo;
+                    this.infos[i] = new RuntimeConstantInfo<Double>(constantDoubleInfo.getValue(), ConstantInfo.CONSTANT_Double_info);
                     break;
-                case ConstantInof.CONSTANT_Class_info:
-                    ConstantClassInfo constantClassInfo = (ConstantClassInfo) classFileConstantInof;
+                case ConstantInfo.CONSTANT_Class_info:
+                    ConstantClassInfo constantClassInfo = (ConstantClassInfo) classFileConstantInfo;
+                    this.infos[i] = new RuntimeConstantInfo<ClassRef>(new ClassRef(this,constantClassInfo), ConstantInfo.CONSTANT_Class_info);
 
                     break;
-                case ConstantInof.CONSTANT_String_info:
+                case ConstantInfo.CONSTANT_String_info:
+                    ConstantStringInfo constantStringInfo = (ConstantStringInfo) classFileConstantInfo;
+                    this.infos[i] = new RuntimeConstantInfo<String>(constantStringInfo.getStringValue(), ConstantInfo.CONSTANT_String_info);
                     break;
-                case ConstantInof.CONSTANT_Fieldref_info:
+                case ConstantInfo.CONSTANT_Fieldref_info:
+                    ConstantFieldRefInfo constantFieldRefInfo = (ConstantFieldRefInfo) classFileConstantInfo;
+                    //this.infos[i] = new RuntimeConstantInfo<>
                     break;
-                case ConstantInof.CONSTANT_Methodref_info:
+                case ConstantInfo.CONSTANT_Methodref_info:
                     break;
-                case ConstantInof.CONSTANT_InterfaceMethodref_info:
+                case ConstantInfo.CONSTANT_InterfaceMethodref_info:
                     break;
-                case ConstantInof.CONSTANT_NameAndType_info:
+                case ConstantInfo.CONSTANT_NameAndType_info:
                     break;
-                case ConstantInof.CONSTANT_MethodHandle_info:
+                case ConstantInfo.CONSTANT_MethodHandle_info:
                     break;
-                case ConstantInof.CONSTANT_MethodType_info:
+                case ConstantInfo.CONSTANT_MethodType_info:
                     break;
-                case ConstantInof.CONSTANT_InvokeDynamic_info:
+                case ConstantInfo.CONSTANT_InvokeDynamic_info:
+                    break;
+                default:
                     break;
 
             }

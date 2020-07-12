@@ -3,8 +3,8 @@ package com.wangzhen.jvm.runtimeData.helap;
 import com.wangzhen.jvm.attribute.CodeAttribute;
 import com.wangzhen.jvm.attribute.ExceptionsAttribute;
 import com.wangzhen.jvm.attribute.LineNumberTableAttribute;
-import com.wangzhen.jvm.classPackage.MemberInfo;
-import sun.jvm.hotspot.oops.Method;
+import com.wangzhen.jvm.classfile.classPackage.MemberInfo;
+
 
 import java.beans.MethodDescriptor;
 import java.util.ArrayList;

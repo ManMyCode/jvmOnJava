@@ -1,16 +1,27 @@
 package com.wangzhen.jvm.attribute;
 
 import com.wangzhen.jvm.classConstant.ConstantPool;
-import com.wangzhen.jvm.classPackage.ClassReader;
+import com.wangzhen.jvm.classfile.classPackage.ClassReader;
 import com.wangzhen.jvm.utils.ByteUtils;
 
+
+/**
+ 属性的基本结构
+ attribute_info {
+     u2 attribute_name_index;
+     u4 attribute_length;
+     u1 info[attribute_length];
+ }
+ */
 public abstract class AttributeInfo {
     // 属性名的index
     public  int attributeNameIndex;
-    // 属性名的值（从常量池里面查找）
-    public  String attributeNameValue;
     // 属性的字节数长度
     public  int attributeLength;
+
+
+    // 属性名的值（从常量池里面查找）
+    public  String attributeNameValue;
 
     public abstract void readInfo(ClassReader classReader);
 

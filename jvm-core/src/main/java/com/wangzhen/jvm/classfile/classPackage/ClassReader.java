@@ -1,4 +1,4 @@
-package com.wangzhen.jvm.classPackage;
+package com.wangzhen.jvm.classfile.classPackage;
 
 import com.wangzhen.jvm.utils.ByteUtils;
 

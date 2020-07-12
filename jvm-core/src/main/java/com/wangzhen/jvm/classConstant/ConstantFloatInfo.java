@@ -1,9 +1,9 @@
 package com.wangzhen.jvm.classConstant;
 
-import com.wangzhen.jvm.classPackage.ClassReader;
+import com.wangzhen.jvm.classfile.classPackage.ClassReader;
 import com.wangzhen.jvm.utils.ByteUtils;
 
-public class ConstantFloatInfo extends ConstantInof{
+public class ConstantFloatInfo extends ConstantInfo {
     public float value;
 
     public ConstantFloatInfo(ClassReader classReader) {

@@ -1,6 +1,6 @@
 package com.wangzhen.jvm.attribute;
 
-import com.wangzhen.jvm.classPackage.ClassReader;
+import com.wangzhen.jvm.classfile.classPackage.ClassReader;
 
 public class DeprecatedAttribute extends AttributeInfo{
     @Override

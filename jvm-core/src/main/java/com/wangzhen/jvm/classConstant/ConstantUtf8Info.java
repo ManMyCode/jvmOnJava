@@ -1,11 +1,11 @@
 package com.wangzhen.jvm.classConstant;
 
-import com.wangzhen.jvm.classPackage.ClassReader;
+import com.wangzhen.jvm.classfile.classPackage.ClassReader;
 import com.wangzhen.jvm.utils.ByteUtils;
 
 import java.io.IOException;
 
-public class ConstantUtf8Info extends ConstantInof{
+public class ConstantUtf8Info extends ConstantInfo {
     String value;
 
     public ConstantUtf8Info(ClassReader classReader) {
@@ -15,7 +15,7 @@ public class ConstantUtf8Info extends ConstantInof{
 
     @Override
     void readInfo(ClassReader classReader) {
-        super.type = ConstantInof.CONSTANT_utf8_info;
+        super.type = ConstantInfo.CONSTANT_utf8_info;
         int length = ByteUtils.bytesToInt(classReader.readUint2());
         byte [] utf8Data = classReader.readNByte(length);
         try {

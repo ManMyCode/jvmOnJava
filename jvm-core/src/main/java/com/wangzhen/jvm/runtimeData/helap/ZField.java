@@ -1,7 +1,7 @@
 package com.wangzhen.jvm.runtimeData.helap;
 
 import com.wangzhen.jvm.attribute.ConstantValueAttribute;
-import com.wangzhen.jvm.classPackage.MemberInfo;
+import com.wangzhen.jvm.classfile.classPackage.MemberInfo;
 
 public class ZField extends ClassMember{
 

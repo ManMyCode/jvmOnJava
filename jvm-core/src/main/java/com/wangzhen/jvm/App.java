@@ -2,7 +2,7 @@ package com.wangzhen.jvm;
 
 
 
-public class App {
+public class App implements IApp{
     public static final boolean FLAG = true;
     public static final byte BYTE = 123;
     public static final char X = 'X';
@@ -12,9 +12,14 @@ public class App {
     public static final float PI = 3.14f;
     public static final double E = 2.71828;
 
+
     public static void main(String[] args) throws RuntimeException {
          Integer i =INT;
         System.out.println("Hello, World!");
     }
 
+    @Override
+    public void say(String name) {
+        System.out.println(name);
+    }
 }

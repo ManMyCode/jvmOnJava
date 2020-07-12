@@ -1,8 +1,8 @@
 package com.wangzhen.jvm.classConstant;
 
-import com.wangzhen.jvm.classPackage.ClassReader;
+import com.wangzhen.jvm.classfile.classPackage.ClassReader;
 
-public abstract class ConstantInof {
+public abstract class ConstantInfo {
     //UTF-8编码的字符串
     public static final int CONSTANT_utf8_info = 1;
     // 整形字面量

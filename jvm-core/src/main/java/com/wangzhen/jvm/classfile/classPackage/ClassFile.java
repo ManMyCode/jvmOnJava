@@ -1,11 +1,10 @@
-package com.wangzhen.jvm.classPackage;
+package com.wangzhen.jvm.classfile.classPackage;
 
 
 import com.wangzhen.jvm.attribute.AttributeInfo;
-import com.wangzhen.jvm.classConstant.ConstantInof;
 import com.wangzhen.jvm.classConstant.ConstantPool;
-import com.wangzhen.jvm.field.FieldInfo;
-import com.wangzhen.jvm.method.MethodInfo;
+import com.wangzhen.jvm.classfile.FieldInfo;
+import com.wangzhen.jvm.classfile.MethodInfo;
 import com.wangzhen.jvm.utils.ByteUtils;
 
 import java.util.Arrays;
@@ -30,11 +29,19 @@ public class ClassFile {
     int interfacesCount;
     // 实现的接口 存放在数组中
     int[] interfaces;
+
+    // 字段表数量
+    int fieldsCount;
     // 字段
     FieldInfo[] fields;
 
+    // 方法数量
+    int methodsCount;
     // 方法
     MethodInfo[] methods;
+
+    // 属性数量
+    int attributesCount;
 
     // 属性
     AttributeInfo[] attributes;
@@ -64,20 +71,21 @@ public class ClassFile {
         readInterfaces(classReader);
         // 读取字段
         fields = FieldInfo.readFieldInfos(classReader,constantPool);
+        fieldsCount = fields.length;
         // 读取方法
         methods = MethodInfo.readMethodInfos(classReader,constantPool);
+        methodsCount = methods.length;
         // 读取属性
         attributes = AttributeInfo.readAttributeInfos(classReader,constantPool);
-
-
+        attributesCount = attributes.length;
 
 
     }
-
     public void readInterfaces(ClassReader classReader){
 
         // 读取 接口数量
         this.interfacesCount = classReader.readNByteToInt(2);
+        interfaces = new int [interfacesCount] ;
         for (int i =0 ;i<interfacesCount;i++){
             interfaces[i]=classReader.readNByteToInt(2);
         }

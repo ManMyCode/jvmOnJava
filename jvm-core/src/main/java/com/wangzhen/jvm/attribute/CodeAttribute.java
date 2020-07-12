@@ -2,7 +2,7 @@ package com.wangzhen.jvm.attribute;
 
 
 import com.wangzhen.jvm.classConstant.ConstantPool;
-import com.wangzhen.jvm.classPackage.ClassReader;
+import com.wangzhen.jvm.classfile.classPackage.ClassReader;
 import com.wangzhen.jvm.utils.ByteUtils;
 
 public class CodeAttribute extends AttributeInfo{

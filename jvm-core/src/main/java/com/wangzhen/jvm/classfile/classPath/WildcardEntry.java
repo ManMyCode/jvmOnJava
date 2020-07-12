@@ -1,4 +1,4 @@
-package com.wangzhen.jvm.classPath;
+package com.wangzhen.jvm.classfile.classPath;
 
 import java.io.File;
 import java.util.ArrayList;

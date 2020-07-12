@@ -1,9 +1,9 @@
 package com.wangzhen.jvm.classConstant;
 
-import com.wangzhen.jvm.classPackage.ClassReader;
+import com.wangzhen.jvm.classfile.classPackage.ClassReader;
 import com.wangzhen.jvm.utils.ByteUtils;
 
-public class ConstantMethodHandleInfo extends ConstantInof{
+public class ConstantMethodHandleInfo extends ConstantInfo {
     private byte referenceKind;
     private int referenceIndex;
 

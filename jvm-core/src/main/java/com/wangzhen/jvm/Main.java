@@ -1,6 +1,6 @@
 package com.wangzhen.jvm;
 
-import com.wangzhen.jvm.classPackage.ClassFile;
+import com.wangzhen.jvm.classfile.classPackage.ClassFile;
 import org.apache.commons.cli.*;
 
 import java.util.Arrays;
