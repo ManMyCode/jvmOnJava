@@ -2,6 +2,7 @@ package com.wangzhen.jvm.runtimeData.helap;
 
 import com.wangzhen.jvm.classfile.classPackage.ClassFile;
 import com.wangzhen.jvm.classfile.classPath.ClassPath;
+import com.wangzhen.jvm.runtimeData.Slots;
 
 import java.util.HashMap;
 
@@ -34,6 +35,7 @@ public class ZClassLoader {
     public ZClass loadArrayClass(String name){
         return null;
     }
+
     private ZClass loadNonArrayClass(String name){
         byte []data = readClass(name);
         ZClass clazz = defineClass(data);
@@ -43,6 +45,12 @@ public class ZClassLoader {
 
 
 
+    /*
+     * 首先把class文件数据转换成 ClassFile 对象，在转为 Zclass 对象；
+     * 加载父类
+     * 加载接口
+     * resolveSuperClass：是一个递归的过程，不断的加载父类信息
+     * */
     public ZClass defineClass(byte []data){
         ZClass zClass = this.parseClass(data);
         zClass.loader =  this;
@@ -52,7 +60,14 @@ public class ZClassLoader {
         return zClass;
     }
 
+    /*
+    class 链接阶段分为3个：
+        1.验证
+        2.准备
+        3.解析
+     */
     public void link(ZClass zClass){
+        // 验证为空
         verify(zClass);
         prepare(zClass);
     }
@@ -72,19 +87,46 @@ public class ZClassLoader {
     // 但是这里并没有真正的申请空间，只是计算大小，同时为每个非静态变量关联 slotId
     private void calcInstanceFieldSlotIds(ZClass clazz) {
         int slotId = 0;
+        if (clazz.superClass != null) {
+            slotId = clazz.superClass.instanceSlotCount;
+        }
+
+        for (ZField field : clazz.fileds) {
+            if (!field.isStatic()) {
+                field.slotId = slotId;
+                slotId++;
+                if (field.isLongOrDouble()) {
+                    slotId++;
+                }
+            }
+        }
         clazz.instanceSlotCount = slotId;
     }
 
     //计算类的静态成员变量所需的空间，不包含父类，同样也只是计算和分配 slotId，不申请空间
     private void calcStaticFieldSlotIds(ZClass clazz) {
         int slotId = 0;
+        for (ZField field : clazz.fileds) {
+            if (field.isStatic()) {
+                field.slotId = slotId;
+                slotId++;
+                if (field.isLongOrDouble()) {
+                    slotId++;
+                }
+            }
+        }
         clazz.staticSlotCount = slotId;
     }
 
     // 为静态变量申请空间,注意:这个申请空间的过程,就是将所有的静态变量赋值为0或者null;
     // 如果是 static final 的基本类型或者 String，其值会保存在ConstantValueAttribute属性中
     private void allocAndInitStaticVars(ZClass clazz) {
-
+        clazz.staticVars = new Slots(clazz.staticSlotCount);
+        for (ZField field : clazz.fileds) {
+            if (field.isStatic() && field.isFinal()) {
+                initStaticFinalVar(clazz, field);
+            }
+        }
     }
 
     // 将class文件解析成 运行时class
@@ -130,6 +172,45 @@ public class ZClassLoader {
         } else {
             throw new ClassCastException("class name: " + name);
         }
+    }
+
+    // 为static final 修饰的成员赋值,这种类型的成员是ConstantXXXInfo类型的,该info中包含真正的值;
+    private void initStaticFinalVar(ZClass clazz, ZField zfield) {
+        Slots staticVars = clazz.staticVars;
+        RuntimeConstantPool runtimeConstantPool = clazz.getRuntimeConstantPool();
+        int index = zfield.constValueIndex;
+        int slotId = zfield.slotId;
+
+        if (index > 0) {
+            switch (zfield.getDescriptor()) {
+                case "Z":
+                case "B":
+                case "C":
+                case "S":
+                case "I":
+                    int intValue = (int) runtimeConstantPool.getRuntimeConstant(index).getValue();
+                    staticVars.setInt(slotId, intValue);
+                    break;
+                case "J":
+                    long longValue = (long) runtimeConstantPool.getRuntimeConstant(index).getValue();
+                    staticVars.setLong(slotId, longValue);
+                    break;
+                case "F":
+                    float floatValue = (float) runtimeConstantPool.getRuntimeConstant(index).getValue();
+                    staticVars.setFloat(slotId, floatValue);
+                    break;
+                case "D":
+                    double doubleValue = (double) runtimeConstantPool.getRuntimeConstant(index).getValue();
+                    staticVars.setDouble(slotId, doubleValue);
+                    break;
+                case "Ljava/lang/String;":
+                    String stringValue = (String) runtimeConstantPool.getRuntimeConstant(index).getValue();
+                   // Zobject jStr = StringPool.jString(clazz.getLoader(), stringValue);
+                default:
+                    break;
+            }
+        }
+
     }
 
 }
