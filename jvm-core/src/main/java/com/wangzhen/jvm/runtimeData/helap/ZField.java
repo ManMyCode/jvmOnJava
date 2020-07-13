@@ -13,7 +13,9 @@ public class ZField extends ClassMember{
     int slotId;
 
     public ZField(ZClass zClass, MemberInfo classFileMemberInfo) {
+
         super(zClass, classFileMemberInfo);
+        copyAttributes(classFileMemberInfo);
     }
 
 
@@ -22,6 +24,15 @@ public class ZField extends ClassMember{
         if (constantValueAttribute != null) {
             constValueIndex = constantValueAttribute.getConstantvalueIndex();
         }
+    }
+
+    public static ZField[] makeFields(ZClass zclass, MemberInfo[] cfFields) {
+        ZField[] fields = new ZField[cfFields.length];
+        for (int i = 0; i < fields.length; i++) {
+            ZField field = new ZField(zclass, cfFields[i]);
+            fields[i] = field;
+        }
+        return fields;
     }
 
     public boolean isVolatile() {

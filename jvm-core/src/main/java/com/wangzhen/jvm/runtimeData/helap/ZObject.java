@@ -15,4 +15,10 @@ public class ZObject {
         this.clazz = clazz;
         data = new Slots(clazz.instanceSlotCount);
     }
+
+    public ZObject(ZClass clazz, Object data, Object extra) {
+        this.clazz = clazz;
+        this.data = data;
+        this.extra = extra;
+    }
 }

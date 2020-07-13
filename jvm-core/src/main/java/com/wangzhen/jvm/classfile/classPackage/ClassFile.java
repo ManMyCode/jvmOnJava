@@ -2,9 +2,9 @@ package com.wangzhen.jvm.classfile.classPackage;
 
 
 import com.wangzhen.jvm.attribute.AttributeInfo;
+import com.wangzhen.jvm.attribute.SourceFileAttribute;
 import com.wangzhen.jvm.classConstant.ConstantPool;
-import com.wangzhen.jvm.classfile.FieldInfo;
-import com.wangzhen.jvm.classfile.MethodInfo;
+
 import com.wangzhen.jvm.utils.ByteUtils;
 
 import java.util.Arrays;
@@ -33,12 +33,12 @@ public class ClassFile {
     // 字段表数量
     int fieldsCount;
     // 字段
-    FieldInfo[] fields;
+    MemberInfo[] fields;
 
     // 方法数量
     int methodsCount;
     // 方法
-    MethodInfo[] methods;
+    MemberInfo[] methods;
 
     // 属性数量
     int attributesCount;
@@ -70,10 +70,10 @@ public class ClassFile {
        //  读取接口索引，和接口内容
         readInterfaces(classReader);
         // 读取字段
-        fields = FieldInfo.readFieldInfos(classReader,constantPool);
+        fields = MemberInfo.readMembers(classReader,constantPool);
         fieldsCount = fields.length;
         // 读取方法
-        methods = MethodInfo.readMethodInfos(classReader,constantPool);
+        methods = MemberInfo.readMembers(classReader,constantPool);
         methodsCount = methods.length;
         // 读取属性
         attributes = AttributeInfo.readAttributeInfos(classReader,constantPool);
@@ -122,6 +122,15 @@ public class ClassFile {
 
     }
 
+    public String getSourceFile() {
+        for (AttributeInfo info : attributes) {
+            if (info instanceof SourceFileAttribute) {
+                return ((SourceFileAttribute) info).getSourceFileValue();
+            }
+        }
+        return "unknow";
+    }
+
 
     public String getSuperClassName(){
         return this.constantPool.getConstantPoolUtf8Value(superClassIndex);
@@ -163,11 +172,11 @@ public class ClassFile {
         return interfaces;
     }
 
-    public FieldInfo[] getFields() {
+    public MemberInfo[] getFields() {
         return fields;
     }
 
-    public MethodInfo[] getMethods() {
+    public MemberInfo[] getMethods() {
         return methods;
     }
 

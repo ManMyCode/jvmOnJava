@@ -42,12 +42,24 @@ public class ZClass {
         this.superClassName=classFile.getSuperClassName();
         this.interfaceNames = classFile.getInterfaceNames();
         RuntimeConstantPool runtimeConstantPool = new RuntimeConstantPool(this,classFile.getConstantPool());
+        fileds = ZField.makeFields(this,classFile.getFields());
+        methods = ZMethod.makeMethods(this,classFile.getMethods());
+        sourceFile = classFile.getSourceFile();
 
     }
 
-    public ZObject newObject() {
-        return new ZObject(this);
+    //用来创建数组类型
+    public ZClass(int accessFlags, String thisClassName, ZClassLoader loader,
+                  boolean initStarted, ZClass superClass, ZClass[] interfaces) {
+        this.accessFlags = accessFlags;
+        this.thisClassName = thisClassName;
+        this.loader = loader;
+        this.initStarted = initStarted;
+        this.superClass = superClass;
+        this.interfaces = interfaces;
     }
+
+
 
     public boolean isPublic() {
         return 0 != (accessFlags & AccessFlag.ACC_PUBLIC);
@@ -170,4 +182,157 @@ public class ZClass {
     public boolean isSuperClassOf(ZClass sub) {
         return sub.isSubClassOf(this);
     }
+
+    //这里不太好理解，该方法是在下面的 isImplements 方法中被调用的，调用方是类的接口
+    //因此下面的 interfaces 数组表明的不是 source 的接口，而是 source 的某一个接口的接口
+    //虽然接口 sub 在java 语法中是用 extends 继承父接口 parent，但是其字节码中，parent 是 sub 的接口而不是父类
+    public boolean isSubInterfaceOf(ZClass iface) {
+        for (ZClass superInterface : interfaces) {
+            if (superInterface == iface || superInterface.isSubInterfaceOf(iface)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    private boolean isSuperInterfaceOf(ZClass source) {
+        return source.isSubInterfaceOf(this);
+    }
+
+    public boolean isImplements(ZClass iface) {
+        for (ZClass c = this; c != null; c = c.superClass) {
+            for (int i = 0; i < c.interfaces.length; i++) {
+                if (c.interfaces[i] == iface || c.interfaces[i].isSubInterfaceOf(iface)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean isAssignableFrom(ZClass source) {
+        // source 是否由 target 扩展而来（子类）
+        ZClass target = this;
+        if (source == target) {
+            return true;
+        }
+
+        if (!source.isArray()) {
+            if (!source.isInterface()) {
+                if (!target.isInterface()) {
+                    return source.isSubClassOf(target);
+                } else {
+                    // target 是接口
+                    return source.isImplements(target);
+                }
+            } else {
+                // source 是接口
+                if (!target.isInterface()) {
+                    return target.isJlObject();
+                } else {
+                    // target 也是接口
+                    return target.isSuperInterfaceOf(source);
+                }
+            }
+        } else {
+            //source 是数组
+            if (!target.isArray()) {
+                if (!target.isInterface()) {
+                    return target.isJlObject();
+                } else {
+                    // target 是接口
+                    // t is interface;数组默认实现了Cloneable和Serializable接口
+                    return target.isJlCloneable() || target.isJioSerializable();
+                }
+            } else {
+                // target 也是数组
+                ZClass sc = source.getComponentClass();
+                ZClass tc = target.getComponentClass();
+                return sc == tc || tc.isAssignableFrom(source);
+            }
+        }
+    }
+
+    public boolean isJlObject() {
+        return "java/lang/Object".equals(thisClassName);
+    }
+
+    public boolean isJlCloneable() {
+        return "java/lang/Cloneable".equals(thisClassName);
+    }
+
+    public boolean isJioSerializable() {
+        return "java/io/Serializable".equals(thisClassName);
+    }
+
+    public ZObject newObject() {
+        return new ZObject(this);
+    }
+
+    public ZClass arrayClass() {
+        String arrayClassName = ClassNameHelper.getArrayClassName(thisClassName);
+        return loader.loadClass(arrayClassName);
+    }
+
+    //根据方法名和描述符获取方法，在测试环境中使用；
+    public ZMethod getMethod(String name, String desc) {
+        for (ZClass clazz = this; clazz != null; clazz = clazz.superClass) {
+            for (ZMethod method : methods) {
+                if (method.name.equals(name) && method.descriptor.equals(desc)) {
+                    return method;
+                }
+            }
+        }
+        return null;
+    }
+
+    public ZField getField(String name, String descriptor, boolean isStatic) {
+        for (ZClass clazz = this; clazz != null; clazz = clazz.superClass) {
+            for (ZField field : clazz.fileds) {
+                if (field.isStatic() == isStatic &&
+                        field.name.equals(name) &&
+                        field.descriptor.equals(descriptor)) {
+                    return field;
+                }
+            }
+        }
+        return null;
+    }
+    //---------------针对数组相关的方法
+    public boolean isArray() {
+        return thisClassName.startsWith("[");
+    }
+
+    public ZObject newArray(int count) {
+        if (!isArray()) {
+            throw new RuntimeException("Not array class: " + thisClassName);
+        }
+        switch (thisClassName) {
+            case "[Z":
+                return new ZObject(this, new byte[count], null);
+            case "[B":
+                return new ZObject(this, new byte[count], null);
+            case "[C":
+                return new ZObject(this, new char[count], null);
+            case "[S":
+                return new ZObject(this, new short[count], null);
+            case "[I":
+                return new ZObject(this, new int[count], null);
+            case "[J":
+                return new ZObject(this, new long[count], null);
+            case "[F":
+                return new ZObject(this, new float[count], null);
+            case "[D":
+                return new ZObject(this, new double[count], null);
+            default:
+                return new ZObject(this, new ZObject[count], null);
+        }
+    }
+
+    public ZClass getComponentClass() {
+        String componentClassName = ClassNameHelper.getComponentClassName(thisClassName);
+        return loader.loadClass(componentClassName);
+    }
+
+
+
 }
