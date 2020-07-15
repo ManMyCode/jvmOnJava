@@ -1,6 +1,7 @@
 package com.wangzhen.jvm;
 
 import com.wangzhen.jvm.classfile.classPackage.ClassFile;
+import com.wangzhen.jvm.runtimeData.helap.ZClassLoader;
 import org.apache.commons.cli.*;
 
 import java.util.Arrays;
@@ -53,5 +54,13 @@ public class Main {
             e.printStackTrace();
         }
 
+
     }
+
+    public static void startJvm(){
+        ZClassLoader classLoader = new ZClassLoader();
+        //classLoader.loadClass()
+
+    }
+
 }
