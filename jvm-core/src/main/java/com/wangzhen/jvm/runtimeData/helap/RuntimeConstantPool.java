@@ -14,8 +14,13 @@ public class RuntimeConstantPool {
         this.zClass = zClass;
         ConstantInfo[] classFileConstantInfos = classFileConstantPool.getConstantInfos();
         this.infos = new RuntimeConstantInfo[classFileConstantInfos.length];
-        for (int i = 0; i< classFileConstantInfos.length; i++){
+        // 注意这里是从一开始，的0 为空
+        for (int i = 1; i< classFileConstantInfos.length; i++){
             ConstantInfo classFileConstantInfo = classFileConstantInfos[i];
+            if(classFileConstantInfo == null){
+                continue;
+                //System.out.println(classFileConstantInfo);
+            }
             switch (classFileConstantInfo.getType()){
                 case ConstantInfo.CONSTANT_utf8_info :
                     ConstantUtf8Info constantUtf8Info = (ConstantUtf8Info) classFileConstantInfo;
@@ -32,10 +37,12 @@ public class RuntimeConstantPool {
                 case ConstantInfo.CONSTANT_Long_info:
                     ConstantLongInfo constantLongInfo = (ConstantLongInfo) classFileConstantInfo;
                     this.infos[i] = new RuntimeConstantInfo<Long>(constantLongInfo.value, ConstantInfo.CONSTANT_Long_info);
+                    i++;
                     break;
                 case ConstantInfo.CONSTANT_Double_info:
                     ConstantDoubleInfo constantDoubleInfo = (ConstantDoubleInfo) classFileConstantInfo;
                     this.infos[i] = new RuntimeConstantInfo<Double>(constantDoubleInfo.getValue(), ConstantInfo.CONSTANT_Double_info);
+                    i++;
                     break;
                 case ConstantInfo.CONSTANT_Class_info:
                     ConstantClassInfo constantClassInfo = (ConstantClassInfo) classFileConstantInfo;

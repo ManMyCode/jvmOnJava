@@ -116,14 +116,20 @@ public class ClassFile {
     }
 
     public String getSuperClassName(){
-        ConstantClassInfo constantClassInfo = (ConstantClassInfo) this.constantPool.getConstantInfos()[superClassIndex];
-        return  this.constantPool.getConstantPoolUtf8Value(constantClassInfo.nameIndex);
+        // 如果索引superClassIndex为0 代表为object类所以直接返回空
+        if(superClassIndex>0){
+            ConstantClassInfo constantClassInfo = (ConstantClassInfo) this.constantPool.getConstantInfos()[superClassIndex];
+            return  this.constantPool.getConstantPoolUtf8Value(constantClassInfo.nameIndex);
+        }else {
+            return "";
+        }
+
     }
 
     public String[] getInterfaceNames() {
         String [] interfaceNames = new String[interfaces.length];
         for(int i =0;i<interfaces.length;i++){
-            interfaceNames[i] = constantPool.getConstantPoolUtf8Value(interfaces[i]);
+            interfaceNames[i] = constantPool.getClassName(interfaces[i]);
         }
         return interfaceNames;
 

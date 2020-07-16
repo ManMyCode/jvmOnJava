@@ -50,8 +50,8 @@ public class ClassPath {
         }
 
         //在JAVA_HOME中找
-        String java_home = System.getenv("JAVA_HOME");
-        //String java_home = "/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home";
+       // String java_home = System.getenv("JAVA_HOME");
+        String java_home = "/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home";
         if (java_home != null) {
             return java_home + File.separator + "jre";
         }

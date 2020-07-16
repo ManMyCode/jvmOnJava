@@ -86,8 +86,11 @@ public class ZClassLoader {
 
     //给类变量分配空间并赋予初始值
     private void prepare(ZClass clazz) {
+        // 计算实例化字段需要的slot 值
         calcInstanceFieldSlotIds(clazz);
+        // 计算静态变量需要的 slot 的值
         calcStaticFieldSlotIds(clazz);
+        // 分配并且初始化 静态变量的值
         allocAndInitStaticVars(clazz);
     }
 
