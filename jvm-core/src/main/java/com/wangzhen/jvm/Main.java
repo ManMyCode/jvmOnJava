@@ -1,7 +1,13 @@
 package com.wangzhen.jvm;
 
 import com.wangzhen.jvm.classfile.classPackage.ClassFile;
+import com.wangzhen.jvm.classfile.classPath.ClassPath;
+import com.wangzhen.jvm.instructions.Interpreter;
+import com.wangzhen.jvm.runtimeData.ZFrame;
+import com.wangzhen.jvm.runtimeData.ZThread;
+import com.wangzhen.jvm.runtimeData.helap.ZClass;
 import com.wangzhen.jvm.runtimeData.helap.ZClassLoader;
+import com.wangzhen.jvm.runtimeData.helap.ZMethod;
 import org.apache.commons.cli.*;
 
 import java.util.Arrays;
@@ -43,9 +49,11 @@ public class Main {
             if(cli.hasOption("cp")){
                 String []cpParameters = cli.getOptionValues("cp");
                 DirEntry dirEntry = new DirEntry(cpParameters[0]);
-                byte [] classFileData = dirEntry.readClass(cpParameters[1]);
-                ClassFile classFile = new ClassFile(classFileData);
-                System.out.println(classFile.toString());
+
+//                byte [] classFileData = dirEntry.readClass(cpParameters[1]);
+//                ClassFile classFile = new ClassFile(classFileData);
+//                System.out.println(classFile.toString());
+                startJvm(cpParameters);
             }
 
 
@@ -57,10 +65,20 @@ public class Main {
 
     }
 
-    public static void startJvm(){
-        ZClassLoader classLoader = new ZClassLoader();
+    public static void startJvm(String [] cpParameters){
+        ClassPath classPath = new ClassPath("",cpParameters[0]);
+        ZClassLoader classLoader = new ZClassLoader(classPath);
+        ZClass zClass =  classLoader.loadClass(cpParameters[1]);
+        ZMethod zMethod = zClass.getMainMethod();
+        ZThread thread = new ZThread();
+        ZFrame frame = new ZFrame(thread,zMethod);
+        thread.pushFrame(frame);
+        Interpreter.loop(thread);
+
         //classLoader.loadClass()
 
     }
+
+
 
 }

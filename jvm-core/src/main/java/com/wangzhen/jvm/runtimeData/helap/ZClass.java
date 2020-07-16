@@ -333,6 +333,24 @@ public class ZClass {
         return loader.loadClass(componentClassName);
     }
 
+    // 得到类中的main 方法
+    public ZMethod getMainMethod() {
+        return this.getStaticMethod("main", "([Ljava/lang/String;)V", true);
+    }
+
+    // 查找类中的方法
+    private ZMethod getStaticMethod(String name, String descriptor, boolean isStatic) {
+        for (ZClass c = this; c != null; c = c.superClass) {
+            if (null == c.methods) continue;
+            for (ZMethod method : c.methods) {
+                if (method.isStatic() == isStatic && method.name.equals(name) && method.descriptor.equals(descriptor)) {
+                    return method;
+                }
+            }
+        }
+        throw new RuntimeException("method not find: " + name + " " + descriptor);
+    }
+
 
 
 }

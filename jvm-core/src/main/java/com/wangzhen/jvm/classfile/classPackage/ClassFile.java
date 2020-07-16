@@ -3,6 +3,7 @@ package com.wangzhen.jvm.classfile.classPackage;
 
 import com.wangzhen.jvm.attribute.AttributeInfo;
 import com.wangzhen.jvm.attribute.SourceFileAttribute;
+import com.wangzhen.jvm.classConstant.ConstantClassInfo;
 import com.wangzhen.jvm.classConstant.ConstantPool;
 
 import com.wangzhen.jvm.utils.ByteUtils;
@@ -110,7 +111,13 @@ public class ClassFile {
     }
 
     public String getThisClassName(){
-        return  this.constantPool.getConstantPoolUtf8Value(thisClassIndex);
+        ConstantClassInfo constantClassInfo = (ConstantClassInfo) this.constantPool.getConstantInfos()[thisClassIndex];
+        return  this.constantPool.getConstantPoolUtf8Value(constantClassInfo.nameIndex);
+    }
+
+    public String getSuperClassName(){
+        ConstantClassInfo constantClassInfo = (ConstantClassInfo) this.constantPool.getConstantInfos()[superClassIndex];
+        return  this.constantPool.getConstantPoolUtf8Value(constantClassInfo.nameIndex);
     }
 
     public String[] getInterfaceNames() {
@@ -132,9 +139,7 @@ public class ClassFile {
     }
 
 
-    public String getSuperClassName(){
-        return this.constantPool.getConstantPoolUtf8Value(superClassIndex);
-    }
+
 
     public String getMagic() {
         return magic;

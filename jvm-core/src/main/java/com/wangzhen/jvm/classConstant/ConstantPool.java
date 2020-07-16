@@ -78,6 +78,7 @@ public class ConstantPool {
         throw new NullPointerException("Invalid constant pool index!");
     }
 
+
     // 获取常量池中的 静态字符
     public String getConstantPoolUtf8Value(int index){
         ConstantUtf8Info constantUtf8Info = (ConstantUtf8Info) constantInfos[index];

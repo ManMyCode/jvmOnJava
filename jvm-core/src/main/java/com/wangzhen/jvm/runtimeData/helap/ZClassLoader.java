@@ -5,11 +5,19 @@ import com.wangzhen.jvm.classfile.classPath.ClassPath;
 import com.wangzhen.jvm.runtimeData.Slots;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class ZClassLoader {
       ClassPath classPath;
       HashMap<String,ZClass> map;
 
+
+    public ZClassLoader(ClassPath classPath) {
+        this.classPath = classPath;
+        this.map = new HashMap<String, ZClass>();
+        loadBasicClasses();
+        loadPrimitiveClasses();
+    }
 
     //先查找classMap，看类是否已经被加载。如果是，直接返回类数据，否则调用loadNonArrayClass（）方法加载类。
     //在类方法中的一个递归调用,也是classLoader中的入口方法
@@ -152,19 +160,51 @@ public class ZClassLoader {
         }
     }
 
-    private void loadBasicClasses(){
+    private void loadBasicClasses() {
+        //经过这一步load之后,classMap中就有Class的Class了，已经Object 和 Class 所实现的接口；
+        ZClass jlClassClass = loadClass("java/lang/Class");
+        //接下来对classMap中的每一个Class都创建一个jClass;使用jlClassClass.NewObject()方法;
+        // 通过调用 newObject 方法，为每一个 Class 都创建一个元类对象；这样在使用 String.class 时可以直接获取到；
+        for (Map.Entry<String, ZClass> entry : map.entrySet()) {
+            ZClass jClass = entry.getValue();
+            if (jClass.jObject == null) {
+                jClass.jObject = jlClassClass.newObject();
+                jClass.jObject.extra = jClass;
+            }
+        }
+    }
 
+    //加载基本类型的类:void.class;boolean.class;byte.class
+    private void loadPrimitiveClasses() {
+        for (Map.Entry<String, String> entry : ClassNameHelper.primitiveTypes.entrySet()) {
+            String className = entry.getKey();
+            loadPrimitiveClass(className);
+        }
+    }
+
+    //加载基本类型,和数组类似,也没有对应的class文件,只能在运行时创建;基本类型:无超类,也没有实现任何接口
+    /* 针对基本类型的三点说明：
+    1. void和基本类型的类型名字就是：void，int，float 等
+    2. 基本类型的类没有超类，也没有实现任何接口
+    3. 非基本类型的类对象是通过 ldc 指令加载到操作数栈中的
+    */
+    private void loadPrimitiveClass(String className) {
+        ZClass clazz = new ZClass(AccessFlag.ACC_PUBLIC, className, this, true,
+                null,
+                new ZClass[]{});
+        clazz.jObject = map.get("java/lang/Class").newObject();
+        clazz.jObject.extra = clazz;
+        map.put(className, clazz);
     }
 
 
 
-
-    /**
-     * 利用 ClassPath 把 class 文件读进来
-     *
-     * @param name 类名，eg：java.lang.String 或者包含 main 方法的主类名
-     * @return class 字节数据
-     */
+            /**
+             * 利用 ClassPath 把 class 文件读进来
+             *
+             * @param name 类名，eg：java.lang.String 或者包含 main 方法的主类名
+             * @return class 字节数据
+             */
     private byte[] readClass(String name) {
         byte[] data = classPath.readClass(name);
         if (data != null) {
