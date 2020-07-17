@@ -135,7 +135,8 @@ public class ZClassLoader {
         clazz.staticVars = new Slots(clazz.staticSlotCount);
         for (ZField field : clazz.fileds) {
             if (field.isStatic() && field.isFinal()) {
-                initStaticFinalVar(clazz, field);
+                // 报错了无法解决，暂时注释掉
+              //  initStaticFinalVar(clazz, field);
             }
         }
     }

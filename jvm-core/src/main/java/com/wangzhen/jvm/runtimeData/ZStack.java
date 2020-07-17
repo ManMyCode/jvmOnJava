@@ -31,7 +31,7 @@ public class ZStack {
         if(zFrames.size()==0){
             throw new EmptyStackException();
         }
-        ZFrame popjFrame = zFrames.remove(zFrames.size());
+        ZFrame popjFrame = zFrames.remove(zFrames.size()-1);
         return popjFrame;
     }
     public ZFrame top(){
