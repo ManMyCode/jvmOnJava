@@ -32,7 +32,7 @@ public class ZClass {
     Slots staticVars;
     //判断类是否已经初始化，执行了类的<clinit>方法
     boolean initStarted;
-    // jObject 指向的是该类的元类对象obj。 eg：String.class 得到的结果
+    // jObject 指向的是该copyAttributes类的元类对象obj。 eg：String.class 得到的结果
     ZObject jObject;
     String sourceFile;
 

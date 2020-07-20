@@ -8,7 +8,7 @@ public class FNEG extends NoOperandsInstruction {
     @Override
     public void execute(ZFrame frame) {
         OperandStack stack = frame.getOperandStack();
-        float num = stack.popFLoat();
+        float num = stack.popFloat();
         stack.pushFLoat(-num);
     }
 }

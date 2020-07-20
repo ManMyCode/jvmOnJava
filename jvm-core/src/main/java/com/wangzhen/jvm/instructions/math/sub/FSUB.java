@@ -8,8 +8,8 @@ public class FSUB extends NoOperandsInstruction {
     @Override
     public void execute(ZFrame frame) {
         OperandStack stack = frame.getOperandStack();
-        float num1 = stack.popFLoat();
-        float num2 = stack.popFLoat();
+        float num1 = stack.popFloat();
+        float num2 = stack.popFloat();
         float result = num2 - num1;
         stack.pushFLoat(result);
     }

@@ -20,7 +20,7 @@ public class Store {
     }
 
     public static void fstore(ZFrame frame, int index) {
-        float val = frame.getOperandStack().popFLoat();
+        float val = frame.getOperandStack().popFloat();
         frame.getLocalVars().setFloat(index, val);
     }
 

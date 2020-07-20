@@ -6,7 +6,6 @@ import com.wangzhen.jvm.attribute.LineNumberTableAttribute;
 import com.wangzhen.jvm.classfile.classPackage.MemberInfo;
 
 
-import java.beans.MethodDescriptor;
 import java.util.ArrayList;
 
 public class ZMethod extends ClassMember{
@@ -17,13 +16,19 @@ public class ZMethod extends ClassMember{
     private ExceptionTable exceptionTable;
     private LineNumberTableAttribute lineNumberTableAttribute;
     private ExceptionsAttribute exceptionsAttribute;
-    private MethodDescriptor methodDescriptor;
+    private MethodDescriptor parsedDescriptor;
     private int argSlotCount;
 
 
 
     public ZMethod(ZClass zClass, MemberInfo classFileMemberInfo) {
         super(zClass, classFileMemberInfo);
+        copyAttributes(classFileMemberInfo);
+        parsedDescriptor = new MethodDescriptor(this.descriptor);
+        argSlotCount = calcArgSlotCount(parsedDescriptor.getParameterTypes());
+        if (isNative()) {
+            injectCodeAttribute(parsedDescriptor.getReturnType());
+        }
     }
 
     //该方法用来初始化成员变量：maxStack，maxLocals，code，如果是 native 方法，是没有任何 code 字节码的；
@@ -35,8 +40,7 @@ public class ZMethod extends ClassMember{
             code = codeAttribute.getCode();
             lineNumberTableAttribute = codeAttribute.lineNumberTableAttribute();
             //这一步主要是将classFile中的异常处理表(符号引用),转换为运行时的异常处理表(直接引用);主要在于catchType的转换
-            exceptionTable = new ExceptionTable(codeAttribute.getExceptionTables(),
-                    clazz.getRuntimeConstantPool());
+            //exceptionTable = new ExceptionTable(codeAttribute.getExceptionTables(), clazz.getRuntimeConstantPool());
         }
         exceptionsAttribute = classFileMethod.getExceptionsAttribute();
     }

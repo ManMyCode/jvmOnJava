@@ -25,6 +25,8 @@ public class ZFrame {
     public ZFrame(ZThread thread, ZMethod method) {
         this.thread = thread;
         this.method = method;
+        localVars = new LocalVars(method.getMaxLocals());
+        operandStack = new OperandStack(method.getMaxStack());
     }
 
     public LocalVars getLocalVars() {

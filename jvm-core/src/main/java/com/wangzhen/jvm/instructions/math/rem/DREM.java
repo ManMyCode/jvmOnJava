@@ -8,8 +8,8 @@ public class DREM extends NoOperandsInstruction {
     @Override
     public void execute(ZFrame frame) {
         OperandStack stack = frame.getOperandStack();
-        double num1 = stack.popFLoat();
-        double num2 = stack.popFLoat();
+        double num1 = stack.popFloat();
+        double num2 = stack.popFloat();
         double result = num2/num1;
         stack.pushDouble(result);
 

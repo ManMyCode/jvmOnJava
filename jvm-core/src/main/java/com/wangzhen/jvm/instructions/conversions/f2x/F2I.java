@@ -8,7 +8,7 @@ public class F2I extends NoOperandsInstruction {
     @Override
     public void execute(ZFrame frame) {
         OperandStack stack = frame.getOperandStack();
-        float val1= stack.popFLoat();
+        float val1= stack.popFloat();
         int val2 = (int) val1;
         stack.pushInt(val2);
     }

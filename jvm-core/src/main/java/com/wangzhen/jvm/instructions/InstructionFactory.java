@@ -2,17 +2,20 @@ package com.wangzhen.jvm.instructions;
 
 
 import com.wangzhen.jvm.instructions.base.Instruction;
+import com.wangzhen.jvm.instructions.comparisons.fcmp.FCMPG;
 import com.wangzhen.jvm.instructions.constants.ACONST_NULL;
 import com.wangzhen.jvm.instructions.constants.BIPUSH;
 import com.wangzhen.jvm.instructions.constants.NOP;
 import com.wangzhen.jvm.instructions.constants.SIPUSH;
 import com.wangzhen.jvm.instructions.constants.*;
+import com.wangzhen.jvm.instructions.control.RETURN;
 import com.wangzhen.jvm.instructions.loads.loadDouble.*;
 import com.wangzhen.jvm.instructions.loads.loadFloat.*;
 import com.wangzhen.jvm.instructions.loads.loadInt.ILOAD;
 import com.wangzhen.jvm.instructions.loads.loadInt.*;
 import com.wangzhen.jvm.instructions.loads.loadlong.*;
 import com.wangzhen.jvm.instructions.loads.loadref.*;
+import com.wangzhen.jvm.instructions.math.add.IADD;
 import com.wangzhen.jvm.instructions.stores.storedouble.*;
 import com.wangzhen.jvm.instructions.stores.storefloat.*;
 import com.wangzhen.jvm.instructions.stores.storeint.*;
@@ -82,6 +85,9 @@ public class InstructionFactory {
     static ASTORE_1 astore_1 = new ASTORE_1();
     static ASTORE_2 astore_2 = new ASTORE_2();
     static ASTORE_3 astore_3 = new ASTORE_3();
+    static IADD iadd = new IADD();
+    static FCMPG fcmpg = new FCMPG();
+    static RETURN _return = new RETURN();
 
 
 
@@ -279,8 +285,8 @@ public class InstructionFactory {
 //                return dup2_x2;
 //            case 0x5f:
 //                return swap;
-//            case 0x60:
-//                return iadd;
+            case 0x60:
+                return iadd;
 //            case 0x61:
 //                return ladd;
 //            case 0x62:
@@ -387,8 +393,8 @@ public class InstructionFactory {
 //                return lcmp;
 //            case 0x95:
 //                return fcmpl;
-//            case 0x96:
-//                return fcmpg;
+            case 0x96:
+                return fcmpg;
 //            case 0x97:
 //                return dcmpl;
 //            case 0x98:
@@ -441,8 +447,8 @@ public class InstructionFactory {
 //                return dreturn;
 //            case 0xb0:
 //                return areturn;
-//            case 0xb1:
-//                return _return;
+            case 0xb1:
+                return _return;
 //            case 0xb2:
 //                return new GET_STATIC();
 //            case 0xb3:

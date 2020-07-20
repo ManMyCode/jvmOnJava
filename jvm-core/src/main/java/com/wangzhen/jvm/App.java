@@ -14,8 +14,10 @@ public class App implements IApp{
 
 
     public static void main(String[] args) throws RuntimeException {
-         Integer i =INT;
-        System.out.println("Hello, World!");
+         int a= 1;
+         int b =2;
+         int c = a+b;
+       // System.out.println(c);
     }
 
     @Override

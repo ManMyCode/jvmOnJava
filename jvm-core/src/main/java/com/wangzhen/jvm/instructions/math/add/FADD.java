@@ -8,8 +8,8 @@ public class FADD extends NoOperandsInstruction {
     @Override
     public void execute(ZFrame frame) {
         OperandStack stack = frame.getOperandStack();
-        float num1 = stack.popFLoat();
-        float  num2 = stack.popFLoat();
+        float num1 = stack.popFloat();
+        float  num2 = stack.popFloat();
         float  result = num1+num2;
         stack.pushFLoat(result);
     }

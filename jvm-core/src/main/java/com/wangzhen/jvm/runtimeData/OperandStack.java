@@ -50,7 +50,7 @@ public class OperandStack {
         pushInt(Float.floatToIntBits(val));
     }
 
-    public float popFLoat(){
+    public float popFloat(){
        return Float.intBitsToFloat(popInt());
     }
 
