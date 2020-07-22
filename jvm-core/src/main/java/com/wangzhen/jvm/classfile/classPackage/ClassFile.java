@@ -92,23 +92,6 @@ public class ClassFile {
         }
     }
 
-    @Override
-    public String toString() {
-        return "ClassFile{" +
-                "magic='" + magic + '\'' +
-                ", minorVersion=" + minorVersion +
-                ", majorVersion=" + majorVersion +
-                ", constantPool=" + constantPool +
-                ", accessFlags=" + accessFlags +
-                ", thisClassIndex=" + thisClassIndex +
-                ", superClassIndex=" + superClassIndex +
-                ", interfacesCount=" + interfacesCount +
-                ", interfaces=" + Arrays.toString(interfaces) +
-                ", fields=" + Arrays.toString(fields) +
-                ", methods=" + Arrays.toString(methods) +
-                ", attributes=" + Arrays.toString(attributes) +
-                '}';
-    }
 
     public String getThisClassName(){
         ConstantClassInfo constantClassInfo = (ConstantClassInfo) this.constantPool.getConstantInfos()[thisClassIndex];
@@ -194,4 +177,24 @@ public class ClassFile {
     public AttributeInfo[] getAttributes() {
         return attributes;
     }
+
+
+    @Override
+    public String toString() {
+        return "ClassFile{" +
+                "magic='" + magic + '\'' +
+                ", minorVersion=" + minorVersion +
+                ", majorVersion=" + majorVersion +
+                ", constantPool=" + constantPool +
+                ", accessFlags=" + accessFlags +
+                ", thisClassIndex=" + thisClassIndex +
+                ", superClassIndex=" + superClassIndex +
+                ", interfacesCount=" + interfacesCount +
+                ", interfaces=" + Arrays.toString(interfaces) +
+                ", fields=" + Arrays.toString(fields) +
+                ", methods=" + Arrays.toString(methods) +
+                ", attributes=" + Arrays.toString(attributes) +
+                '}';
+    }
+
 }

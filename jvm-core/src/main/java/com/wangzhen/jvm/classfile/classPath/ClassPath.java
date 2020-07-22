@@ -79,6 +79,7 @@ public class ClassPath {
         className = className + ".class";
         byte[] data;
         try {
+            //
             data = bootClasspath.readClass(className);
             if (data != null) {
                 return data;

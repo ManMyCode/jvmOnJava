@@ -26,9 +26,11 @@ public class ZClassLoader {
             return map.get(name);
         }
         ZClass zClass;
+        // 如果是数组
         if(name.charAt(0)=='['){
             zClass = loadArrayClass(name);
         }else{
+            // 加载普通类
             zClass = loadNonArrayClass(name);
         }
         // 为每一个class 都关联一个元类
@@ -45,9 +47,9 @@ public class ZClassLoader {
     }
 
     private ZClass loadNonArrayClass(String name){
-        byte []data = readClass(name);
-        ZClass clazz = defineClass(data);
-        link(clazz); ;
+       // 加载class 文件到方法区内(这里是自己定义的map)
+        ZClass clazz = loadClassFile(name);
+        link(clazz);
         return clazz;
     }
 
@@ -59,7 +61,8 @@ public class ZClassLoader {
      * 加载接口
      * resolveSuperClass：是一个递归的过程，不断的加载父类信息
      * */
-    public ZClass defineClass(byte []data){
+    public ZClass loadClassFile(String name){
+        byte[]data = readClass(name);
         ZClass zClass = this.parseClass(data);
         zClass.loader =  this;
         resolveSuperClass(zClass);
@@ -75,9 +78,11 @@ public class ZClassLoader {
         3.解析
      */
     public void link(ZClass zClass){
-        // 验证为空
+        // 验证
         verify(zClass);
+        // 准备
         prepare(zClass);
+        // 解析
     }
 
     //在执行类的任何代码之前要对类进行严格的检验,这里忽略检验过程,作为空实现;
@@ -86,11 +91,11 @@ public class ZClassLoader {
 
     //给类变量分配空间并赋予初始值
     private void prepare(ZClass clazz) {
-        // 计算实例化字段需要的slot 值
+        // 计算实例化字段需要的slot值
         calcInstanceFieldSlotIds(clazz);
-        // 计算静态变量需要的 slot 的值
+        // 计算静态变量需要的slot的值
         calcStaticFieldSlotIds(clazz);
-        // 分配并且初始化 静态变量的值
+        // 分配并且初始化静态变量的值，这里只是给零值 如 int=>0  object=>null
         allocAndInitStaticVars(clazz);
     }
 
@@ -132,11 +137,13 @@ public class ZClassLoader {
     // 为静态变量申请空间,注意:这个申请空间的过程,就是将所有的静态变量赋值为0或者null;
     // 如果是 static final 的基本类型或者 String，其值会保存在ConstantValueAttribute属性中
     private void allocAndInitStaticVars(ZClass clazz) {
+        // new 出对象对java程序来说会默认赋值
         clazz.staticVars = new Slots(clazz.staticSlotCount);
         for (ZField field : clazz.fileds) {
+            // 如果是 static final 类型 那么就直接赋值
             if (field.isStatic() && field.isFinal()) {
-                // 报错了无法解决，暂时注释掉
-              //  initStaticFinalVar(clazz, field);
+                 //报错了无法解决，暂时注释掉
+                initStaticFinalVar(clazz, field);
             }
         }
     }
