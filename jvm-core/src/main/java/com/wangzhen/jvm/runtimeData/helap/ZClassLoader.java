@@ -49,6 +49,7 @@ public class ZClassLoader {
     private ZClass loadNonArrayClass(String name){
        // 加载class 文件到方法区内(这里是自己定义的map)
         ZClass clazz = loadClassFile(name);
+        // 链接
         link(clazz);
         return clazz;
     }

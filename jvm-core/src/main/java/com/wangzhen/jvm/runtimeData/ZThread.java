@@ -1,5 +1,7 @@
 package com.wangzhen.jvm.runtimeData;
 
+import com.wangzhen.jvm.runtimeData.helap.ZMethod;
+
 /**
  *
  * 自定义线程
@@ -29,6 +31,11 @@ public class ZThread {
     public ZFrame popFrame() {
         return jstack.pop();
     }
+
+    public ZFrame createFrame(ZMethod method){
+        return  new ZFrame(this,method);
+    }
+
 
     public ZFrame getCurrentFrame() {
         return jstack.top();

@@ -68,4 +68,8 @@ public class ZFrame {
     public void setNextPC(int nextPC) {
         this.nextPC = nextPC;
     }
+
+    public  void revertPc(){
+        this.nextPC = thread.getPc();
+    }
 }

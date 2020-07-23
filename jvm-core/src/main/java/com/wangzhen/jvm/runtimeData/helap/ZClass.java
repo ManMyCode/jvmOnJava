@@ -179,6 +179,10 @@ public class ZClass {
         return false;
     }
 
+    public void startInit(){
+        initStarted = true;
+    }
+
     public boolean isSuperClassOf(ZClass sub) {
         return sub.isSubClassOf(this);
     }

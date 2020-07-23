@@ -11,6 +11,9 @@ public class App implements IApp{
     public static final long LONG = 12345678901L;
     public static final float PI = 3.14f;
     public static final double E = 2.71828;
+    public static int i =1;
+    public int j = 2;
+
 
 
     public static void main(String[] args) throws RuntimeException {
