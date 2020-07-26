@@ -46,7 +46,8 @@ public class RuntimeConstantPool {
                     break;
                 case ConstantInfo.CONSTANT_Class_info:
                     ConstantClassInfo constantClassInfo = (ConstantClassInfo) classFileConstantInfo;
-                    this.infos[i] = new RuntimeConstantInfo<ClassRef>(new ClassRef(this,constantClassInfo), ConstantInfo.CONSTANT_Class_info);
+                    String className = classFileConstantPool.getConstantPoolUtf8Value(constantClassInfo.nameIndex);
+                    this.infos[i] = new RuntimeConstantInfo<ClassRef>(new ClassRef(this,className), ConstantInfo.CONSTANT_Class_info);
 
                     break;
                 case ConstantInfo.CONSTANT_String_info:

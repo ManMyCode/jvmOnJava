@@ -7,6 +7,7 @@ public class ConstantMethodTypeInfo extends ConstantInfo {
     public int descIndex;
 
     public ConstantMethodTypeInfo(ClassReader classReader) {
+        super.type=ConstantInfo.CONSTANT_MethodType_info;
         readInfo(classReader);
     }
 

@@ -11,6 +11,7 @@ public class ConstantNameAndTypeInfo extends ConstantInfo {
     public ConstantNameAndTypeInfo(ConstantPool constantPool, ClassReader classReader) {
         readInfo(classReader);
         this.constantPool = constantPool;
+        super.type=ConstantInfo.CONSTANT_NameAndType_info;
     }
 
     @Override

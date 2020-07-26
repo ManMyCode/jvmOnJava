@@ -12,6 +12,7 @@ public class ConstantClassInfo extends ConstantInfo {
     public String className;
 
     public ConstantClassInfo(ConstantPool constantPool,ClassReader classReader) {
+        super.type=ConstantInfo.CONSTANT_Class_info;
         readInfo(classReader);
         this.constantPool = constantPool;
     }

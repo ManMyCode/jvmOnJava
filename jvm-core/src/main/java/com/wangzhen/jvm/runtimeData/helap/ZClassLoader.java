@@ -144,7 +144,7 @@ public class ZClassLoader {
             // 如果是 static final 类型 那么就直接赋值
             if (field.isStatic() && field.isFinal()) {
                  //报错了无法解决，暂时注释掉
-                initStaticFinalVar(clazz, field);
+                //initStaticFinalVar(clazz, field);
             }
         }
     }

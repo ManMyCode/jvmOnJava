@@ -13,5 +13,6 @@ public class ConstantInterfaceMethodRefInfo extends ConstantMemberRefInfo {
 
     public ConstantInterfaceMethodRefInfo(ConstantPool constantPool, int type,ClassReader reader) {
         super(constantPool, type,reader);
+        super.type=ConstantInfo.CONSTANT_InterfaceMethodref_info;
     }
 }

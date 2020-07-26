@@ -17,9 +17,10 @@ public class NEW extends Index16Instruction {
         ZClass zClass = classRef.resolvedClass();
         // 看这个类是否已经初始化过，这个是类的初始化不是实例的初始化
         if(!zClass.isInitStarted()){
-            //
+            //执行类的初始化需要 重新执行之前的new 方法
             frame.revertPc();
             ClassInitLogic.initClass(zClass,frame.getThread());
+            return;
         }
         // 如果这个 class 是接口或者是抽象方法直接报错
         if(zClass.isInterface()||zClass.isAbstract()){

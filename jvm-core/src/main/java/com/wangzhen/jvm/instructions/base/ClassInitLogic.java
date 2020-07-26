@@ -22,8 +22,8 @@ public class ClassInitLogic {
     private static void  initSuperClass(ZClass zClass,ZThread zThread){
          if(!zClass.isInterface()){
              ZClass superClass = zClass.getSuperClass();
-             if(!superClass.isInterface()&& !superClass.isInitStarted()){
-                 initClass(zClass,zThread);
+             if(superClass!=null&& !superClass.isInitStarted()){
+                 initClass(superClass,zThread);
              }
          }
     }

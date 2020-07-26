@@ -8,6 +8,7 @@ public class ConstantStringInfo extends ConstantInfo {
     public String stringValue;
 
     public ConstantStringInfo(ConstantPool constantPool,ClassReader classReader) {
+        super.type=ConstantInfo.CONSTANT_String_info;
         readInfo(classReader);
         this.constantPool = constantPool;
     }

@@ -13,7 +13,8 @@ public class ZFrame {
     ZThread thread;
     ZMethod method;
 
-    //frame中并不改变PC的值,其PC值是由ByteReader读取字节码不断改变的
+    //frame中并不改变PC的值,
+    // 这个next pc 主要是指的就是frame 在读取 code 的时候的游标，用于记录已经读取到哪个值了。
     int nextPC;
 
     public ZFrame(ZThread thread, int maxLocal, int maxStack) {

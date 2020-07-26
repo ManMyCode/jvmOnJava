@@ -7,6 +7,7 @@ public class ConstantLongInfo extends ConstantInfo {
     public long value;
 
     public ConstantLongInfo(ClassReader classReader) {
+        super.type=ConstantInfo.CONSTANT_Long_info;
         readInfo(classReader);
     }
 

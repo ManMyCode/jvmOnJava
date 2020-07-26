@@ -9,6 +9,7 @@ public class ConstantInvokeDynamicInfo extends ConstantInfo {
     int nameAndTypeIndex;
 
     public ConstantInvokeDynamicInfo(ClassReader classReader) {
+        super.type=ConstantInfo.CONSTANT_InvokeDynamic_info;
         readInfo(classReader);
     }
 

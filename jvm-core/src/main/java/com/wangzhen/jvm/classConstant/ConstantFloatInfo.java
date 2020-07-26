@@ -7,6 +7,7 @@ public class ConstantFloatInfo extends ConstantInfo {
     public float value;
 
     public ConstantFloatInfo(ClassReader classReader) {
+        super.type=ConstantInfo.CONSTANT_Float_info;
         readInfo(classReader);
     }
 

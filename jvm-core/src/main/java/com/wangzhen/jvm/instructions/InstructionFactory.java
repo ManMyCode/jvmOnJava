@@ -16,6 +16,9 @@ import com.wangzhen.jvm.instructions.loads.loadInt.*;
 import com.wangzhen.jvm.instructions.loads.loadlong.*;
 import com.wangzhen.jvm.instructions.loads.loadref.*;
 import com.wangzhen.jvm.instructions.math.add.IADD;
+import com.wangzhen.jvm.instructions.references.INVOKE_SPECIAL;
+import com.wangzhen.jvm.instructions.references.NEW;
+import com.wangzhen.jvm.instructions.stack.dup.DUP;
 import com.wangzhen.jvm.instructions.stores.storedouble.*;
 import com.wangzhen.jvm.instructions.stores.storefloat.*;
 import com.wangzhen.jvm.instructions.stores.storeint.*;
@@ -88,6 +91,7 @@ public class InstructionFactory {
     static IADD iadd = new IADD();
     static FCMPG fcmpg = new FCMPG();
     static RETURN _return = new RETURN();
+    static DUP dup = new DUP();
 
 
 
@@ -271,8 +275,8 @@ public class InstructionFactory {
 //                return pop;
 //            case 0x58:
 //                return pop2;
-//            case 0x59:
-//                return dup;
+            case 0x59:
+                return dup;
 //            case 0x5a:
 //                return dup_x1;
 //            case 0x5b:
@@ -459,16 +463,16 @@ public class InstructionFactory {
 //                return new PUT_FIELD();
 //            case 0xb6:
 //                return new INVOKE_VIRTUAL();
-//            case 0xb7:
-//                return new INVOKE_SPECIAL();
+            case 0xb7:
+                return new INVOKE_SPECIAL();
 //            case 0xb8:
 //                return new INVOKE_STATIC();
 //            case 0xb9:
 //                return new INVOKE_INTERFACE();
 //            // case 0xba:
 //            // 	return new INVOKE_DYNAMIC();
-//            case 0xbb:
-//                return new NEW();
+            case 0xbb:
+                return new NEW();
 //            case 0xbc:
 //                return new NEW_ARRAY();
 //            case 0xbd:

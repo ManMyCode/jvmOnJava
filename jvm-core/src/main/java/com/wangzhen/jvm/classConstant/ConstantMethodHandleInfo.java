@@ -8,6 +8,7 @@ public class ConstantMethodHandleInfo extends ConstantInfo {
     private int referenceIndex;
 
     public ConstantMethodHandleInfo(ClassReader classReader) {
+        super.type=ConstantInfo.CONSTANT_MethodHandle_info;
         readInfo(classReader);
     }
 

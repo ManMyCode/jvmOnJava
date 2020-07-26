@@ -9,8 +9,8 @@ import com.wangzhen.jvm.classConstant.ConstantClassInfo;
  * Desc: 类引用
  */
 public class ClassRef extends SymRef {
-    public ClassRef(RuntimeConstantPool runtimeConstantPool, ConstantClassInfo classInfo) {
+    public ClassRef(RuntimeConstantPool runtimeConstantPool, String className) {
         super(runtimeConstantPool);
-        this.className = classInfo.getClassName();
+        this.className = className;
     }
 }

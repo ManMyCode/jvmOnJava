@@ -7,6 +7,7 @@ public class ConstantDoubleInfo extends ConstantInfo {
     public Double value;
 
     public ConstantDoubleInfo(ClassReader classReader) {
+        super.type=ConstantInfo.CONSTANT_Double_info;
         readInfo(classReader);
     }
 

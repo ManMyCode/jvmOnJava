@@ -7,6 +7,7 @@ public class ConstantIntegerInfo extends ConstantInfo {
     public int value;
 
     public ConstantIntegerInfo(ClassReader classReader) {
+        super.type = ConstantInfo.CONSTANT_Integer_info;
         readInfo(classReader);
     }
 
