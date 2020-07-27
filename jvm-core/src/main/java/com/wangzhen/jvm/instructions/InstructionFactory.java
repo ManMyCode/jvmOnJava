@@ -17,10 +17,7 @@ import com.wangzhen.jvm.instructions.loads.loadInt.*;
 import com.wangzhen.jvm.instructions.loads.loadlong.*;
 import com.wangzhen.jvm.instructions.loads.loadref.*;
 import com.wangzhen.jvm.instructions.math.add.IADD;
-import com.wangzhen.jvm.instructions.references.GET_FIELD;
-import com.wangzhen.jvm.instructions.references.INVOKE_SPECIAL;
-import com.wangzhen.jvm.instructions.references.INVOKE_STATIC;
-import com.wangzhen.jvm.instructions.references.NEW;
+import com.wangzhen.jvm.instructions.references.*;
 import com.wangzhen.jvm.instructions.stack.dup.DUP;
 import com.wangzhen.jvm.instructions.stores.storedouble.*;
 import com.wangzhen.jvm.instructions.stores.storefloat.*;
@@ -464,8 +461,8 @@ public class InstructionFactory {
                 return new GET_FIELD();
 //            case 0xb5:
 //                return new PUT_FIELD();
-//            case 0xb6:
-//                return new INVOKE_VIRTUAL();
+            case 0xb6:
+                return new INVOKE_VIRTUAL();
             case 0xb7:
                 return new INVOKE_SPECIAL();
             case 0xb8:

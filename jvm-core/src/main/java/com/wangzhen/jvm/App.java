@@ -1,9 +1,11 @@
 package com.wangzhen.jvm;
 
 
+import com.wangzhen.jvm.test.IApp;
 import com.wangzhen.jvm.test.Person;
+import com.wangzhen.jvm.test.Son;
 
-public class App implements IApp{
+public class App  {
 //    public static final boolean FLAG = true;
 //    public static final byte BYTE = 123;
 //    public static final char X = 'X';
@@ -23,12 +25,13 @@ public class App implements IApp{
 //         int b =2;
 //         int c = a+b;
        // System.out.println(c);
-        Person person = new Person();
-        //person.name ="wangzhen";
+        Person person = new Son();
+        person.sayName();
+
     }
 
-    @Override
-    public void say(String name) {
-        System.out.println(name);
-    }
+//    @Override
+//    public void say(String name) {
+//        System.out.println(name);
+//    }
 }
