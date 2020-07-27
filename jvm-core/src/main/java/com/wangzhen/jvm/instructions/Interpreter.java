@@ -10,11 +10,12 @@ import com.wangzhen.jvm.runtimeData.helap.ZMethod;
 
 //
 public class Interpreter {
+
     public static void loop(ZThread thread) throws NoSuchMethodException {
 
         ByteCodeReader reader = new ByteCodeReader();
         while (true){
-            ZFrame frame=thread.getCurrentFrame();
+            ZFrame frame = thread.getCurrentFrame();
             // 获得当前栈帧的方法的字节码
             byte [] code = frame.getMethod().getCode();
             //这第一次 frame 才刚初始化，获取的 pc 应该是默认值 0 吧。

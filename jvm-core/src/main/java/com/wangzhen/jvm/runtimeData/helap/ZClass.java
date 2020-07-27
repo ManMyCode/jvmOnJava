@@ -356,6 +356,8 @@ public class ZClass {
         throw new RuntimeException("method not find: " + name + " " + descriptor);
     }
 
-
-
+    @Override
+    public String toString() {
+        return thisClassName;
+    }
 }

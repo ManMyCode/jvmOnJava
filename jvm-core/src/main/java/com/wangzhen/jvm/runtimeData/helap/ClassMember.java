@@ -86,4 +86,12 @@ public class ClassMember {
     public void setClazz(ZClass clazz) {
         this.clazz = clazz;
     }
+
+    @Override
+    public String toString() {
+        return "ClassMember{" +
+                " name='" + name + '\'' +
+                ", clazz=" + clazz +
+                '}';
+    }
 }

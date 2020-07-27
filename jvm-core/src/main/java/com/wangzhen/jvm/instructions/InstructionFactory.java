@@ -2,6 +2,7 @@ package com.wangzhen.jvm.instructions;
 
 
 import com.wangzhen.jvm.instructions.base.Instruction;
+import com.wangzhen.jvm.instructions.base.NoOperandsInstruction;
 import com.wangzhen.jvm.instructions.comparisons.fcmp.FCMPG;
 import com.wangzhen.jvm.instructions.constants.ACONST_NULL;
 import com.wangzhen.jvm.instructions.constants.BIPUSH;
@@ -504,8 +505,10 @@ public class InstructionFactory {
 //            // case 0xc9:
 //            // 	return new JSR_W();
 //            // case 0xca: breakpoint
-//            case 0xfe:
-//                return invoke_native;
+            case 0xfe:
+                // 调用本地方法先暂时不实现
+               // return invoke_native;
+                return  nop;
             // case 0xff: impdep2
             default:
                 throw new RuntimeException("Unsupported opcode: " + opCode);

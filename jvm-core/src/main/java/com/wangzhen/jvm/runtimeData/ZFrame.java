@@ -11,6 +11,7 @@ public class ZFrame {
 
     //当前栈帧所在的线程;
     ZThread thread;
+    // 当前栈帧所执行的方法
     ZMethod method;
 
     //frame中并不改变PC的值,
@@ -76,10 +77,6 @@ public class ZFrame {
 
     @Override
     public String toString() {
-        return "ZFrame{" +
-                "localVars=" + localVars +
-                ", operandStack=" + operandStack +
-                ", nextPC=" + nextPC +
-                '}';
+        return method+"";
     }
 }
