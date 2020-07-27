@@ -16,7 +16,9 @@ import com.wangzhen.jvm.instructions.loads.loadInt.*;
 import com.wangzhen.jvm.instructions.loads.loadlong.*;
 import com.wangzhen.jvm.instructions.loads.loadref.*;
 import com.wangzhen.jvm.instructions.math.add.IADD;
+import com.wangzhen.jvm.instructions.references.GET_FIELD;
 import com.wangzhen.jvm.instructions.references.INVOKE_SPECIAL;
+import com.wangzhen.jvm.instructions.references.INVOKE_STATIC;
 import com.wangzhen.jvm.instructions.references.NEW;
 import com.wangzhen.jvm.instructions.stack.dup.DUP;
 import com.wangzhen.jvm.instructions.stores.storedouble.*;
@@ -457,16 +459,16 @@ public class InstructionFactory {
 //                return new GET_STATIC();
 //            case 0xb3:
 //                return new PUT_STATIC();
-//            case 0xb4:
-//                return new GET_FIELD();
+            case 0xb4:
+                return new GET_FIELD();
 //            case 0xb5:
 //                return new PUT_FIELD();
 //            case 0xb6:
 //                return new INVOKE_VIRTUAL();
             case 0xb7:
                 return new INVOKE_SPECIAL();
-//            case 0xb8:
-//                return new INVOKE_STATIC();
+            case 0xb8:
+                return new INVOKE_STATIC();
 //            case 0xb9:
 //                return new INVOKE_INTERFACE();
 //            // case 0xba:

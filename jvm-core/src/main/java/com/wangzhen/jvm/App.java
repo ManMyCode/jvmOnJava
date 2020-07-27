@@ -24,7 +24,7 @@ public class App implements IApp{
 //         int c = a+b;
        // System.out.println(c);
         Person person = new Person();
-        person.name ="wangzhen";
+        //person.name ="wangzhen";
     }
 
     @Override

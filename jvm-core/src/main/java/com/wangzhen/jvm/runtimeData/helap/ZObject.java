@@ -33,4 +33,41 @@ public class ZObject {
     public Object getExtra() {
         return extra;
     }
+
+    public Slots getFields(){
+        return (Slots) data;
+    }
+
+    //为数组添加一些特有的方法：
+    public byte[] getBytes() {
+        return (byte[]) data;
+    }
+
+    public char[] getChars() {
+        return (char[]) data;
+    }
+
+    public short[] getShorts() {
+        return (short[]) data;
+    }
+
+    public int[] getInts() {
+        return (int[]) data;
+    }
+
+    public long[] getLongs() {
+        return (long[]) data;
+    }
+
+    public float[] getFloats() {
+        return (float[]) data;
+    }
+
+    public double[] getDoubles() {
+        return (double[]) data;
+    }
+
+    public ZObject[] getRefs() {
+        return (ZObject[]) data;
+    }
 }
