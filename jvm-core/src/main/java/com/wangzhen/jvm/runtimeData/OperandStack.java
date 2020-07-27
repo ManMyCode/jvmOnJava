@@ -3,10 +3,21 @@ package com.wangzhen.jvm.runtimeData;
 
 import com.wangzhen.jvm.runtimeData.helap.ZObject;
 
+import java.util.Arrays;
+
 public class OperandStack {
     Slot [] slots;
     int size;
     int maxStack;
+
+    @Override
+    public String toString() {
+        return "OperandStack{" +
+                "slots=" + Arrays.toString(slots) +
+                ", size=" + size +
+                ", maxStack=" + maxStack +
+                '}';
+    }
 
     public OperandStack(int maxStack) {
         this.maxStack = maxStack;

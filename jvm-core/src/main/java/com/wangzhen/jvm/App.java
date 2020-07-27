@@ -1,6 +1,7 @@
 package com.wangzhen.jvm;
 
 
+import com.wangzhen.jvm.test.Person;
 
 public class App implements IApp{
 //    public static final boolean FLAG = true;
@@ -22,8 +23,8 @@ public class App implements IApp{
 //         int b =2;
 //         int c = a+b;
        // System.out.println(c);
-        App app = new App();
-        app.n = 10;
+        Person person = new Person();
+        person.name ="wangzhen";
     }
 
     @Override

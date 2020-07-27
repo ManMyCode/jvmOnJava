@@ -268,6 +268,7 @@ public class ZClass {
         return "java/io/Serializable".equals(thisClassName);
     }
 
+    // 为对象分配存储空间
     public ZObject newObject() {
         return new ZObject(this);
     }

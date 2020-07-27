@@ -21,4 +21,16 @@ public class ZObject {
         this.data = data;
         this.extra = extra;
     }
+
+    public ZClass getClazz() {
+        return clazz;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public Object getExtra() {
+        return extra;
+    }
 }

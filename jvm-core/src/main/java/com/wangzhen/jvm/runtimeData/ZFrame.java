@@ -73,4 +73,13 @@ public class ZFrame {
     public  void revertPc(){
         this.nextPC = thread.getPc();
     }
+
+    @Override
+    public String toString() {
+        return "ZFrame{" +
+                "localVars=" + localVars +
+                ", operandStack=" + operandStack +
+                ", nextPC=" + nextPC +
+                '}';
+    }
 }

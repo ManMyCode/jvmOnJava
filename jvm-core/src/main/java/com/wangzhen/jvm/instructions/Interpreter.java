@@ -10,13 +10,13 @@ import com.wangzhen.jvm.runtimeData.helap.ZMethod;
 
 //
 public class Interpreter {
-    public static void loop(ZThread thread){
-        // 获得虚拟机栈上的 最顶层栈
-        ZFrame frame = thread.popFrame();
-        // 获得当前栈帧的方法的字节码
-        byte [] code = frame.getMethod().getCode();
+    public static void loop(ZThread thread) throws NoSuchMethodException {
+
         ByteCodeReader reader = new ByteCodeReader();
         while (true){
+            ZFrame frame=thread.getCurrentFrame();
+            // 获得当前栈帧的方法的字节码
+            byte [] code = frame.getMethod().getCode();
             //这第一次 frame 才刚初始化，获取的 pc 应该是默认值 0 吧。
             int pc = frame.getNextPC();
             thread.setPc(pc);
@@ -27,6 +27,7 @@ public class Interpreter {
             Instruction instruction = InstructionFactory.createInstruction(opCode);
             instruction.fetchOperands(reader);
             frame.setNextPC(reader.getPc());
+            System.out.println(frame.toString());
             instruction.execute(frame);
         }
 

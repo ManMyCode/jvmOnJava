@@ -38,7 +38,7 @@ public class ZStack {
         if(zFrames.size()==0){
             throw new EmptyStackException();
         }
-        return zFrames.get(zFrames.size());
+        return zFrames.get(zFrames.size()-1);
     }
 
 

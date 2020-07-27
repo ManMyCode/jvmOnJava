@@ -65,7 +65,7 @@ public class Main {
 
     }
 
-    public static void startJvm(String [] cpParameters){
+    public static void startJvm(String [] cpParameters) throws NoSuchMethodException {
         ClassPath classPath = new ClassPath("",cpParameters[0]);
         ZClassLoader classLoader = new ZClassLoader(classPath);
         ZClass zClass =  classLoader.loadClass(cpParameters[1]);

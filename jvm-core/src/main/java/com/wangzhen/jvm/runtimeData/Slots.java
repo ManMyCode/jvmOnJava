@@ -2,6 +2,8 @@ package com.wangzhen.jvm.runtimeData;
 
 import com.wangzhen.jvm.runtimeData.helap.ZObject;
 
+import java.util.Arrays;
+
 public class Slots {
     private Slot[] slots;
 
@@ -12,7 +14,12 @@ public class Slots {
         }
     }
 
-
+    @Override
+    public String toString() {
+        return "Slots{" +
+                "slots=" + Arrays.toString(slots) +
+                '}';
+    }
 
     //提供了对int,float,long,double,引用的存取,这里要注意的是long和double是占用8字节的,所以使用了局部变量表中的两个槽位分别存储前四字节和后四字节
     public void setInt(int index, int val) {
