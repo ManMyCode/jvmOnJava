@@ -2,6 +2,7 @@ package com.wangzhen.jvm.instructions.loads.loadlong;
 
 
 import com.wangzhen.jvm.instructions.base.Index8Instruction;
+import com.wangzhen.jvm.instructions.base.NoOperandsInstruction;
 import com.wangzhen.jvm.instructions.loads.Load;
 import com.wangzhen.jvm.runtimeData.ZFrame;
 
@@ -10,7 +11,7 @@ import com.wangzhen.jvm.runtimeData.ZFrame;
  * Time: 2017/5/5 0005.
  * Desc:
  */
-public class LLOAD_2 extends Index8Instruction {
+public class LLOAD_2 extends NoOperandsInstruction {
 
 
     @Override
