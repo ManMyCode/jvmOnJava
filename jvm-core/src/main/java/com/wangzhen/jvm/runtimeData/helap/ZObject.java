@@ -22,6 +22,11 @@ public class ZObject {
         this.extra = extra;
     }
 
+    public void setRefVar(String name, String descriptor, ZObject ref) {
+        ZField field = clazz.getField(name, descriptor, false);
+        Slots slots = (Slots) data;
+        slots.setRef(field.slotId, ref);
+    }
     public ZClass getClazz() {
         return clazz;
     }
