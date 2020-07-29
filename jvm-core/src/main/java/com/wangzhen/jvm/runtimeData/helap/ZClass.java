@@ -313,7 +313,7 @@ public class ZClass {
         }
         switch (thisClassName) {
             case "[Z":
-                return new ZObject(this, new byte[count], null);
+                return new ZObject(this, new boolean[count], null);
             case "[B":
                 return new ZObject(this, new byte[count], null);
             case "[C":

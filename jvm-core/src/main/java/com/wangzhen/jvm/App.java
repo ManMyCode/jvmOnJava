@@ -25,8 +25,12 @@ public class App  {
 //         int b =2;
 //         int c = a+b;
        // System.out.println(c);
-        Person person = new Son();
-        person.sayName();
+//        Person person = new Son();
+//        person.sayName();
+          Person [] persons = new Person[4];
+          Person wangzhen = new Person("wangzhen");
+          persons [0] = wangzhen;
+
 
     }
 

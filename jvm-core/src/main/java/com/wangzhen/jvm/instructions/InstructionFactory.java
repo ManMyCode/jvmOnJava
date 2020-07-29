@@ -475,8 +475,8 @@ public class InstructionFactory {
                 return new NEW();
 //            case 0xbc:
 //                return new NEW_ARRAY();
-//            case 0xbd:
-//                return new ANEW_ARRAY();
+            case 0xbd:
+                return new ANEW_ARRAY();
 //            case 0xbe:
 //                return arraylength;
 //            case 0xbf:

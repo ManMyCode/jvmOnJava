@@ -42,8 +42,10 @@ public class ZClassLoader {
         return zClass;
     }
 
-    public ZClass loadArrayClass(String name){
-        return null;
+    public ZClass loadArrayClass(String className){
+        ZClass zClass = new ZClass(AccessFlag.ACC_PUBLIC,className,this,true, loadClass("java/lang/Object"),new ZClass[]{loadClass("java/lang/Cloneable"), loadClass("java/io/Serializable")});
+        map.put(className,zClass);
+        return zClass;
     }
 
     private ZClass loadNonArrayClass(String name){
