@@ -5,10 +5,10 @@ import com.wangzhen.jvm.instructions.base.ByteCodeReader;
 import com.wangzhen.jvm.instructions.base.Instruction;
 import com.wangzhen.jvm.runtimeData.ZFrame;
 import com.wangzhen.jvm.runtimeData.ZThread;
-import com.wangzhen.jvm.runtimeData.helap.ZMethod;
 
 
-//
+
+
 public class Interpreter {
 
     public static void loop(ZThread thread) throws NoSuchMethodException {
@@ -19,6 +19,7 @@ public class Interpreter {
             try{
                frame = thread.getCurrentFrame();
             }catch (Exception e){
+                System.out.println("当前线程已经执行完所有jvm栈退出");
                 break;
             }
 

@@ -134,7 +134,7 @@ public class InstructionFactory {
             case 0x11:
                 return new SIPUSH();
             case 0x12:
-                //return new LDC();
+                return new LDC();
             case 0x13:
                 //return new LDC_W();
             case 0x14:
@@ -473,8 +473,8 @@ public class InstructionFactory {
 //            // 	return new INVOKE_DYNAMIC();
             case 0xbb:
                 return new NEW();
-//            case 0xbc:
-//                return new NEW_ARRAY();
+            case 0xbc:
+                return new NEW_ARRAY();
             case 0xbd:
                 return new ANEW_ARRAY();
 //            case 0xbe:

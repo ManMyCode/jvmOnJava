@@ -17,6 +17,7 @@ public class App  {
 //    public static int i =1;
 //    public int j = 2;
       public int n;
+      static int[] nums;
 
 
 
@@ -30,10 +31,20 @@ public class App  {
 //          Person [] persons = new Person[4];
 //          Person wangzhen = new Person("wangzhen");
 //          persons [0] = wangzhen;
-        int[] nums = new int[10];
+//          nums= new int[10];
+        String name ="wangzhen";
+        String name2="wang"+"zhen";
+        System.out.println(name == name2);
+//        String name3="wang";
+//        String name4="zhen";
+//        String name5=name3+name4;
+//        System.out.println(name==name5);
+
 
 
     }
+
+
 
 //    @Override
 //    public void say(String name) {

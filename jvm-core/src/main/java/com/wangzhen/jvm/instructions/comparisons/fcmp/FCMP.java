@@ -17,7 +17,7 @@ public class FCMP {
         float val2 = stack.popFloat();
         float val1 = stack.popFloat();
 
-        if (val1 > val2) {
+        if (val1 < val2) {
             stack.pushInt(1);
         } else if (val1 == val2) {
             stack.pushInt(0);

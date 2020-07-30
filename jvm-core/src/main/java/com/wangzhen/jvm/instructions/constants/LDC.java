@@ -1,13 +1,14 @@
 package com.wangzhen.jvm.instructions.constants;
 
 
+import com.wangzhen.jvm.classConstant.ConstantClassInfo;
 import com.wangzhen.jvm.classConstant.ConstantInfo;
 import com.wangzhen.jvm.instructions.base.Index8Instruction;
 import com.wangzhen.jvm.runtimeData.OperandStack;
 import com.wangzhen.jvm.runtimeData.ZFrame;
-import com.wangzhen.jvm.runtimeData.helap.RuntimeConstantInfo;
-import com.wangzhen.jvm.runtimeData.helap.RuntimeConstantPool;
-import com.wangzhen.jvm.runtimeData.helap.ZClass;
+import com.wangzhen.jvm.runtimeData.helap.*;
+
+import java.time.ZonedDateTime;
 
 /**
  * @author zachaxy
@@ -18,6 +19,7 @@ public class LDC extends Index8Instruction {
     @Override
     public void execute(ZFrame frame) throws NoSuchMethodException {
         ZClass zClass = frame.getMethod().getClazz();
+        ZClassLoader classLoader = zClass.getLoader();
         RuntimeConstantPool runtimeConstantPool= zClass.getRuntimeConstantPool();
         OperandStack operandStack = frame.getOperandStack();
         RuntimeConstantInfo runtimeConstantInfo= runtimeConstantPool.getRuntimeConstant(index);
@@ -29,6 +31,17 @@ public class LDC extends Index8Instruction {
                 operandStack.pushFLoat((Float) runtimeConstantInfo.getValue());
                 break;
             case ConstantInfo.CONSTANT_String_info:
+                ZObject zObject = StringPool.jString(classLoader, (String) runtimeConstantInfo.getValue());
+                operandStack.pushRef(zObject);
+                break;
+            case ConstantInfo.CONSTANT_Class_info:
+                ClassRef classRef = (ClassRef) runtimeConstantInfo.getValue();
+                ZObject object = classRef.resolvedClass().getjObject();
+                operandStack.pushRef(object);
+                break;
+            default:
+                break;
+
 
 
         }

@@ -26,7 +26,7 @@ public class NEW_ARRAY extends Index8Instruction {
     @Override
     public void execute(ZFrame frame) throws NoSuchMethodException {
         RuntimeConstantPool runtimeConstantPool = frame.getMethod().getClazz().getRuntimeConstantPool();
-        int type = runtimeConstantPool.getRuntimeConstant(index).getType();
+        //int type = runtimeConstantPool.getRuntimeConstant(index).getType();
         OperandStack operandStack = frame.getOperandStack();
         // 得到数组的大小
         int count = operandStack.popInt();
