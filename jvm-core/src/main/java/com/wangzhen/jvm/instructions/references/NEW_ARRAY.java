@@ -6,6 +6,7 @@ import com.wangzhen.jvm.runtimeData.ZFrame;
 import com.wangzhen.jvm.runtimeData.helap.RuntimeConstantPool;
 import com.wangzhen.jvm.runtimeData.helap.ZClass;
 import com.wangzhen.jvm.runtimeData.helap.ZClassLoader;
+import com.wangzhen.jvm.runtimeData.helap.ZObject;
 
 /**
  * 创建基本类型的数组指令，一维的
@@ -32,6 +33,9 @@ public class NEW_ARRAY extends Index8Instruction {
         if(count<1){
             throw new NegativeArraySizeException(count+"");
         }
+        ZClass arrayClass = getPrimitiveArrayClass(frame.getMethod().getClazz().getLoader());
+        ZObject arrObj = arrayClass.newArray(count);
+        operandStack.pushRef(arrObj);
 
 
 

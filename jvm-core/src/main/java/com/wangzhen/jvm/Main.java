@@ -75,8 +75,6 @@ public class Main {
         thread.pushFrame(frame);
         Interpreter.loop(thread);
 
-        //classLoader.loadClass()
-
     }
 
 
