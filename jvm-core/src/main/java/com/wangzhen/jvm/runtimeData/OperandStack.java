@@ -119,6 +119,11 @@ public class OperandStack {
         return slots[size - 1 - n].ref;
     }
 
+
+    public ZObject getRef(int index) {
+        return slots[index].ref;
+    }
+
     // 清空操作数栈
     public void clear(){
         size=0;
