@@ -22,23 +22,12 @@ public class App  {
 
 
     public static void main(String[] args) throws RuntimeException {
-//         int a= 1;
-//         int b =2;
-//         int c = a+b;
-       // System.out.println(c);
-//        Person person = new Son();
-//        person.sayName();
-//          Person [] persons = new Person[4];
-//          Person wangzhen = new Person("wangzhen");
-//          persons [0] = wangzhen;
-//          nums= new int[10];
-        String name ="wangzhen";
-        String name2="wang"+"zhen";
-        System.out.println(name == name2);
-//        String name3="wang";
-//        String name4="zhen";
-//        String name5=name3+name4;
-//        System.out.println(name==name5);
+        String a="wang";
+        String b="zhen";
+        String name= "wangzhen";
+        String ab=a+b;
+        boolean flag = name == ab;
+
 
 
 
