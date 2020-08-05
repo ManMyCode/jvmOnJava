@@ -4,11 +4,14 @@ package com.wangzhen.jvm.instructions;
 import com.wangzhen.jvm.instructions.base.Instruction;
 import com.wangzhen.jvm.instructions.base.NoOperandsInstruction;
 import com.wangzhen.jvm.instructions.comparisons.fcmp.FCMPG;
+import com.wangzhen.jvm.instructions.comparisons.ifacmp.IF_ACMPEQ;
+import com.wangzhen.jvm.instructions.comparisons.ifacmp.IF_ACMPNE;
 import com.wangzhen.jvm.instructions.constants.ACONST_NULL;
 import com.wangzhen.jvm.instructions.constants.BIPUSH;
 import com.wangzhen.jvm.instructions.constants.NOP;
 import com.wangzhen.jvm.instructions.constants.SIPUSH;
 import com.wangzhen.jvm.instructions.constants.*;
+import com.wangzhen.jvm.instructions.control.GOTO;
 import com.wangzhen.jvm.instructions.control.RETURN;
 import com.wangzhen.jvm.instructions.loads.loadDouble.*;
 import com.wangzhen.jvm.instructions.loads.loadFloat.*;
@@ -427,12 +430,12 @@ public class InstructionFactory {
 //                return new IF_ICMPGT();
 //            case 0xa4:
 //                return new IF_ICMPLE();
-//            case 0xa5:
-//                return new IF_ACMPEQ();
-//            case 0xa6:
-//                return new IF_ACMPNE();
-//            case 0xa7:
-//                return new GOTO();
+            case 0xa5:
+                return new IF_ACMPEQ();
+            case 0xa6:
+                return new IF_ACMPNE();
+            case 0xa7:
+                return new GOTO();
             // case 0xa8:
             // 	return new JSR();
             // case 0xa9:

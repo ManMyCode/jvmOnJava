@@ -27,6 +27,13 @@ public class ZObject {
         Slots slots = (Slots) data;
         slots.setRef(field.slotId, ref);
     }
+
+    public ZObject getRefVar(String name,String description){
+        ZField zField = clazz.getField(name,description,false);
+        Slots slots = (Slots) data;
+        return slots.getRef(zField.getSlotId());
+    }
+
     public ZClass getClazz() {
         return clazz;
     }

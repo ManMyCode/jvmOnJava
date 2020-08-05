@@ -1,6 +1,7 @@
 package com.wangzhen.jvm;
 
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.wangzhen.jvm.test.IApp;
 import com.wangzhen.jvm.test.Person;
 import com.wangzhen.jvm.test.Son;
@@ -24,13 +25,11 @@ public class App  {
     public static void main(String[] args) throws RuntimeException {
         String a="wang";
         String b="zhen";
-        String name= "wangzhen";
-        String ab=a+b;
-        boolean flag = name == ab;
-
-
-
-
+        String c="wang"+"zhen";
+        String d="wangzhen";
+        boolean flag =  c==d;
+//        boolean flag = true;
+//        boolean flag2 = false;
     }
 
 

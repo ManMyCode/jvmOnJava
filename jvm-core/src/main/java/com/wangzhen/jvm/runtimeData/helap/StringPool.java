@@ -27,4 +27,18 @@ public class StringPool {
         return jStr;
     }
 
+    public static String realString(ZObject jstr){
+        if (realInternedString.containsKey(jstr)){
+            return realInternedString.get(jstr);
+        }
+        ZObject ref=jstr.getRefVar("value","[C");
+        char [] chars = ref.getChars();
+        String realStr = new String(chars);
+        realInternedString.put(jstr,realStr);
+        return realStr;
+
+    }
+
+
+
 }
