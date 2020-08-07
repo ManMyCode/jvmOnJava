@@ -458,8 +458,8 @@ public class InstructionFactory {
                 return _return;
             case 0xb2:
                 return new GET_STATIC();
-//            case 0xb3:
-//                return new PUT_STATIC();
+            case 0xb3:
+                return new PUT_STATIC();
             case 0xb4:
                 return new GET_FIELD();
 //            case 0xb5:

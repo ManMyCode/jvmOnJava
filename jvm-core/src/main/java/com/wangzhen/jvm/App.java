@@ -2,9 +2,13 @@ package com.wangzhen.jvm;
 
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import com.wangzhen.jvm.runtimeData.helap.StringPool;
 import com.wangzhen.jvm.test.IApp;
 import com.wangzhen.jvm.test.Person;
 import com.wangzhen.jvm.test.Son;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class App  {
 //    public static final boolean FLAG = true;
@@ -19,17 +23,27 @@ public class App  {
 //    public int j = 2;
       public int n;
       static int[] nums;
+    volatile  public int m ;
 
 
+    public void  fn(){
+        m=2;
+    }
 
     public static void main(String[] args) throws RuntimeException {
-        String a="wang";
-        String b="zhen";
-        String c="wang"+"zhen";
-        String d="wangzhen";
-        boolean flag =  c==d;
+//        String a="wang";
+//        String b="zhen";
+//        String c="wang"+"zhen";
+//        String d="wangzhen";
+//        boolean flag = c.intern() ==d;
+//        StringBuilder s=new StringBuilder();
 //        boolean flag = true;
 //        boolean flag2 = false;
+//        System.out.println(flag);
+       // String name =new String("wangzhen");
+        // List<App> appList=new ArrayList<>();
+
+
     }
 
 

@@ -1,6 +1,5 @@
-package map;
+package com.wangzhen.concurrent.map;
 
-import javax.crypto.spec.PSource;
 import java.util.HashMap;
 
 public class testHashMap {
