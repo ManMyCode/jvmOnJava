@@ -1,6 +1,7 @@
 package com.wangzhen.jvm;
 
 
+import com.sun.corba.se.spi.ior.ObjectKey;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.wangzhen.jvm.runtimeData.helap.StringPool;
 import com.wangzhen.jvm.test.IApp;
@@ -9,6 +10,7 @@ import com.wangzhen.jvm.test.Son;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class App  {
 //    public static final boolean FLAG = true;
@@ -20,15 +22,8 @@ public class App  {
 //    public static final float PI = 3.14f;
 //    public static final double E = 2.71828;
 //    public static int i =1;
-//    public int j = 2;
-      public int n;
-      static int[] nums;
-    volatile  public int m ;
-
-
-    public void  fn(){
-        m=2;
-    }
+     public int j = 1;
+      public static byte i=-1;
 
     public static void main(String[] args) throws RuntimeException {
 //        String a="wang";
@@ -42,9 +37,20 @@ public class App  {
 //        System.out.println(flag);
        // String name =new String("wangzhen");
         // List<App> appList=new ArrayList<>();
+        Class class1 = App.class;
+        Class class2 = new App().getClass();
+        Class class3 = new App().getClass();
+
 
 
     }
+    public void fn(int n){
+        synchronized (this){
+            n++;
+        }
+    }
+
+
 
 
 
