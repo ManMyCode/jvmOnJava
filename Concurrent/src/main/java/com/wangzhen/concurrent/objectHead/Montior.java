@@ -1,6 +1,6 @@
 package com.wangzhen.concurrent.objectHead;
 
-import com.wangzhen.concurrent.util.SleepUtils;
+
 import org.junit.Test;
 import org.openjdk.jol.info.ClassLayout;
 

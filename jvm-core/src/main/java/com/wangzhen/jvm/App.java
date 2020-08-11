@@ -26,24 +26,21 @@ public class App  {
       public static byte i=-1;
 
     public static void main(String[] args) throws RuntimeException {
-//        String a="wang";
-//        String b="zhen";
-//        String c="wang"+"zhen";
-//        String d="wangzhen";
-//        boolean flag = c.intern() ==d;
-//        StringBuilder s=new StringBuilder();
-//        boolean flag = true;
-//        boolean flag2 = false;
-//        System.out.println(flag);
-       // String name =new String("wangzhen");
-        // List<App> appList=new ArrayList<>();
-        Class class1 = App.class;
-        Class class2 = new App().getClass();
-        Class class3 = new App().getClass();
-
-
+        method1();
 
     }
+    public static Object lock = new Object();
+    public static void method1(){
+        synchronized (lock){
+            method2();
+        }
+    }
+    public static void method2(){
+        synchronized (lock){
+            System.out.println("method2");
+        }
+    }
+
     public void fn(int n){
         synchronized (this){
             n++;
