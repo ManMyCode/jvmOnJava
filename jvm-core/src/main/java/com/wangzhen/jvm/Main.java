@@ -12,6 +12,11 @@ import org.apache.commons.cli.*;
 
 import java.util.Arrays;
 
+
+/**
+ * 启动参数
+ * -cp jvm-core/target/classes/com/wangzhen/jvm  App
+ */
 public class Main {
     public static void main(String[] args) {
         // https://blog.csdn.net/yamaxifeng_132/article/details/87822812
