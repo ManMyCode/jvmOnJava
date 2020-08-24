@@ -12,6 +12,7 @@
         <module>jvm-core</module>
         <module>jvm-study</module>
         <module>Concurrent</module>
+        <module>algorithm</module>
     </modules>
 
     <dependencies>
