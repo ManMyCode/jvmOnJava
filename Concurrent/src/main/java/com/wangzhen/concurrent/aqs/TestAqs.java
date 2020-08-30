@@ -9,10 +9,13 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class TestAqs {
     static Logger logger = LoggerFactory.getLogger(TestAqs.class);
+
     public static void main(String[] args) {
+        new ReentrantLock();
         MyLock lock = new MyLock();
         new Thread(()->{
             lock.lock();
