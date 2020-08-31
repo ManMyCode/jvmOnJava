@@ -15,6 +15,7 @@ public class TestAqs {
     static Logger logger = LoggerFactory.getLogger(TestAqs.class);
 
     public static void main(String[] args) {
+
         new ReentrantLock();
         MyLock lock = new MyLock();
         new Thread(()->{
@@ -62,7 +63,7 @@ class MyLock implements Lock{
             return true;
         }
 
-        // 是否是独占锁
+        // 是否处于占用状态
         @Override
         protected boolean isHeldExclusively() {
             return getState()==1;
