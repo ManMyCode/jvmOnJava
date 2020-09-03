@@ -1,16 +1,33 @@
 package com.wangzhen.algorithm.sort;
 
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public abstract class SortBaic {
+    static Logger logger = LoggerFactory.getLogger(SortBaic.class);
     public abstract  void sort(Comparable[] a);
 
     public static boolean less(Comparable v,Comparable w){
         return v.compareTo(w)<0;
     }
 
+    public static void swap(Comparable []a,int n,int m){
+        Comparable t =a[n];
+        a[n] = a[m];
+        a[m] = t;
+
+    }
+
+
     public static void show(Comparable []a){
-        for (int i=0;i<=a.length;i++){
-            System.out.println(a[i]);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i=0;i<a.length;i++){
+            stringBuilder.append(","+a[i]);
+           //logger.debug(a[i].toString());
         }
+        logger.debug(stringBuilder.toString());
     }
     public static boolean isSorted(Comparable []a){
         for (int i=1;i<a.length;i++){
@@ -20,7 +37,16 @@ public abstract class SortBaic {
         return true;
     }
 
+
+    public void testSort(){
+        Integer []array = {9,5,2,4,6,1,6,0,33,43,22};
+        sort(array);
+    }
+
+
     public static void main(String[] args) {
         System.out.println(less(1, 2));
     }
+
+
 }
