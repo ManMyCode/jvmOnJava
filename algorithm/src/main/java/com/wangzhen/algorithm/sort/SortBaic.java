@@ -6,8 +6,9 @@ import org.slf4j.LoggerFactory;
 
 public abstract class SortBaic {
     static Logger logger = LoggerFactory.getLogger(SortBaic.class);
-    public abstract  void sort(Comparable[] a);
+    public abstract  Comparable[]  sort(Comparable[] a);
 
+    // v 是否小于w
     public static boolean less(Comparable v,Comparable w){
         return v.compareTo(w)<0;
     }
@@ -40,7 +41,8 @@ public abstract class SortBaic {
 
     public void testSort(){
         Integer []array = {9,5,2,4,6,1,6,0,33,43,22};
-        sort(array);
+        Comparable [] result = sort(array);
+        show(result);
     }
 
 

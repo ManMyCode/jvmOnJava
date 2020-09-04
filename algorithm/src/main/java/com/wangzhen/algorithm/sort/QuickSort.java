@@ -1,8 +1,9 @@
 package com.wangzhen.algorithm.sort;
 
 public class QuickSort extends SortBaic{
-    @Override
-    public void sort(Comparable[] a) {
 
+    @Override
+    public Comparable[] sort(Comparable[] a) {
+        return new Comparable[0];
     }
 }

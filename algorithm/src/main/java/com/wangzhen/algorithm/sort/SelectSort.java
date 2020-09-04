@@ -6,7 +6,7 @@ import org.junit.Test;
 public class SelectSort extends SortBaic {
 
     @Override
-    public void sort(Comparable[] array) {
+    public Comparable[] sort(Comparable[] array) {
         int length = array.length;
         for (int i = 0; i < length; i++) {
             Comparable temp = array[i];
@@ -19,6 +19,7 @@ public class SelectSort extends SortBaic {
         if(isSorted(array)){
             show(array);
         }
+        return array;
 
     }
 
