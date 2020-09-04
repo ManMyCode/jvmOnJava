@@ -1,6 +1,4 @@
-package com.wangzhen.concurrent.Sort;
-
-import com.wangzhen.concurrent.util.SleepUtils;
+package com.wangzhen.concurrent.juc.interupt.Sort;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.wangzhen.concurrent.objectHead;
+package com.wangzhen.concurrent.juc.objectHead;
 
 import org.junit.Test;
 import org.openjdk.jol.info.ClassLayout;

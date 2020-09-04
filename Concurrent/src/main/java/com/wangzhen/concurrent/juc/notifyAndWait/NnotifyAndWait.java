@@ -1,8 +1,7 @@
-package com.wangzhen.concurrent.notifyAndWait;
+package com.wangzhen.concurrent.juc.notifyAndWait;
 
 import com.wangzhen.concurrent.util.SleepUtils;
 import org.junit.Test;
-import org.omg.PortableServer.THREAD_POLICY_ID;
 
 public class NnotifyAndWait {
     public Object lock = new Object();

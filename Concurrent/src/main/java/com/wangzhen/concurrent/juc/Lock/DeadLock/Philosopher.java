@@ -1,4 +1,4 @@
-package com.wangzhen.concurrent.Lock.DeadLock;
+package com.wangzhen.concurrent.juc.Lock.DeadLock;
 
 import com.wangzhen.concurrent.util.SleepUtils;
 import org.slf4j.Logger;

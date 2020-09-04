@@ -1,7 +1,6 @@
-package com.wangzhen.concurrent.park;
+package com.wangzhen.concurrent.juc.park;
 
 import com.wangzhen.concurrent.util.SleepUtils;
-import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

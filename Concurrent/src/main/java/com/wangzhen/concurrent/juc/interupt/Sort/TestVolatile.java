@@ -1,6 +1,4 @@
-package com.wangzhen.concurrent.Sort;
-
-import com.wangzhen.concurrent.util.SleepUtils;
+package com.wangzhen.concurrent.juc.interupt.Sort;
 
 public class TestVolatile {
     public   static int i=0;

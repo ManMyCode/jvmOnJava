@@ -1,4 +1,4 @@
-package com.wangzhen.concurrent.interupt;
+package com.wangzhen.concurrent.juc.interupt;
 
 import com.wangzhen.concurrent.util.SleepUtils;
 

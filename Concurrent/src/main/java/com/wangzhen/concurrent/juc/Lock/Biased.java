@@ -1,10 +1,8 @@
-package com.wangzhen.concurrent.Lock;
+package com.wangzhen.concurrent.juc.Lock;
 
 import com.wangzhen.concurrent.util.SleepUtils;
 import org.junit.Test;
 import org.openjdk.jol.info.ClassLayout;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * 偏向锁

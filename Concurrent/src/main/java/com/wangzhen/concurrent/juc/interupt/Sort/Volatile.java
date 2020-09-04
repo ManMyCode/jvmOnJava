@@ -1,4 +1,4 @@
-package com.wangzhen.concurrent.Sort;
+package com.wangzhen.concurrent.juc.interupt.Sort;
 
 public class Volatile {
     public static volatile int n =0;

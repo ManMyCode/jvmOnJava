@@ -1,4 +1,4 @@
-package com.wangzhen.concurrent.Sort;
+package com.wangzhen.concurrent.juc.interupt.Sort;
 
 public class PossibleReordering {
     static int x = 0, y = 0;
