@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>jvm-core</module>
-        <module>jvm-study</module>
+        <module>java-study</module>
         <module>Concurrent</module>
         <module>algorithm</module>
     </modules>
