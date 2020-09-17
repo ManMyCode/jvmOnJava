@@ -1,7 +1,7 @@
 package com.wangzhen.algorithm.leetcode.le_26;
 
 
-import com.wangzhen.algorithm.leetcode.common.TreeNode;
+import com.wangzhen.algorithm.leetcode.tree.common.TreeNode;
 
 /**
  * Description:  剑指 Offer 26. 树的子结构

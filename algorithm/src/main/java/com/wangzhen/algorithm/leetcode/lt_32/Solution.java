@@ -1,18 +1,18 @@
 package com.wangzhen.algorithm.leetcode.lt_32;
 
-import com.wangzhen.algorithm.leetcode.common.TreeNode;
+import com.wangzhen.algorithm.leetcode.tree.common.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
- * Description: 剑指 Offer 32 - I. 从上到下打印二叉树
- *                 Breadth First Search BFS 广度优先搜索
+ * Description: 剑指 Offer 32 - I. 从上到下打印二叉树  Breadth First Search BFS 广度优先搜索
+ *              这里通过 列表先进先出的特性来实现广度优先搜索。
  * Datetime:    2020/9/17   2:29 下午
  * Author:   王震
  */
 class Solution {
+    // bfs
     public int[] levelOrder(TreeNode root) {
         if(root == null){
             return new int[0];
@@ -22,7 +22,6 @@ class Solution {
         list.add(root);
         while (!list.isEmpty()){
             TreeNode treeNode = list.poll();
-            //System.out.println(treeNode.val);
             ans.add(treeNode.val);
             if(treeNode.left!=null){
                 list.add(treeNode.left);
