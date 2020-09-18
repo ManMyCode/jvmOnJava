@@ -9,5 +9,5 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>jvm-study</artifactId>
+    <artifactId>java-study</artifactId>
 </project>
