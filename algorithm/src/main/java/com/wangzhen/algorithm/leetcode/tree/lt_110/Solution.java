@@ -1,4 +1,6 @@
-package com.wangzhen.algorithm.leetcode.lt_55_2;
+package com.wangzhen.algorithm.leetcode.tree.lt_110;
+
+import com.wangzhen.algorithm.leetcode.tree.common.TreeNode;
 
 /**
  * Description:  输入一棵二叉树的根节点，判断该树是不是平衡二叉树。如果某二叉树中任意节点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。
@@ -8,6 +10,7 @@ package com.wangzhen.algorithm.leetcode.lt_55_2;
 class Solution {
     boolean isBala = true;
     public boolean isBalanced(TreeNode root) {
+        // 遍历二叉树 看每个节点是否是 平衡节点
         list(root);
         return isBala;
     }
@@ -39,16 +42,4 @@ class Solution {
 
 }
 
-
-class TreeNode {
-      int val;
-      TreeNode left;
-      TreeNode right;
-      public int height(){
-          return Math.max(this.left==null ? 0 : left.height(),this.right==null ? 0 :right.height())+1;
-      }
-      TreeNode(int x) {
-          val = x;
-      }
-}
 

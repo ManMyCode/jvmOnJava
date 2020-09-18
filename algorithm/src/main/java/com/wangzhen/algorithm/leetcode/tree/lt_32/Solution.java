@@ -1,4 +1,4 @@
-package com.wangzhen.algorithm.leetcode.lt_32;
+package com.wangzhen.algorithm.leetcode.tree.lt_32;
 
 import com.wangzhen.algorithm.leetcode.tree.common.TreeNode;
 
