@@ -1,7 +1,7 @@
 package com.wangzhen.jvm;
 
 
-import javafx.beans.binding.StringBinding;
+
 
 
 public class App  {
@@ -14,11 +14,3 @@ public class App  {
 
 }
 
-class TestFinal{
-    public static void main(String[] args) {
-        System.out.println(App.A);
-        System.out.println(App.B);
-        System.out.println(new App().a);
-        System.out.println(new App().b);
-    }
-}
