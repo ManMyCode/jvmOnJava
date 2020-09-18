@@ -19,7 +19,7 @@ public class TestConnectionPool {
                 public void run() {
                     Connection conn = pool.borrow();
                     try {
-                        Thread.int(new Random().nextInt(1000));
+                        Thread.sleep(new Random().nextInt(1000));
 
                     } catch (InterruptedException e) {
                         e.printStackTrace();
