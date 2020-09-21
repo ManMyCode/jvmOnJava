@@ -6,6 +6,14 @@ public class QuickSort extends SortBaic {
 
     @Override
     public Comparable[] sort(Comparable[] a) {
-        return new Comparable[0];
+
+        return a;
+    }
+    public void sort(Comparable[] a,int left,int right){
+        int part = partition(a,left,right);
+    }
+    // 获取基准值
+    public int partition(Comparable []a ,int left,int right){
+        return 0;
     }
 }

@@ -40,7 +40,7 @@ public abstract class SortBaic {
 
 
     public void testSort(){
-        Integer []array = {9,5,2,4,6,1,6,0,33,43,22};
+        Integer []array = {9,5,2,4,6,1,-1,6,0,33,43,22};
         Comparable [] result = sort(array);
         show(result);
     }
