@@ -1,45 +1,102 @@
 package com.wangzhen.algorithm.tree.BST;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * Description:  binary search tree 二叉查找树的实现
+ * Description:  binary search tree 二叉查找树/二叉搜索树 的实现
  * Datetime:    2020/9/20   4:09 下午
  * Author:   王震
  */
-public class BST<key extends Comparable<key>,value> {
+public class BST {
     public Node root;
+    List<Integer> list = new ArrayList<>();
     private class Node{
-        // 键
-        private key key;
-        // 值
-        private value value;
-        // 左右节点
-        private Node left,right;
-        // 以该节点为根的节点的树中的节点总数
-        private int N;
+        private int value;
+        Node left;
+        Node right;
+        boolean isDelete;
 
-        public Node(key key, value value, Node left, Node right, int n) {
-            this.key = key;
+        public Node(int value) {
             this.value = value;
-            this.left = left;
-            this.right = right;
-            N = n;
+        }
+    }
+    // 递归版插入
+    public boolean insert(Node p,int data){
+        Node newNode= new Node(data);
+        if(p==null){
+            return false;
+        }
+        if(data>p.value){
+            if(p.right!=null){
+                insert(p.right,data);
+            }
+            p.right=newNode;
+        }else {
+            if(p.left!=null){
+                insert(p.left,data);
+            }
+            p.left=newNode;
+        }
+        return true;
+    }
+
+    // 递归版本查找
+    public Node find(Node p,int data){
+        if(p==null)
+            return null;
+        if(data==p.value){
+            return p;
+        }if(data>p.value){
+            return find(p.right,data);
+        }else{
+            return find(p.left,data);
         }
     }
 
-    public int size(){
-        return 0;
+    //前序遍历 非递归版本
+    public void preOrder(Node p){
+        list.add(p.value);
+        preOrder(p.left);
+        preOrder(p.right);
     }
-    private int size(Node x){
-        if(x==null)
-            return 0;
-        else
-            return x.N;
+    //中序遍历 非递归版本
+    public void infixOrder(Node p){
+        infixOrder(p.left);
+        list.add(p.value);
+        infixOrder(p.right);
     }
-    public value get(key k){
-        return null;
-    }
-    public void put(key k, value v){
 
+    //后序遍历 非递归版本
+    public void postOrder(Node p){
+        postOrder(p.left);
+        postOrder(p.right);
+        list.add(p.value);
     }
+
+
+    //查找最大值
+    public Node findMax(){
+        Node p = root;
+        while (p.left!=null){
+            p=p.left;
+        }
+        return p;
+    }
+    //查找最小值
+    public Node findMin(){
+        Node p = root;
+        while (p.right!=null){
+            p=p.right;
+        }
+        return p;
+    };
+
+    public boolean delete(int value){
+        return false;
+    }
+
+
+
 
 }
