@@ -5,12 +5,18 @@ package com.wangzhen.jvm;
 
 
 public class App  {
-    static final int A =10;
-    static final int B =Short.MAX_VALUE+1;
-
-     final int a =10;
-     final int b =Short.MAX_VALUE+1;
-
-
+    public static void main(String[] args) {
+        App app = new App();
+        int []array = {3,8};
+        app.swap(array,0,1);
+    }
+    public void swap(int []arr,int i,int j){
+        int temp =arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    public void test(){
+        System.out.println("test 方法被调用了");
+    }
 }
 
