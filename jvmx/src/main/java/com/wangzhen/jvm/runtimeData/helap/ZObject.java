@@ -82,4 +82,27 @@ public class ZObject {
     public ZObject[] getRefs() {
         return (ZObject[]) data;
     }
+
+    public int getArrayLen() {
+        switch (data.getClass().getSimpleName()) {
+            case "byte[]":
+                return getBytes().length;
+            case "short[]":
+                return getShorts().length;
+            case "char[]":
+                return getChars().length;
+            case "int[]":
+                return getInts().length;
+            case "long[]":
+                return getLongs().length;
+            case "float[]":
+                return getFloats().length;
+            case "double[]":
+                return getDoubles().length;
+            case "Zobject[]":
+                return getRefs().length;
+            default:
+                throw new RuntimeException("called length on a none array object!");
+        }
+    }
 }

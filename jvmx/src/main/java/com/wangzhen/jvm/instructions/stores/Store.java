@@ -36,6 +36,11 @@ public class Store {
         }
     }
 
+    /**
+     *
+     * @param count  数组的长度
+     * @param index 素组的索引值
+     */
     public static void checkIndex(int count, int index) {
         if (index < 0 || index >= count) {
             throw new ArrayIndexOutOfBoundsException("index: " + index + " array's count: " + count);

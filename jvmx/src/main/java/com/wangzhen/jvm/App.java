@@ -6,10 +6,21 @@ package com.wangzhen.jvm;
 
 public class App  {
     public static void main(String[] args) {
-        App app = new App();
-        int []array = {3,8};
-        app.swap(array,0,1);
+        int i = 0;
+        int [] arr = {1,2};
+        set(i);
+        setArr(arr);
+        System.out.println(i);
+        System.out.println(arr[0]);
     }
+
+    public static void  set (int i){
+        i = 8;
+    }
+    public static void  setArr(int []arr){
+        arr[0] = 100;
+    }
+
     public void swap(int []arr,int i,int j){
         int temp =arr[i];
         arr[i] = arr[j];

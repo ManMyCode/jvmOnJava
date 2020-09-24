@@ -27,6 +27,7 @@ import com.wangzhen.jvm.instructions.stores.storefloat.*;
 import com.wangzhen.jvm.instructions.stores.storeint.*;
 import com.wangzhen.jvm.instructions.stores.storelong.*;
 import com.wangzhen.jvm.instructions.stores.storeref.*;
+import com.wangzhen.jvm.instructions.stores.storexarr.IASTORE;
 
 
 /**
@@ -95,6 +96,7 @@ public class InstructionFactory {
     static FCMPG fcmpg = new FCMPG();
     static RETURN _return = new RETURN();
     static DUP dup = new DUP();
+    static IASTORE iastore = new IASTORE();
 
 
 
@@ -259,7 +261,7 @@ public class InstructionFactory {
             case 0x4e:
                 return astore_3;
             case 0x4f:
-//                return iastore;
+                 return iastore;
 //            case 0x50:
 //                return lastore;
 //            case 0x51:
