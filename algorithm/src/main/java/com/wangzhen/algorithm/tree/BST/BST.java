@@ -21,9 +21,17 @@ public class BST {
             this.value = value;
         }
     }
+
+    public boolean insert(int data){
+        return insert(root,data);
+    }
+
     // 递归版插入
     public boolean insert(Node p,int data){
         Node newNode= new Node(data);
+        if(root==null){
+            root=newNode;
+        }
         if(p==null){
             return false;
         }
@@ -41,6 +49,9 @@ public class BST {
         return true;
     }
 
+    public Node find(int data){
+        return find(root,data);
+    }
     // 递归版本查找
     public Node find(Node p,int data){
         if(p==null)
@@ -56,22 +67,31 @@ public class BST {
 
     //前序遍历 非递归版本
     public void preOrder(Node p){
-        list.add(p.value);
-        preOrder(p.left);
-        preOrder(p.right);
+        if(p!=null){
+            list.add(p.value);
+            preOrder(p.left);
+            preOrder(p.right);
+        }
+
     }
     //中序遍历 非递归版本
     public void infixOrder(Node p){
-        infixOrder(p.left);
-        list.add(p.value);
-        infixOrder(p.right);
+        if(p!=null){
+            infixOrder(p.left);
+            list.add(p.value);
+            infixOrder(p.right);
+        }
+
     }
 
     //后序遍历 非递归版本
     public void postOrder(Node p){
-        postOrder(p.left);
-        postOrder(p.right);
-        list.add(p.value);
+        if(p!=null){
+            postOrder(p.left);
+            postOrder(p.right);
+            list.add(p.value);
+        }
+
     }
 
 
@@ -97,6 +117,26 @@ public class BST {
     }
 
 
+    public static void main(String[] args) {
+        BST bt = new BST();
+        bt.insert(50);
+        bt.insert(20);
+        bt.insert(80);
+        bt.insert(10);
+        bt.insert(30);
+        bt.insert(60);
+        bt.insert(90);
+        bt.insert(25);
+        bt.insert(85);
+        bt.insert(100);
+        bt.delete(10);//删除没有子节点的节点
+        bt.delete(30);//删除有一个子节点的节点
+        bt.delete(80);//删除有两个子节点的节点
+        System.out.println(bt.findMax().value);
+        System.out.println(bt.findMin().value);
+        System.out.println(bt.find(100));
+        System.out.println(bt.find(200));
+    }
 
 
 }
