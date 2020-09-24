@@ -14,8 +14,9 @@ import java.util.Arrays;
 
 
 /**
- * 启动参数
- * -cp jvm-core/target/classes/com/wangzhen/jvm  App
+ *  使用说明：
+ *  1.启动参数
+ * -cp jvmx/target/classes/com/wangzhen/jvm  App
  */
 public class Main {
     public static void main(String[] args) {
