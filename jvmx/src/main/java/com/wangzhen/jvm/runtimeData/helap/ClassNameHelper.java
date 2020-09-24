@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * @author zachaxy
+ * @Desc
  * @date 17/12/29
  */
 public class ClassNameHelper {
@@ -17,7 +18,7 @@ public class ClassNameHelper {
         primitiveTypes.put("byte", "B");
         primitiveTypes.put("short", "S");
         primitiveTypes.put("int", "I");
-        primitiveTypes.put("long", "J");
+        primitiveTypes.put("long", "J"); // L 已经被对象使用掉了，所以这里使用 J 代表long
         primitiveTypes.put("char", "C");
         primitiveTypes.put("float", "F");
         primitiveTypes.put("double", "D");

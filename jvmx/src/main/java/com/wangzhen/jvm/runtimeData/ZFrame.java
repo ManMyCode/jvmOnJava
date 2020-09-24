@@ -3,7 +3,12 @@ package com.wangzhen.jvm.runtimeData;
 import com.wangzhen.jvm.runtimeData.helap.ZMethod;
 
 /**
- * jvm 虚拟机栈帧
+ * jvm 虚拟机栈帧：
+ *            1.局部变量表
+ *            2.操作数栈
+ *            3.动态链接
+ *            4.方法返回地址
+ *            5.一些附加信息
  */
 public class ZFrame {
     LocalVars localVars;    //局部变量表的引用;
