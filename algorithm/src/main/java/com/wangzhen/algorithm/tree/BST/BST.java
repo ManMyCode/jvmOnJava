@@ -38,13 +38,17 @@ public class BST {
         if(data>p.value){
             if(p.right!=null){
                 insert(p.right,data);
+            }else {
+                p.right=newNode;
             }
-            p.right=newNode;
+
         }else {
             if(p.left!=null){
                 insert(p.left,data);
+            }else {
+                p.left=newNode;
             }
-            p.left=newNode;
+
         }
         return true;
     }
@@ -98,16 +102,16 @@ public class BST {
     //查找最大值
     public Node findMax(){
         Node p = root;
-        while (p.left!=null){
-            p=p.left;
+        while (p.right!=null){
+            p=p.right;
         }
         return p;
     }
     //查找最小值
     public Node findMin(){
         Node p = root;
-        while (p.right!=null){
-            p=p.right;
+        while (p.left!=null){
+            p=p.left;
         }
         return p;
     };
@@ -129,9 +133,9 @@ public class BST {
         bt.insert(25);
         bt.insert(85);
         bt.insert(100);
-        bt.delete(10);//删除没有子节点的节点
-        bt.delete(30);//删除有一个子节点的节点
-        bt.delete(80);//删除有两个子节点的节点
+//        bt.delete(10);//删除没有子节点的节点
+//        bt.delete(30);//删除有一个子节点的节点
+//        bt.delete(80);//删除有两个子节点的节点
         System.out.println(bt.findMax().value);
         System.out.println(bt.findMin().value);
         System.out.println(bt.find(100));
