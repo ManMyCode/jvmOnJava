@@ -9,7 +9,9 @@ import com.wangzhen.jvm.classfile.classPackage.MemberInfo;
 import java.util.ArrayList;
 
 public class ZMethod extends ClassMember{
+    // 对应的 opendstack 的最大数
     private int maxStack;
+    // 对应的 局部变量表 的最大个数
     private int maxLocals;
     //如果没有code属性,取值为null;不过就算是空方法也有一个return 语句;
     private byte []code;
