@@ -2,6 +2,7 @@ package com.wangzhen.algorithm.tree.BST;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Description:  binary search tree 二叉查找树/二叉搜索树 的实现
@@ -11,7 +12,7 @@ import java.util.List;
 public class BST {
     public Node root;
     List<Integer> list = new ArrayList<>();
-    private class Node{
+     class Node{
         private int value;
         Node left;
         Node right;
@@ -19,6 +20,10 @@ public class BST {
 
         public Node(int value) {
             this.value = value;
+        }
+
+        public int getValue() {
+            return value;
         }
     }
 
@@ -78,7 +83,31 @@ public class BST {
         }
 
     }
-    //中序遍历 非递归版本
+
+    /*
+      前序遍历非递归版本：
+      前序遍历 ：为 中左右子树 遍历规则遍历
+     */
+    public void preOrder(){
+        Stack <Node> stack = new Stack<Node>();
+        if(root==null)
+            return;
+        stack.push(root);
+        while (!stack.isEmpty()){
+            Node node = stack.pop();
+            list.add(node.value);
+            if(node.right!=null){
+                stack.push(node.right);
+            }
+            if(node.left!=null){
+                stack.push(node.left);
+            }
+
+        }
+    }
+
+
+    //中序遍历 递归版本
     public void infixOrder(Node p){
         if(p!=null){
             infixOrder(p.left);
@@ -88,13 +117,30 @@ public class BST {
 
     }
 
-    //后序遍历 非递归版本
+    // 非递归版本中序遍历  左 中 右子树遍历
+    public void infixOrder(){
+        Stack<Node> stack = new Stack<Node>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            if(root.left!=null){
+
+            }
+        }
+        return;
+    }
+
+
+    //后序遍历 递归版本
     public void postOrder(Node p){
         if(p!=null){
             postOrder(p.left);
             postOrder(p.right);
             list.add(p.value);
         }
+    }
+
+    // 后序遍历 非递归版本
+    public void postOrder(){
 
     }
 

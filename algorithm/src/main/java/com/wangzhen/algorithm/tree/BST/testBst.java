@@ -1,6 +1,7 @@
 package com.wangzhen.algorithm.tree.BST;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 /**
  * Description: 测试二叉树的一些性质
@@ -28,6 +29,9 @@ public class testBst {
         createBst();
         bt.preOrder(bt.root);
         System.out.println(bt.list);
+        bt.list.clear();
+        bt.preOrder();
+        System.out.println(bt.list);
     }
 
     @Test
@@ -43,12 +47,19 @@ public class testBst {
         createBst();
         bt.postOrder(bt.root);
         System.out.println(bt.list);
+
     }
 
     @Test
     public void testMaxAndMin(){
         createBst();
-        System.out.println(bt.findMax());
-        System.out.println(bt.findMin());
+        System.out.println(bt.findMax().getValue());
+        System.out.println(bt.findMin().getValue());
+    }
+
+    @Test
+    public void testDelete(){
+        createBst();
+        bt.delete(10);
     }
 }
