@@ -1,0 +1,203 @@
+Classfile /D:/workspace/java/router-cloud/jvmx/target/classes/com/wangzhen/jvm/App.class
+  Last modified 2020-9-25; size 1066 bytes
+  MD5 checksum 5f432545d300a6d9b875ae2bde6fd187
+  Compiled from "App.java"
+public class com.wangzhen.jvm.App
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #9.#36         // java/lang/Object."<init>":()V
+   #2 = Methodref          #8.#37         // com/wangzhen/jvm/App.set:(I)V
+   #3 = Methodref          #8.#38         // com/wangzhen/jvm/App.setArr:([I)V
+   #4 = Fieldref           #39.#40        // java/lang/System.out:Ljava/io/PrintStream;
+   #5 = Methodref          #41.#42        // java/io/PrintStream.println:(I)V
+   #6 = String             #43            // test 方法被调用了
+   #7 = Methodref          #41.#44        // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #8 = Class              #45            // com/wangzhen/jvm/App
+   #9 = Class              #46            // java/lang/Object
+  #10 = Utf8               <init>
+  #11 = Utf8               ()V
+  #12 = Utf8               Code
+  #13 = Utf8               LineNumberTable
+  #14 = Utf8               LocalVariableTable
+  #15 = Utf8               this
+  #16 = Utf8               Lcom/wangzhen/jvm/App;
+  #17 = Utf8               main
+  #18 = Utf8               ([Ljava/lang/String;)V
+  #19 = Utf8               args
+  #20 = Utf8               [Ljava/lang/String;
+  #21 = Utf8               i
+  #22 = Utf8               I
+  #23 = Utf8               arr
+  #24 = Utf8               [I
+  #25 = Utf8               set
+  #26 = Utf8               (I)V
+  #27 = Utf8               setArr
+  #28 = Utf8               ([I)V
+  #29 = Utf8               swap
+  #30 = Utf8               ([III)V
+  #31 = Utf8               j
+  #32 = Utf8               temp
+  #33 = Utf8               test
+  #34 = Utf8               SourceFile
+  #35 = Utf8               App.java
+  #36 = NameAndType        #10:#11        // "<init>":()V
+  #37 = NameAndType        #25:#26        // set:(I)V
+  #38 = NameAndType        #27:#28        // setArr:([I)V
+  #39 = Class              #47            // java/lang/System
+  #40 = NameAndType        #48:#49        // out:Ljava/io/PrintStream;
+  #41 = Class              #50            // java/io/PrintStream
+  #42 = NameAndType        #51:#26        // println:(I)V
+  #43 = Utf8               test 方法被调用了
+  #44 = NameAndType        #51:#52        // println:(Ljava/lang/String;)V
+  #45 = Utf8               com/wangzhen/jvm/App
+  #46 = Utf8               java/lang/Object
+  #47 = Utf8               java/lang/System
+  #48 = Utf8               out
+  #49 = Utf8               Ljava/io/PrintStream;
+  #50 = Utf8               java/io/PrintStream
+  #51 = Utf8               println
+  #52 = Utf8               (Ljava/lang/String;)V
+{
+  public com.wangzhen.jvm.App();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 7: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/wangzhen/jvm/App;
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=4, locals=3, args_size=1
+         0: iconst_0
+         1: istore_1
+         2: iconst_2
+         3: newarray       int
+         5: dup
+         6: iconst_0
+         7: iconst_1
+         8: iastore
+         9: dup
+        10: iconst_1
+        11: iconst_2
+        12: iastore
+        13: astore_2
+        14: iload_1
+        15: invokestatic  #2                  // Method set:(I)V
+        18: aload_2
+        19: invokestatic  #3                  // Method setArr:([I)V
+        22: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        25: iload_1
+        26: invokevirtual #5                  // Method java/io/PrintStream.println:(I)V
+        29: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        32: aload_2
+        33: iconst_0
+        34: iaload
+        35: invokevirtual #5                  // Method java/io/PrintStream.println:(I)V
+        38: return
+      LineNumberTable:
+        line 9: 0
+        line 10: 2
+        line 11: 14
+        line 12: 18
+        line 13: 22
+        line 14: 29
+        line 15: 38
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      39     0  args   [Ljava/lang/String;
+            2      37     1     i   I
+           14      25     2   arr   [I
+
+  public static void set(int);
+    descriptor: (I)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: bipush        8
+         2: istore_0
+         3: return
+      LineNumberTable:
+        line 18: 0
+        line 19: 3
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       4     0     i   I
+
+  public static void setArr(int[]);
+    descriptor: ([I)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: iconst_0
+         2: bipush        100
+         4: iastore
+         5: return
+      LineNumberTable:
+        line 21: 0
+        line 22: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0   arr   [I
+
+  public void swap(int[], int, int);
+    descriptor: ([III)V
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=5, args_size=4
+         0: aload_1
+         1: iload_2
+         2: iaload
+         3: istore        4
+         5: aload_1
+         6: iload_2
+         7: aload_1
+         8: iload_3
+         9: iaload
+        10: iastore
+        11: aload_1
+        12: iload_3
+        13: iload         4
+        15: iastore
+        16: return
+      LineNumberTable:
+        line 25: 0
+        line 26: 5
+        line 27: 11
+        line 28: 16
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Lcom/wangzhen/jvm/App;
+            0      17     1   arr   [I
+            0      17     2     i   I
+            0      17     3     j   I
+            5      12     4  temp   I
+
+  public void test();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #6                  // String test 方法被调用了
+         5: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 30: 0
+        line 31: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       9     0  this   Lcom/wangzhen/jvm/App;
+}
+SourceFile: "App.java"
