@@ -44,4 +44,11 @@ public class testBst {
         bt.postOrder(bt.root);
         System.out.println(bt.list);
     }
+
+    @Test
+    public void testMaxAndMin(){
+        createBst();
+        System.out.println(bt.findMax());
+        System.out.println(bt.findMin());
+    }
 }
