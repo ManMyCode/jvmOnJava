@@ -1,11 +1,7 @@
 package com.wangzhen.algorithm.leetcode.lt_16;
 
-import com.sun.tools.corba.se.idl.InterfaceGen;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.Map;
 
 /**
  * Description:  设计和构建一个“最近最少使用”缓存，该缓存会删除最近最少使用的项目。

@@ -1,8 +1,10 @@
-package com.wangzhen.algorithm.basic.map;
+package com.wangzhen.algorithm.collection.map;
+
+
+import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -22,5 +24,14 @@ public class testHashMap {
         while (iterator.hasNext()){
             System.out.println(map.get(iterator.next()));
         }
+    }
+
+    @Test
+    public  void test2(){
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(2,2);
+        map.put(2,3);
+        Iterator iterator = map.keySet().iterator();
+        System.out.println(map.size());
     }
 }

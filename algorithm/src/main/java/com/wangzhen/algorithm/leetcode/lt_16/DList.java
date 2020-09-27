@@ -19,6 +19,10 @@ public class DList<K,V> {
         size++;
     }
 
+    public V get(K key){
+        return null;
+    }
+
 
     class Node<K,V>{
         K key;
