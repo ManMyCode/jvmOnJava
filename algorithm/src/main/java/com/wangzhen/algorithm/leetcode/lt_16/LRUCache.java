@@ -12,8 +12,7 @@ import java.util.List;
 public class LRUCache {
 
     HashMap<Integer,Integer> map;
-    ListNode head;
-    ListNode tail;
+    DList<Integer,Integer> cache;
 
     int capacity;
 
@@ -21,34 +20,39 @@ public class LRUCache {
     public LRUCache(int capacity) {
         this.capacity = capacity;
         map = new HashMap();
+        cache = new DList();
     }
 
     public int get(int key) {
         if(map.containsKey(key)){
             int value = map.get(key);
+            cache.del(key);
+            cache.put(key,value);
+            return value;
         }
         return -1;
     }
 
     public void put(int key, int value) {
-
-    }
-
-
-
-    class ListNode{
-        int key;
-        int value;
-        ListNode prev;
-        ListNode next;
-
-        public ListNode(int key, int value, ListNode prev, ListNode next) {
-            this.key = key;
-            this.value = value;
-            this.prev = prev;
-            this.next = next;
+        if(map.containsKey(key)){
+            map.put(key,value);
+            cache.del(key);
+            cache.put(key,value);
+        }else{
+            // 如果集合已经满了
+            if(map.size()==capacity){
+                // 移除第一个key
+                map.remove(map.keySet().iterator().next());
+                cache.del(key);
+                cache.put(key,value);
+            }else{
+                map.put(key,value);
+                cache.del(key);
+                cache.put(key,value);
+            }
         }
     }
+
 
 }
 

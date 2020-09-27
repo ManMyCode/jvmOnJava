@@ -33,5 +33,8 @@ public class testHashMap {
         map.put(2,3);
         Iterator iterator = map.keySet().iterator();
         System.out.println(map.size());
+        while (iterator.hasNext()){
+            System.out.println(map.get(iterator.next()));
+        }
     }
 }
