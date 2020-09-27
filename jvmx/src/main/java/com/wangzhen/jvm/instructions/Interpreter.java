@@ -35,8 +35,7 @@ public class Interpreter {
             Instruction instruction = InstructionFactory.createInstruction(opCode);
             instruction.fetchOperands(reader);
             frame.setNextPC(reader.getPc());
-
-            System.out.println("执行指令"+Integer.toHexString(opCode)+"----栈桢为"+frame.toString());
+            System.out.println("执行指令"+Integer.toHexString(opCode)+"："+instruction.toString()+"----栈桢为"+frame.toString());
             instruction.execute(frame);
         }
 

@@ -3,6 +3,9 @@ package com.wangzhen.jvm.instructions.stores;
 import com.wangzhen.jvm.runtimeData.ZFrame;
 import com.wangzhen.jvm.runtimeData.helap.ZObject;
 
+/**
+ * Store 变量主要从 操作数张中 弹出一个数 推入到局部变量表中
+ */
 public class Store {
     public static void astore(ZFrame frame, int index) {
         ZObject ref = frame.getOperandStack().popRef();

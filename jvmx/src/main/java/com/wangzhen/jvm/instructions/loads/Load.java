@@ -3,6 +3,9 @@ package com.wangzhen.jvm.instructions.loads;
 import com.wangzhen.jvm.runtimeData.ZFrame;
 import com.wangzhen.jvm.runtimeData.helap.ZObject;
 
+/**
+ *  load变量主要是从局部变量表中 获取一个数据推入到操作数栈中
+ */
 public class Load {
     public static void aLoad(ZFrame frame, int index){
         ZObject object =frame.getLocalVars().getRef(index);
