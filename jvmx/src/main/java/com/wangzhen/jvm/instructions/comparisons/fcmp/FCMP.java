@@ -13,20 +13,20 @@ import com.wangzhen.jvm.runtimeData.ZFrame;
  */
 public class FCMP {
     static void _fcmp(ZFrame frame, boolean flag) {
-        OperandStack stack = frame.getOperandStack();
-        float val2 = stack.popFloat();
-        float val1 = stack.popFloat();
+        OperandStack operandStack = frame.getOperandStack();
+        float val2 = operandStack.popFloat();
+        float val1 = operandStack.popFloat();
 
         if (val1 < val2) {
-            stack.pushInt(1);
+            operandStack.pushInt(1);
         } else if (val1 == val2) {
-            stack.pushInt(0);
+            operandStack.pushInt(0);
         } else if (val1 > val2) {
-            stack.pushInt(-1);
+            operandStack.pushInt(-1);
         } else if (flag) {
-            stack.pushInt(1);
+            operandStack.pushInt(1);
         } else {
-            stack.pushInt(-1);
+            operandStack.pushInt(-1);
         }
 
     }
