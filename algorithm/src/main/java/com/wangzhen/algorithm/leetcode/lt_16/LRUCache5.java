@@ -8,8 +8,7 @@ import java.util.HashMap;
  * Datetime:    2020/9/28   8:47 上午
  * Author:   王震
  *
- * ["LRUCache","put","put","put","put","get","get","get","get","put","get","get","get","get","get"]
- * [[3],[1,1],[2,2],[3,3],[4,4],[4],[3],[2],[1],[5,5],[1],[2],[3],[4],[5]]
+
  */
 public class LRUCache5 {
     HashMap<Integer,Node> map;
@@ -45,7 +44,8 @@ public class LRUCache5 {
     public void put(int key, int value) {
         // 表示存在这个节点 会把这个节点移动到最后
         if(get(key)!=-1){
-            tail.prev.value=value;
+//            tail.prev.value=value;
+            map.get(key).value=value;
             return;
         }
         // 不存在这个节点需要新建节点
@@ -55,7 +55,7 @@ public class LRUCache5 {
             map.remove(head.next.key);
             Node next = head.next;
             head.next=next.next;
-            next.next=head.prev;
+            next.next.prev=head;
         }
         map.put(key,newNode);
         moveToTail(newNode);
@@ -83,16 +83,21 @@ public class LRUCache5 {
     }
 
     public static void main(String[] args) {
-        LRUCache5 cache = new LRUCache5( 2 /* 缓存容量 */ );
+        LRUCache5 cache = new LRUCache5( 3 /* 缓存容量 */ );
         cache.put(1, 1);
         cache.put(2, 2);
-        System.out.println(cache.get(1)); // 返回  1
-        cache.put(3, 3);    // 该操作会使得密钥 2 作废
-        System.out.println(cache.get(2)); // 返回 -1 (未找到)
-        cache.put(4, 4);    // 该操作会使得密钥 1 作废
-        System.out.println(cache.get(1)); // 返回 -1 (未找到)
-        System.out.println(cache.get(3));// 返回  3
-        System.out.println(cache.get(4));  // 返回  4
+        cache.put(3, 3);
+        cache.put(4, 4);
+        System.out.println(cache.get(4));//4
+        System.out.println(cache.get(3));//3
+        System.out.println(cache.get(2));//2
+        System.out.println(cache.get(1));//-1
+        cache.put(5, 5);
+        System.out.println(cache.get(1));//-1
+        System.out.println(cache.get(2));//2
+        System.out.println(cache.get(3));//3
+        System.out.println(cache.get(4));//-1
+        System.out.println(cache.get(5));//5
     }
 
 }
