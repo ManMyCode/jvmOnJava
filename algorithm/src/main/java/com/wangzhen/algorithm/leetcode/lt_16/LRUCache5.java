@@ -7,6 +7,9 @@ import java.util.HashMap;
  * Description: LRU实现 map+双向列表
  * Datetime:    2020/9/28   8:47 上午
  * Author:   王震
+ *
+ * ["LRUCache","put","put","put","put","get","get","get","get","put","get","get","get","get","get"]
+ * [[3],[1,1],[2,2],[3,3],[4,4],[4],[3],[2],[1],[5,5],[1],[2],[3],[4],[5]]
  */
 public class LRUCache5 {
     HashMap<Integer,Node> map;
