@@ -3,9 +3,15 @@ package com.wangzhen.jvm.instructions;
 
 import com.wangzhen.jvm.instructions.base.Instruction;
 import com.wangzhen.jvm.instructions.base.NoOperandsInstruction;
+import com.wangzhen.jvm.instructions.comparisons.dcmp.DCMPG;
+import com.wangzhen.jvm.instructions.comparisons.dcmp.DCMPL;
 import com.wangzhen.jvm.instructions.comparisons.fcmp.FCMPG;
+import com.wangzhen.jvm.instructions.comparisons.fcmp.FCMPL;
 import com.wangzhen.jvm.instructions.comparisons.ifacmp.IF_ACMPEQ;
 import com.wangzhen.jvm.instructions.comparisons.ifacmp.IF_ACMPNE;
+import com.wangzhen.jvm.instructions.comparisons.ifcond.*;
+import com.wangzhen.jvm.instructions.comparisons.ificmp.*;
+import com.wangzhen.jvm.instructions.comparisons.lcmp.LCMP;
 import com.wangzhen.jvm.instructions.constants.ACONST_NULL;
 import com.wangzhen.jvm.instructions.constants.BIPUSH;
 import com.wangzhen.jvm.instructions.constants.NOP;
@@ -93,10 +99,38 @@ public class InstructionFactory {
     static ASTORE_2 astore_2 = new ASTORE_2();
     static ASTORE_3 astore_3 = new ASTORE_3();
     static IADD iadd = new IADD();
+    static LCMP lcmp =new LCMP();
     static FCMPG fcmpg = new FCMPG();
+    static FCMPL fcmpl = new FCMPL();
+    static DCMPG dcmpg = new DCMPG();
+    static DCMPL dcmpl = new DCMPL();
+    static IFEQ ifeq =new IFEQ();
+    static IFNE ifne =new IFNE();
+    static IFLT iflt =new IFLT();
+    static IFGE ifge = new IFGE();
+    static IFGT ifgt = new IFGT();
+    static IFLE ifle = new IFLE();
+    static IF_ICMPEQ if_icmpeq =new  IF_ICMPEQ();
+    static IF_ICMPNE if_icmpne = new IF_ICMPNE();
+    static IF_ICMPLT if_icmplt = new IF_ICMPLT();
+    static IF_ICMPGE if_icmpge = new IF_ICMPGE();
+    static IF_ICMPGT if_icmpgt = new IF_ICMPGT();
+    static IF_ICMPLE if_icmple = new IF_ICMPLE();
+    static IF_ACMPEQ if_acmpeq = new IF_ACMPEQ();
+    static IF_ACMPNE if_acmpne = new IF_ACMPNE();
     static RETURN _return = new RETURN();
     static DUP dup = new DUP();
     static IASTORE iastore = new IASTORE();
+    static BIPUSH bipush = new BIPUSH();
+    static SIPUSH sipush = new SIPUSH();
+    static LDC ldc = new LDC();
+    static LDC_W ldc_w = new LDC_W();
+    static  LDC2_W ldc2_w = new LDC2_W();
+    static ILOAD iload = new ILOAD();
+    static LLOAD lload = new LLOAD();
+    static FLOAD fload = new FLOAD();
+    static DLOAD dload = new DLOAD();
+    static ALOAD aload = new ALOAD();
 
 
 
@@ -135,25 +169,25 @@ public class InstructionFactory {
             case 0x0f:
                 return dconst_1;
             case 0x10:
-                return new BIPUSH();
+                return bipush;
             case 0x11:
-                return new SIPUSH();
+                return sipush;
             case 0x12:
-                return new LDC();
+                return ldc;
             case 0x13:
-                //return new LDC_W();
+                return ldc_w;
             case 0x14:
-                //return new LDC2_W();
+                return ldc2_w;
             case 0x15:
-                return new ILOAD();
+                return iload;
             case 0x16:
-                return new LLOAD();
+                return lload;
             case 0x17:
-                return new FLOAD();
+                return fload;
             case 0x18:
-                return new DLOAD();
+                return dload;
             case 0x19:
-                return new ALOAD();
+                return aload;
             case 0x1a:
                 return iload_0;
             case 0x1b:
@@ -398,44 +432,44 @@ public class InstructionFactory {
 //                return i2c;
 //            case 0x93:
 //                return i2s;
-//            case 0x94:
-//                return lcmp;
-//            case 0x95:
-//                return fcmpl;
+            case 0x94:
+                return lcmp;
+            case 0x95:
+                return fcmpl;
             case 0x96:
                 return fcmpg;
-//            case 0x97:
-//                return dcmpl;
-//            case 0x98:
-//                return dcmpg;
-//            case 0x99:
-//                return new IFEQ();
-//            case 0x9a:
-//                return new IFNE();
-//            case 0x9b:
-//                return new IFLT();
-//            case 0x9c:
-//                return new IFGE();
-//            case 0x9d:
-//                return new IFGT();
-//            case 0x9e:
-//                return new IFLE();
-//            case 0x9f:
-//                return new IF_ICMPEQ();
-//            case 0xa0:
-//                return new IF_ICMPNE();
-//            case 0xa1:
-//                return new IF_ICMPLT();
-//            case 0xa2:
-//                return new IF_ICMPGE();
-//            case 0xa3:
-//                return new IF_ICMPGT();
-//            case 0xa4:
-//                return new IF_ICMPLE();
+            case 0x97:
+                return dcmpl;
+            case 0x98:
+                return dcmpg;
+            case 0x99:
+                return ifeq;
+            case 0x9a:
+                return ifne;
+            case 0x9b:
+                return ifle;
+            case 0x9c:
+                return ifge;
+            case 0x9d:
+                return ifgt;
+            case 0x9e:
+                return ifle;
+            case 0x9f:
+                return if_icmpeq;
+            case 0xa0:
+                return if_icmpne;
+            case 0xa1:
+                return if_icmplt;
+            case 0xa2:
+                return if_icmpge;
+            case 0xa3:
+                return if_icmpgt;
+            case 0xa4:
+                return if_icmple;
             case 0xa5:
-                return new IF_ACMPEQ();
+                return if_acmpeq;
             case 0xa6:
-                return new IF_ACMPNE();
+                return if_acmpne;
             case 0xa7:
                 return new GOTO();
             // case 0xa8:
