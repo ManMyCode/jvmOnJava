@@ -1,7 +1,10 @@
 package com.wangzhen.jvm.instructions.loads.loadxarr;
 
 import com.wangzhen.jvm.instructions.base.NoOperandsInstruction;
+import com.wangzhen.jvm.instructions.loads.Load;
+import com.wangzhen.jvm.runtimeData.OperandStack;
 import com.wangzhen.jvm.runtimeData.ZFrame;
+import com.wangzhen.jvm.runtimeData.helap.ZObject;
 
 /**
  * Description:
@@ -11,6 +14,14 @@ import com.wangzhen.jvm.runtimeData.ZFrame;
 public class LALOAD extends NoOperandsInstruction {
     @Override
     public void execute(ZFrame frame) {
-
+        OperandStack operandStack = frame.getOperandStack();
+        // 数组索引
+        int index = operandStack.popInt();
+        ZObject zObject = operandStack.popRef();
+        Load.checkNotNull(zObject);
+        // 将对象 转为为 数组对象
+        long[] refs = zObject.getLongs();
+        Load.checkIndex(refs.length,index);
+        operandStack.pushLong(refs[index]);
     }
 }

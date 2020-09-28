@@ -25,6 +25,7 @@ import com.wangzhen.jvm.instructions.loads.loadInt.ILOAD;
 import com.wangzhen.jvm.instructions.loads.loadInt.*;
 import com.wangzhen.jvm.instructions.loads.loadlong.*;
 import com.wangzhen.jvm.instructions.loads.loadref.*;
+import com.wangzhen.jvm.instructions.loads.loadxarr.*;
 import com.wangzhen.jvm.instructions.math.add.IADD;
 import com.wangzhen.jvm.instructions.references.*;
 import com.wangzhen.jvm.instructions.stack.dup.DUP;
@@ -131,6 +132,20 @@ public class InstructionFactory {
     static FLOAD fload = new FLOAD();
     static DLOAD dload = new DLOAD();
     static ALOAD aload = new ALOAD();
+    static AALOAD aaload = new AALOAD();
+    static BALOAD baload = new BALOAD();
+    static CALOAD caload = new CALOAD();
+    static DALOAD daload = new DALOAD();
+    static FALOAD faload = new FALOAD();
+    static IALOAD iaload = new IALOAD();
+    static LALOAD laload = new LALOAD();
+    static SALOAD saload = new SALOAD();
+    static ISTORE istore = new ISTORE();
+    static LSTORE lstore = new LSTORE();
+    static FSTORE fstore = new FSTORE();
+    static DSTORE dstore = new DSTORE();
+    static ASTORE astore = new ASTORE();
+
 
 
 
@@ -229,31 +244,31 @@ public class InstructionFactory {
             case 0x2d:
                 return aload_3;
             case 0x2e:
-               // return iaload;
+                return iaload;
             case 0x2f:
-                //return laload;
+                return laload;
             case 0x30:
-               // return faload;
+                return faload;
             case 0x31:
-               // return daload;
+                return daload;
             case 0x32:
-               // return aaload;
+                return aaload;
             case 0x33:
-               // return baload;
+                return baload;
             case 0x34:
-               // return caload;
+                return caload;
             case 0x35:
-               // return saload;
+                return saload;
             case 0x36:
-                return new ISTORE();
+                return istore;
             case 0x37:
-                return new LSTORE();
+                return lstore;
             case 0x38:
-                return new FSTORE();
+                return fstore;
             case 0x39:
-                return new DSTORE();
+                return dstore;
             case 0x3a:
-                return new ASTORE();
+                return astore;
             case 0x3b:
                 return istore_0;
             case 0x3c:
