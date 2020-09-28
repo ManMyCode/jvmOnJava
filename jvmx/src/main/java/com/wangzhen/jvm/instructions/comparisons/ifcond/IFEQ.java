@@ -6,11 +6,11 @@ import com.wangzhen.jvm.runtimeData.OperandStack;
 import com.wangzhen.jvm.runtimeData.ZFrame;
 
 /**
- * Description: 两个数比较如果相等 那么跳转到对应的值
+ * Description: if<cond>指令把操作数栈顶的 int 变量弹出，然后跟 0 进行比较，满足条件则跳转
  * Datetime:    2020/9/28   10:41
  * Author:   王震
  */
-public class LFEQ extends BranchInstruction {
+public class IFEQ extends BranchInstruction {
     @Override
     public void execute(ZFrame frame)  {
         OperandStack operandStack = frame.getOperandStack();
