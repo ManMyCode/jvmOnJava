@@ -14,7 +14,7 @@ import com.wangzhen.jvm.runtimeData.helap.*;
 public class INVOKE_SPECIAL extends Index16Instruction {
 
     @Override
-    public void execute(ZFrame frame) throws NoSuchMethodException {
+    public void execute(ZFrame frame)  {
         // 当前frame 所在的class
         ZClass currentClass = frame.getMethod().getClazz();
        RuntimeConstantPool runtimeConstantPool = currentClass.getRuntimeConstantPool();
@@ -23,7 +23,7 @@ public class INVOKE_SPECIAL extends Index16Instruction {
        ZMethod resolvedMethod = methodRef.resolvedMethod();
        ZClass resolvedClass = methodRef.resolvedClass();
        if("<init>".equals(resolvedMethod.getName())&&resolvedMethod.getClazz()!=resolvedClass){
-           throw new NoSuchMethodException(resolvedMethod.getName());
+           throw new NoSuchMethodError(resolvedMethod.getName());
        }
        if(resolvedMethod.isStatic()){
            throw new IncompatibleClassChangeError(resolvedMethod.getName()+"is unstatic contenxt");

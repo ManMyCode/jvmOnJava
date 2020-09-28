@@ -13,7 +13,7 @@ import com.wangzhen.jvm.runtimeData.helap.ZObject;
  */
 public class IASTORE extends NoOperandsInstruction {
     @Override
-    public void execute(ZFrame frame) throws NoSuchMethodException {
+    public void execute(ZFrame frame)  {
         OperandStack operandStack = frame.getOperandStack();
         // 得到要赋的值
         int val = operandStack.popInt();

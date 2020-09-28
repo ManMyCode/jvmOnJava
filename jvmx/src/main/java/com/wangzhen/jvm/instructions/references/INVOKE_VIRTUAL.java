@@ -7,7 +7,7 @@ import com.wangzhen.jvm.runtimeData.helap.*;
 
 public class INVOKE_VIRTUAL extends Index16Instruction {
     @Override
-    public void execute(ZFrame frame) throws NoSuchMethodException {
+    public void execute(ZFrame frame)  {
         // 调用该方法的所在类
         ZClass currentClass = frame.getMethod().getClazz();
         RuntimeConstantPool runtimeConstantPool = currentClass.getRuntimeConstantPool();

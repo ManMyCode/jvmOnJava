@@ -24,7 +24,7 @@ public class NEW_ARRAY extends Index8Instruction {
     private final int AT_LONG = 11;
 
     @Override
-    public void execute(ZFrame frame) throws NoSuchMethodException {
+    public void execute(ZFrame frame)  {
         RuntimeConstantPool runtimeConstantPool = frame.getMethod().getClazz().getRuntimeConstantPool();
         //int type = runtimeConstantPool.getRuntimeConstant(index).getType();
         OperandStack operandStack = frame.getOperandStack();

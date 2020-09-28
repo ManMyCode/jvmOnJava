@@ -6,7 +6,7 @@ import com.wangzhen.jvm.runtimeData.ZFrame;
 
 public class GOTO extends BranchInstruction {
     @Override
-    public void execute(ZFrame frame) throws NoSuchMethodException {
+    public void execute(ZFrame frame)  {
         BranchLogic.branch(frame,offset);
     }
 }

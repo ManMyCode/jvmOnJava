@@ -6,7 +6,7 @@ import com.wangzhen.jvm.runtimeData.ZFrame;
 
 public class IF_ACMPNE extends BranchInstruction {
     @Override
-    public void execute(ZFrame frame) throws NoSuchMethodException {
+    public void execute(ZFrame frame) {
         if(!IfAcmp._acmp(frame)){
             BranchLogic.branch(frame,offset);
         }

@@ -19,7 +19,7 @@ import com.wangzhen.jvm.runtimeData.helap.ZObject;
  */
 public class ANEW_ARRAY extends Index16Instruction {
     @Override
-    public void execute(ZFrame frame) throws NoSuchMethodException {
+    public void execute(ZFrame frame)  {
         RuntimeConstantPool runtimeConstantPool = frame.getMethod().getClazz().getRuntimeConstantPool();
         ClassRef classRef = (ClassRef) runtimeConstantPool.getRuntimeConstant(index).getValue();
 

@@ -5,7 +5,7 @@ import com.wangzhen.jvm.runtimeData.ZFrame;
 
 public class DCMPL extends NoOperandsInstruction {
     @Override
-    public void execute(ZFrame frame) throws NoSuchMethodException {
+    public void execute(ZFrame frame)  {
         DCMP._dcmp(frame,false);
     }
 }

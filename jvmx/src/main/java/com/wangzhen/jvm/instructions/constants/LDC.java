@@ -17,7 +17,7 @@ import java.time.ZonedDateTime;
  */
 public class LDC extends Index8Instruction {
     @Override
-    public void execute(ZFrame frame) throws NoSuchMethodException {
+    public void execute(ZFrame frame)  {
         ZClass zClass = frame.getMethod().getClazz();
         ZClassLoader classLoader = zClass.getLoader();
         RuntimeConstantPool runtimeConstantPool= zClass.getRuntimeConstantPool();

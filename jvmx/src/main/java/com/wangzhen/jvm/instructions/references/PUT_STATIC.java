@@ -15,7 +15,7 @@ import com.wangzhen.jvm.runtimeData.helap.*;
  */
 public class PUT_STATIC extends Index16Instruction {
     @Override
-    public void execute(ZFrame frame) throws NoSuchMethodException {
+    public void execute(ZFrame frame)  {
         ZMethod currentMethod = frame.getMethod();
         ZClass currentClass=currentMethod.getClazz();
         RuntimeConstantPool runtimeConstantPool=currentClass.getRuntimeConstantPool();

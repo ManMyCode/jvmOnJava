@@ -12,7 +12,7 @@ import com.wangzhen.jvm.runtimeData.helap.*;
  */
 public class GET_FIELD extends Index16Instruction {
     @Override
-    public void execute(ZFrame frame) throws NoSuchMethodException {
+    public void execute(ZFrame frame)  {
         ZMethod method = frame.getMethod();
         ZClass currentClass = method.getClazz();
         RuntimeConstantPool runtimeConstantPool = currentClass.getRuntimeConstantPool();
