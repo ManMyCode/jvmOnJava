@@ -18,20 +18,21 @@ import com.wangzhen.jvm.instructions.constants.BIPUSH;
 import com.wangzhen.jvm.instructions.constants.NOP;
 import com.wangzhen.jvm.instructions.constants.SIPUSH;
 import com.wangzhen.jvm.instructions.constants.*;
-import com.wangzhen.jvm.instructions.control.GOTO;
-import com.wangzhen.jvm.instructions.control.RETURN;
+import com.wangzhen.jvm.instructions.control.*;
 import com.wangzhen.jvm.instructions.conversions.d2x.D2F;
 import com.wangzhen.jvm.instructions.conversions.d2x.D2I;
 import com.wangzhen.jvm.instructions.conversions.d2x.D2L;
 import com.wangzhen.jvm.instructions.conversions.f2x.F2D;
 import com.wangzhen.jvm.instructions.conversions.f2x.F2I;
 import com.wangzhen.jvm.instructions.conversions.f2x.F2L;
-import com.wangzhen.jvm.instructions.conversions.i2x.I2D;
-import com.wangzhen.jvm.instructions.conversions.i2x.I2F;
-import com.wangzhen.jvm.instructions.conversions.i2x.I2L;
+import com.wangzhen.jvm.instructions.conversions.i2x.*;
 import com.wangzhen.jvm.instructions.conversions.l2x.L2D;
 import com.wangzhen.jvm.instructions.conversions.l2x.L2F;
 import com.wangzhen.jvm.instructions.conversions.l2x.L2I;
+import com.wangzhen.jvm.instructions.extend.GOTO_W;
+import com.wangzhen.jvm.instructions.extend.IFNONNULL;
+import com.wangzhen.jvm.instructions.extend.IFNULL;
+import com.wangzhen.jvm.instructions.extend.WIDE;
 import com.wangzhen.jvm.instructions.loads.loadDouble.*;
 import com.wangzhen.jvm.instructions.loads.loadFloat.*;
 import com.wangzhen.jvm.instructions.loads.loadInt.ILOAD;
@@ -64,6 +65,7 @@ import com.wangzhen.jvm.instructions.math.rem.DREM;
 import com.wangzhen.jvm.instructions.math.rem.FREM;
 import com.wangzhen.jvm.instructions.math.rem.IREM;
 import com.wangzhen.jvm.instructions.math.rem.LREM;
+import com.wangzhen.jvm.instructions.math.sh.*;
 import com.wangzhen.jvm.instructions.math.sub.DSUB;
 import com.wangzhen.jvm.instructions.math.sub.FSUB;
 import com.wangzhen.jvm.instructions.math.sub.ISUB;
@@ -249,9 +251,48 @@ public class InstructionFactory {
     static D2I d2i = new D2I();
     static D2L d2l = new D2L();
     static D2F d2f = new D2F();
-//    static I2B i2b = new I2B();
-//    static I2C i2c = new I2C();
-//    static I2S i2s = new I2S();
+    static I2B i2b = new I2B();
+    static I2C i2c = new I2C();
+    static I2S i2s = new I2S();
+    static ISHL ishl = new ISHL();
+    static ISHR ishr = new ISHR();
+    static IUSHR iushr = new IUSHR();
+    static LSHL lshl = new LSHL();
+    static LSHR lshr = new LSHR();
+    static LUSHR lushr = new LUSHR();
+    static ARETURN areturn = new ARETURN();
+    static DRETURN dreturn = new DRETURN();
+    static FRETURN freturn = new FRETURN();
+    static IRETURN ireturn = new IRETURN();
+    static LOOKUP_SWITCH lookup_switch = new LOOKUP_SWITCH();
+    static LRETURN lreturn = new LRETURN();
+    static TABLE_SWITCH table_switch = new TABLE_SWITCH();
+    static GOTO _goto = new GOTO();
+    static ARRAY_LENGTH array_length = new ARRAY_LENGTH();
+    static ATHROW athrow = new ATHROW();
+    static CHECK_CAST check_cast = new CHECK_CAST();
+    static INSTANCE_OF instance_of = new INSTANCE_OF();
+    static INVOKE_INTERFACE invoke_interface = new INVOKE_INTERFACE();
+    static  INVOKE_NATIVE invoke_native = new INVOKE_NATIVE();
+    static MULTI_ANEW_ARRAY multi_anew_array = new MULTI_ANEW_ARRAY();
+    static PUT_FIELD put_field = new PUT_FIELD();
+    static INVOKE_DYNAMIC invoke_dynamic = new INVOKE_DYNAMIC();
+    static GET_FIELD get_field = new GET_FIELD();
+    static GET_STATIC get_static = new GET_STATIC();
+    static PUT_STATIC put_static = new PUT_STATIC();
+    static INVOKE_SPECIAL invoke_special = new INVOKE_SPECIAL();
+    static INVOKE_STATIC invoke_static = new INVOKE_STATIC();
+    static  INVOKE_VIRTUAL invoke_virtual = new INVOKE_VIRTUAL();
+    static ANEW_ARRAY anew_array = new ANEW_ARRAY();
+    static NEW _new = new NEW();
+    static NEW_ARRAY new_array = new NEW_ARRAY();
+    static GOTO_W goto_w = new GOTO_W();
+    static IFNONNULL ifnonnull = new IFNONNULL();
+    static IFNULL ifnull = new IFNULL();
+    static WIDE wide = new WIDE();
+
+
+
 
 
 
@@ -499,18 +540,18 @@ public class InstructionFactory {
                 return fneg;
             case 0x77:
                 return dneg;
-//            case 0x78:
-//                return ishl;
-//            case 0x79:
-//                return lshl;
-//            case 0x7a:
-//                return ishr;
-//            case 0x7b:
-//                return lshr;
-//            case 0x7c:
-//                return iushr;
-//            case 0x7d:
-//                return lushr;
+            case 0x78:
+                return ishl;
+            case 0x79:
+                return lshl;
+            case 0x7a:
+                return ishr;
+            case 0x7b:
+                return lshr;
+            case 0x7c:
+                return iushr;
+            case 0x7d:
+                return lushr;
             case 0x7e:
                 return iand;
             case 0x7f:
@@ -524,7 +565,7 @@ public class InstructionFactory {
             case 0x83:
                 return lxor;
             case 0x84:
-                return new IINC();
+                return iinc;
             case 0x85:
                 return i2l;
             case 0x86:
@@ -549,12 +590,12 @@ public class InstructionFactory {
                 return d2l;
             case 0x90:
                 return d2f;
-//            case 0x91:
-//                return i2b;
-//            case 0x92:
-//                return i2c;
-//            case 0x93:
-//                return i2s;
+            case 0x91:
+                return i2b;
+            case 0x92:
+                return i2c;
+            case 0x93:
+                return i2s;
             case 0x94:
                 return lcmp;
             case 0x95:
@@ -570,7 +611,7 @@ public class InstructionFactory {
             case 0x9a:
                 return ifne;
             case 0x9b:
-                return ifle;
+                return iflt;
             case 0x9c:
                 return ifge;
             case 0x9d:
@@ -594,80 +635,79 @@ public class InstructionFactory {
             case 0xa6:
                 return if_acmpne;
             case 0xa7:
-                return new GOTO();
+                return _goto;
             // case 0xa8:
             // 	return new JSR();
             // case 0xa9:
             // 	return new RET();
-//            case 0xaa:
-//                return new TABLE_SWITCH();
-//            case 0xab:
-//                return new LOOKUP_SWITCH();
-//            case 0xac:
-//                return ireturn;
-//            case 0xad:
-//                return lreturn;
-//            case 0xae:
-//                return freturn;
-//            case 0xaf:
-//                return dreturn;
-//            case 0xb0:
-//                return areturn;
+            case 0xaa:
+                return new TABLE_SWITCH();
+            case 0xab:
+                return new LOOKUP_SWITCH();
+            case 0xac:
+                return ireturn;
+            case 0xad:
+                return lreturn;
+            case 0xae:
+                return freturn;
+            case 0xaf:
+                return dreturn;
+            case 0xb0:
+                return areturn;
             case 0xb1:
                 return _return;
             case 0xb2:
-                return new GET_STATIC();
+                return get_static;
             case 0xb3:
-                return new PUT_STATIC();
+                return put_static;
             case 0xb4:
-                return new GET_FIELD();
-//            case 0xb5:
-//                return new PUT_FIELD();
+                return get_field;
+            case 0xb5:
+                return put_field;
             case 0xb6:
-                return new INVOKE_VIRTUAL();
+                return invoke_virtual;
             case 0xb7:
-                return new INVOKE_SPECIAL();
+                return invoke_special;
             case 0xb8:
-                return new INVOKE_STATIC();
-//            case 0xb9:
-//                return new INVOKE_INTERFACE();
-//            // case 0xba:
-//            // 	return new INVOKE_DYNAMIC();
+                return invoke_static;
+            case 0xb9:
+                return invoke_interface;
+             case 0xba:
+             	return invoke_dynamic;
             case 0xbb:
-                return new NEW();
+                return _new;
             case 0xbc:
-                return new NEW_ARRAY();
+                return new_array;
             case 0xbd:
-                return new ANEW_ARRAY();
-//            case 0xbe:
-//                return arraylength;
-//            case 0xbf:
-//                return athrow;
-//            case 0xc0:
-//                return new CHECK_CAST();
-//            case 0xc1:
-//                return new INSTANCE_OF();
-//            // case 0xc2:
-//            // 	return monitorenter;
-//            // case 0xc3:
-//            // 	return monitorexit;
-//            case 0xc4:
-//                return new WIDE();
-//            case 0xc5:
-//                return new MULTI_ANEW_ARRAY();
-//            case 0xc6:
-//                return new IFNULL();
-//            case 0xc7:
-//                return new IFNONNULL();
-//            case 0xc8:
-//                return new GOTO_W();
-//            // case 0xc9:
-//            // 	return new JSR_W();
-//            // case 0xca: breakpoint
+                return anew_array;
+            case 0xbe:
+                return array_length;
+            case 0xbf:
+                return athrow;
+            case 0xc0:
+                return new CHECK_CAST();
+            case 0xc1:
+                return new INSTANCE_OF();
+            // case 0xc2:
+            // 	return monitorenter;
+            // case 0xc3:
+            // 	return monitorexit;
+            case 0xc4:
+                return wide;
+            case 0xc5:
+                return multi_anew_array;
+            case 0xc6:
+                return ifnull;
+            case 0xc7:
+                return ifnonnull;
+            case 0xc8:
+                return goto_w;
+            // case 0xc9:
+            // 	return new JSR_W();
+            // case 0xca: breakpoint
             case 0xfe:
                 // 调用本地方法先暂时不实现
-               // return invoke_native;
-                return  nop;
+                return invoke_native;
             // case 0xff: impdep2
             default:
                 throw new RuntimeException("Unsupported opcode: " + opCode);
