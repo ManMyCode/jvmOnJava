@@ -4,7 +4,7 @@ import com.wangzhen.jvm.runtimeData.OperandStack;
 import com.wangzhen.jvm.runtimeData.ZFrame;
 
 /**
- * Description:  将方法中的数压入 当前方法的操作数栈中，然后使用 ificmp 指令进行比较，然后跳转到对应的字节码
+ * Description:  if_icmp<cond>指令把栈顶的两个 int 变量弹出，然后进行比较，满足条件则跳转。跳转条件和 if指令类似。
  * Datetime:    2020/9/28   11:00
  * Author:   王震
  */
