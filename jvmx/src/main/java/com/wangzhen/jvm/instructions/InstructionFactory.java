@@ -86,9 +86,11 @@ import com.wangzhen.jvm.instructions.stores.storexarr.*;
 
 
 /**
- * Author: zhangxin
- * Time: 2017/5/5 0005.
- * Desc:
+ *
+ * Author: wangzhen
+ * Time: 2019/09/29
+ * Desc: Java 虚拟机规范已经定义了 205 条指令，操作码分别是 0（0x00）到 202（0xCA）、254（0xFE）和 255（0xFF）。
+ *       这 205 条指令构成了 Java 虚拟机的指令集（instruction set）。
  */
 public class InstructionFactory {
     static NOP nop = new NOP();
