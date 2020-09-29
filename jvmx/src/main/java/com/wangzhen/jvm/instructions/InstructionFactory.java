@@ -641,9 +641,9 @@ public class InstructionFactory {
             // case 0xa9:
             // 	return new RET();
             case 0xaa:
-                return new TABLE_SWITCH();
+                return table_switch;
             case 0xab:
-                return new LOOKUP_SWITCH();
+                return lookup_switch;
             case 0xac:
                 return ireturn;
             case 0xad:
@@ -702,13 +702,14 @@ public class InstructionFactory {
                 return ifnonnull;
             case 0xc8:
                 return goto_w;
-            // case 0xc9:
-            // 	return new JSR_W();
-            // case 0xca: breakpoint
+//             case 0xc9:
+//             	return new JSR_W();
+//             case 0xca:
+//                 return breakpoint;
             case 0xfe:
-                // 调用本地方法先暂时不实现
                 return invoke_native;
-            // case 0xff: impdep2
+//             case 0xff:
+//                 return impdep2;
             default:
                 throw new RuntimeException("Unsupported opcode: " + opCode);
         }
