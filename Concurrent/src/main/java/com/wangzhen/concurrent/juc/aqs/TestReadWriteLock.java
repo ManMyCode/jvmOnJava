@@ -1,10 +1,9 @@
-package com.wangzhen.concurrent.aqs;
+package com.wangzhen.concurrent.juc.aqs;
 
 import com.wangzhen.concurrent.util.SleepUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class TestReadWriteLock {

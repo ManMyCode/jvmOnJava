@@ -1,8 +1,5 @@
-package com.wangzhen.concurrent.aqs;
+package com.wangzhen.concurrent.juc.aqs;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.*;
 
 public class TestReentrantLock {
