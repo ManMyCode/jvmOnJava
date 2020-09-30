@@ -1,6 +1,4 @@
-package com.wangzhen.algorithm.leetcode.lt_16;
-
-import org.omg.CORBA.NO_IMPLEMENT;
+package com.wangzhen.algorithm.leetcode.lt_146;
 
 import java.util.HashMap;
 import java.util.Map;

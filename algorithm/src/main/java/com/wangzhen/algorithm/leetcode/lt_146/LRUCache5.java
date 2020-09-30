@@ -1,4 +1,4 @@
-package com.wangzhen.algorithm.leetcode.lt_16;
+package com.wangzhen.algorithm.leetcode.lt_146;
 
 import java.util.HashMap;
 
