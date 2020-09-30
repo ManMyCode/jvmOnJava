@@ -5,7 +5,7 @@ import com.wangzhen.jvm.instructions.base.Instruction;
 import com.wangzhen.jvm.runtimeData.ZFrame;
 
 /**
- *  从局部变量表中 读取一个操作数 然后在转换为int 推入到操作数
+ *  从操作数（code）中读取一个 byte 然后在转换为int 推入到操作数
  */
 public class BIPUSH implements Instruction {
     int val;
