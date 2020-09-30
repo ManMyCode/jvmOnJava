@@ -1,4 +1,4 @@
-package com.wangzhen.concurrent.threadLocal;
+package com.wangzhen.concurrent.thread.threadLocal;
 
 import java.lang.ref.SoftReference;
 

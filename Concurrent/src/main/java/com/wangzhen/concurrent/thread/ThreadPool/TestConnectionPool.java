@@ -1,4 +1,4 @@
-package com.wangzhen.concurrent.ThreadPool;
+package com.wangzhen.concurrent.thread.ThreadPool;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

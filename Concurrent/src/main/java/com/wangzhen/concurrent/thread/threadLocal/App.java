@@ -1,4 +1,4 @@
-package com.wangzhen.concurrent.threadLocal;
+package com.wangzhen.concurrent.thread.threadLocal;
 
 public class App {
     public static void main(String[] args) {

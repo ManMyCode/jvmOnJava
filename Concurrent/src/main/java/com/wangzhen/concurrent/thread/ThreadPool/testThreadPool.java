@@ -1,4 +1,4 @@
-package com.wangzhen.concurrent.ThreadPool;
+package com.wangzhen.concurrent.thread.ThreadPool;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

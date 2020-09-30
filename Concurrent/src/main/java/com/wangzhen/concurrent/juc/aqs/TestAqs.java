@@ -1,4 +1,4 @@
-package com.wangzhen.concurrent.aqs;
+package com.wangzhen.concurrent.juc.aqs;
 
 import com.wangzhen.concurrent.util.SleepUtils;
 import org.jetbrains.annotations.NotNull;

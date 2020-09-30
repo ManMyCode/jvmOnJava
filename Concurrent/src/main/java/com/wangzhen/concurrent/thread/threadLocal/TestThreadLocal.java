@@ -1,4 +1,4 @@
-package com.wangzhen.concurrent.threadLocal;
+package com.wangzhen.concurrent.thread.threadLocal;
 
 public class TestThreadLocal {
     static ThreadLocal<Person> threadLocal = new ThreadLocal<>();
