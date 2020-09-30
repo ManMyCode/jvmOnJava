@@ -10,29 +10,43 @@ import java.util.Stack;
  */
 class MyQueue {
 
-    Stack stack;
+    // 输入栈
+    Stack<Integer> sin;
+    // 输出栈
+    Stack<Integer> sout;
     /** Initialize your data structure here. */
     public MyQueue() {
-        stack = new Stack();
+        sin = new Stack();
+        sout = new Stack();
     }
 
     /** Push element x to the back of queue. */
     public void push(int x) {
-        stack.push(x);
+        sin.push(x);
     }
 
     /** Removes the element from in front of queue and returns that element. */
     public int pop() {
-        return -1;
+        if(!sout.isEmpty()){
+            return sout.pop();
+        }
+
+        // 如果是 输出栈为空的话，那么把输入栈里面的所有数据都放入到输出栈
+        while (!sin.isEmpty()){
+            sout.push(sin.pop());
+        }
+        return sout.pop();
     }
 
     /** Get the front element. */
     public int peek() {
-        return -1;
+        int peak = pop();
+        sout.push(peak);
+        return peak;
     }
 
     /** Returns whether the queue is empty. */
     public boolean empty() {
-        return false;
+        return sin.isEmpty()&&sout.isEmpty();
     }
 }
