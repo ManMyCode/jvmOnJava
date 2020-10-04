@@ -2,6 +2,7 @@ package com.wangzhen.jvm.instructions.control;
 
 import com.wangzhen.jvm.instructions.base.NoOperandsInstruction;
 import com.wangzhen.jvm.runtimeData.ZFrame;
+import com.wangzhen.jvm.runtimeData.ZThread;
 
 /**
  * Description:
@@ -11,6 +12,9 @@ import com.wangzhen.jvm.runtimeData.ZFrame;
 public class LRETURN extends NoOperandsInstruction {
     @Override
     public void execute(ZFrame frame) {
-        System.out.println("该指令还没有完成");
+        ZThread thread = frame.getThread();
+        ZFrame currentFrame = thread.popFrame();
+        ZFrame invokeFrame = thread.getCurrentFrame();
+        invokeFrame.getOperandStack().pushLong(currentFrame.getOperandStack().popLong());
     }
 }

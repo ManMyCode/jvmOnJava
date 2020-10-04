@@ -4,7 +4,7 @@ import com.wangzhen.jvm.instructions.base.NoOperandsInstruction;
 import com.wangzhen.jvm.runtimeData.ZFrame;
 
 /**
- * Description:
+ * Description: nativie 方法执行的指令
  * Datetime:    2020/9/28   8:49 下午
  * Author:   王震
  */

@@ -2,7 +2,7 @@ Classfile /D:/workspace/java/router-cloud/jvmx/target/classes/com/wangzhen/jvm/A
   Last modified 2020-9-28; size 464 bytes
   MD5 checksum 64f61f67c2ed9cf73e4b8f8737074b51
   Compiled from "App2.java"
-public class com.wangzhen.jvm.App2
+public class App.App2
   minor version: 0
   major version: 52
   flags: ACC_PUBLIC, ACC_SUPER
@@ -28,7 +28,7 @@ Constant pool:
   #19 = Utf8               com/wangzhen/jvm/App2
   #20 = Utf8               java/lang/Object
 {
-  public com.wangzhen.jvm.App2();
+  public App.App2();
     descriptor: ()V
     flags: ACC_PUBLIC
     Code:

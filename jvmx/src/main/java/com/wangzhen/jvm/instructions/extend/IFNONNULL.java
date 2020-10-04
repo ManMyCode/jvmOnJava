@@ -1,7 +1,9 @@
 package com.wangzhen.jvm.instructions.extend;
 
 import com.wangzhen.jvm.instructions.base.BranchInstruction;
+import com.wangzhen.jvm.instructions.base.BranchLogic;
 import com.wangzhen.jvm.runtimeData.ZFrame;
+import com.wangzhen.jvm.runtimeData.helap.ZObject;
 
 /**
  * Description:
@@ -11,6 +13,10 @@ import com.wangzhen.jvm.runtimeData.ZFrame;
 public class IFNONNULL extends BranchInstruction {
     @Override
     public void execute(ZFrame frame) {
-        System.out.println("该指令还没有完成");
+        ZObject ref = frame.getOperandStack().popRef();
+        if(ref!=null){
+            BranchLogic.branch(frame,offset);
+        }
+
     }
 }
