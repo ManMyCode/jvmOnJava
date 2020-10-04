@@ -41,5 +41,9 @@ public class ZStack {
         return zFrames.get(zFrames.size()-1);
     }
 
+    public boolean isEmpty(){
+        return zFrames.size()==0;
+    }
+
 
 }

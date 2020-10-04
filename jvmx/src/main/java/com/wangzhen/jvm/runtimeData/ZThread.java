@@ -13,10 +13,10 @@ public class ZThread {
     // 程序计数器
     int pc;
     //Stack 结构体（Java 虚拟机栈）的引用;
-    ZStack jstack;
+    ZStack zstack;
 
     public ZThread() {
-        jstack = new ZStack(1024);
+        zstack = new ZStack(1024);
     }
 
     public int getPc() {
@@ -28,11 +28,11 @@ public class ZThread {
     }
 
     public void pushFrame(ZFrame frame) {
-        jstack.push(frame);
+        zstack.push(frame);
     }
 
     public ZFrame popFrame() {
-        return jstack.pop();
+        return zstack.pop();
     }
 
     public ZFrame createFrame(ZMethod method){
@@ -41,6 +41,16 @@ public class ZThread {
 
 
     public ZFrame getCurrentFrame() {
-        return jstack.top();
+        return zstack.top();
     }
+
+    public boolean isStackEmpty() {
+        return zstack.isEmpty();
+    }
+    public void clearStack(){
+        while (!zstack.isEmpty()){
+            zstack.pop();
+        }
+    }
+
 }

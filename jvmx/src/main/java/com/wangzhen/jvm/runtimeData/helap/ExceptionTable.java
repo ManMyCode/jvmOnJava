@@ -8,16 +8,16 @@ import com.wangzhen.jvm.attribute.CodeAttribute;
  * @date 18/1/2
  */
 public class ExceptionTable {
-    private ExceptionHandler[] exceptionTable;
+    private ExceptionHandler[] handlers;
 
     public ExceptionTable(CodeAttribute.ExceptionTableEntry[] entry, RuntimeConstantPool runtimeConstantPool) {
-        exceptionTable = new ExceptionHandler[entry.length];
+        handlers = new ExceptionHandler[entry.length];
         for (int i = 0; i < entry.length; i++) {
-            exceptionTable[i] = new ExceptionHandler();
-            exceptionTable[i].startPc = entry[i].getStartPc();
-            exceptionTable[i].endPc = entry[i].getEndPc();
-            exceptionTable[i].handlerPc = entry[i].getHandlerPc();
-            exceptionTable[i].catchType = getCatchType(entry[i].getCatchType(), runtimeConstantPool);
+            handlers[i] = new ExceptionHandler();
+            handlers[i].startPc = entry[i].getStartPc();
+            handlers[i].endPc = entry[i].getEndPc();
+            handlers[i].handlerPc = entry[i].getHandlerPc();
+            handlers[i].catchType = getCatchType(entry[i].getCatchType(), runtimeConstantPool);
         }
     }
 
@@ -30,12 +30,19 @@ public class ExceptionTable {
         return (ClassRef) runtimeConstantPool.getRuntimeConstant(index).getValue();
     }
 
-    //返回能解决当前Exception的handler=>多个catch块,决定用哪个
+
+    /*
+     返回能解决当前Exception的handler=>多个catch块,决定用哪个
+     判断方法：
+        1.当前抛出异常的代码块是否在异常的捕获范围内（即通过pc 的行号来处理）
+        2.看exceptionhandle 的异常是否是抛出的异常，或者是其父类
+     如果满足了上述条件那么就返回 handler。
+     */
     public ExceptionHandler findExceptionHandler(ZClass exClazz, int pc) {
-        for (int i = 0; i < exceptionTable.length; i++) {
-            ExceptionHandler handler = exceptionTable[i];
+        for (int i = 0; i < handlers.length; i++) {
+            ExceptionHandler handler = handlers[i];
             if (pc >= handler.startPc && pc < handler.endPc) {
-                // catch all
+                // 为空表示 catch all
                 if (handler.catchType == null) {
                     return handler;
                 }
