@@ -29,6 +29,7 @@ class Solution {
             quickSort(arr,part+1,right);
         }
     }
+
     public int partition(int []arr,int left,int right){
         int temp= new Random().nextInt(right-left+1)+left;
         swap(arr,left,temp);

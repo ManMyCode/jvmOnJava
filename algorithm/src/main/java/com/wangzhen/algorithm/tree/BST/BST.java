@@ -85,10 +85,10 @@ public class BST {
     }
 
     /*
-      前序遍历非递归版本：
+      前序遍历非递归版本：使用栈的性质遍历
       前序遍历 ：为 中左右子树 遍历规则遍历
      */
-    public void preOrder(){
+    public void preOrderIteration(){
         Stack <Node> stack = new Stack<Node>();
         if(root==null)
             return;
@@ -118,10 +118,11 @@ public class BST {
     }
 
     // 非递归版本中序遍历  左 中 右子树遍历
-    public void infixOrder(){
+    public void infixOrderIteration(){
         Stack<Node> stack = new Stack<Node>();
         stack.push(root);
         while (!stack.isEmpty()){
+
             if(root.left!=null){
 
             }
@@ -140,7 +141,23 @@ public class BST {
     }
 
     // 后序遍历 非递归版本
-    public void postOrder(){
+    // 左右中
+    public void postOrderIteration(){
+        Stack<Node> input = new Stack<>();
+        Stack<Node> output = new Stack<>();
+        input.push(root);
+        while (!input.isEmpty()){
+            Node node = input.pop();
+            output.push(node);
+            if(node.left!=null){
+                input.push(node.left);
+            }
+            if(node.right!=null){
+                input.push(node.right);
+            }
+        }
+        while (!output.isEmpty())
+            list.add(output.pop().value);
 
     }
 

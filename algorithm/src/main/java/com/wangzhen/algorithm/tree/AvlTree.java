@@ -47,7 +47,7 @@ public class AvlTree {
         }
     }
 
-    // 查找要删除的结点
+    // 查找结点
     public Node search(int value) {
         if (root == null) {
             return null;
@@ -64,6 +64,7 @@ public class AvlTree {
             System.out.println("二叉排序树为空，不能遍历");
         }
     }
+
 
     // 中序遍历
     public void infixOrder() {
