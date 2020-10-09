@@ -30,7 +30,7 @@ public class testBst {
         bt.preOrder(bt.root);
         System.out.println(bt.list);
         bt.list.clear();
-        bt.preOrder();
+       // bt.preOrder();
         System.out.println(bt.list);
     }
 

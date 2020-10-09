@@ -6,8 +6,13 @@ import java.lang.ref.ReferenceQueue;
 import java.util.LinkedList;
 import java.util.List;
 
-// 虚引用
-// 用的很少，直接回答 用来管理直接内存的就可以了
+
+
+/**
+ * 虚引用： 只要垃圾回收 不管jvm 空间够够不够 都会 回收虚引用
+ * 用的很少，直接回答 用来管理直接内存的就可以了.
+ * 比如 netty 里面使用 直接内存 来做 io 操作可以减少复制，加快复制速度
+ */
 public class TestPhantomReference {
     private static final List<Object> LIST = new LinkedList<>();
     private static final ReferenceQueue<M> QUEUE = new ReferenceQueue<>();
