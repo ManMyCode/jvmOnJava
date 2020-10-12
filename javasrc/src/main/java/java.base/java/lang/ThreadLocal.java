@@ -160,8 +160,9 @@ public class ThreadLocal<T> {
      */
     public T get() {
         Thread t = Thread.currentThread();
-        ThreadLocalMap map = getMap(t);
+        ThreadLocalMap map = getMap(t);// 得到每个线程单独的 threadlcalmap
         if (map != null) {
+            // 通过 threadlocal 去获取
             ThreadLocalMap.Entry e = map.getEntry(this);
             if (e != null) {
                 @SuppressWarnings("unchecked")
@@ -216,9 +217,12 @@ public class ThreadLocal<T> {
      *        this thread-local.
      */
     public void set(T value) {
+        // 得到当前线程
         Thread t = Thread.currentThread();
+        // 得到当前线程的 ThreadLocalMap
         ThreadLocalMap map = getMap(t);
         if (map != null) {
+            // 注意这里的map 中的key 是threadloca 而不是当前线程
             map.set(this, value);
         } else {
             createMap(t, value );

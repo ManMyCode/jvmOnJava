@@ -3,7 +3,7 @@ package com.wangzhen.ref.threadlocal;
 import org.junit.Test;
 
 /**
- * Description:
+ * Description: 多线程情况下对共享变量的数据读取就回产生混乱
  * Datetime:    2020/10/12   9:58 上午
  * Author:   王震
  */

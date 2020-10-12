@@ -14,8 +14,8 @@
         <module>Concurrent</module>
         <module>algorithm</module>
         <module>netty</module>
-        <module>javasrc</module>
-        <module>javasrc</module>
+<!--        <module>javasrc</module>-->
+
     </modules>
 
     <dependencies>

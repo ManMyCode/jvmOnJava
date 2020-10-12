@@ -3,7 +3,7 @@ package com.wangzhen.ref.threadlocal;
 import org.junit.Test;
 
 /**
- * Description:
+ * Description: 使用ThreadLocal 可以解决多线程情况下的数据同步问题
  * Datetime:    2020/10/12   9:58 上午
  * Author:   王震
  */
@@ -16,6 +16,7 @@ public class Demo2 {
     }
 
     public void setData(String data) {
+        // 设置对应的值
         threadLocal.set(data);
     }
 
