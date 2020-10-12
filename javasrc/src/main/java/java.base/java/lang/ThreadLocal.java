@@ -221,7 +221,7 @@ public class ThreadLocal<T> {
         if (map != null) {
             map.set(this, value);
         } else {
-            createMap(t, value);
+            createMap(t, value );
         }
     }
 
@@ -481,7 +481,8 @@ public class ThreadLocal<T> {
             Entry[] tab = table;
             int len = tab.length;
             int i = key.threadLocalHashCode & (len-1);
-
+            // 这里这样设计可能是为了清除 key 为null 的entry，因为
+            //key 是弱引用，当gc 时候就会被gc 掉这样做，可以一定程度上防止内存泄漏
             for (Entry e = tab[i];
                  e != null;
                  e = tab[i = nextIndex(i, len)]) {

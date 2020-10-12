@@ -1,4 +1,6 @@
-package com.wangzhen.threadLocal;
+package com.wangzhen.ref.threadlocal;
+
+
 
 public class TestThreadLocal {
     static ThreadLocal<Person> threadLocal = new ThreadLocal<>();
@@ -23,8 +25,8 @@ public class TestThreadLocal {
 
     }
 
+    static class Person{
+        String name ="zhangshan";
+    }
 }
 
-class Person{
-    String name ="zhangshan";
-}

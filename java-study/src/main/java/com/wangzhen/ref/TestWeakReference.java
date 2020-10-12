@@ -1,7 +1,6 @@
-package com.wangzhen.threadLocal;
+package com.wangzhen.ref;
 
 import java.lang.ref.WeakReference;
-import java.util.WeakHashMap;
 
 // 弱引用
 // 只要gc 就会回收的引用
