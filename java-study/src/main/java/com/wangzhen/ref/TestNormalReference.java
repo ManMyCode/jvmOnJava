@@ -8,7 +8,11 @@ public class TestNormalReference {
         M m =new M();
         m = null;
         System.gc();
-      //  System.out.println(m);
-        //System.in.read();
+        System.out.println(m);
+        System.in.read();
+    }
+
+    public static class M{
+
     }
 }
