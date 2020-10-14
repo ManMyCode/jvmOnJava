@@ -1,7 +1,8 @@
 package com.wangzhen.concurrent.juc.countDownLatch;
 
 import com.wangzhen.concurrent.util.SleepUtils;
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
