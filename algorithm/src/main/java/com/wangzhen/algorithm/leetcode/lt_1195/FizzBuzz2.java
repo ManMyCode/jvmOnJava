@@ -1,6 +1,6 @@
 package com.wangzhen.algorithm.leetcode.lt_1195;
 
-import org.junit.jupiter.api.Test;
+
 
 import java.util.concurrent.Semaphore;
 import java.util.function.IntConsumer;
@@ -47,11 +47,7 @@ class FizzBuzz2 {
             }
         }).start();
     }
-    @Test
-    public void test(){
 
-
-    }
 
     // printFizz.run() outputs "fizz".
     public void fizz() throws InterruptedException {

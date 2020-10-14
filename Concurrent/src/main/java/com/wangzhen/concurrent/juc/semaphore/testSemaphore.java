@@ -1,7 +1,6 @@
 package com.wangzhen.concurrent.juc.semaphore;
 
 import com.wangzhen.concurrent.util.SleepUtils;
-import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

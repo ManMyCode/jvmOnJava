@@ -1,6 +1,6 @@
 package com.wangzhen.concurrent.JUCX.threadLocal;
 
-import sun.misc.Cleaner;
+//import sun.misc.Cleaner;
 
 import java.lang.ref.ReferenceQueue;
 
@@ -31,7 +31,7 @@ public abstract class Reference<T> {
         }
         static {
             ensureClassInitialized(InterruptedException.class);
-            ensureClassInitialized(Cleaner.class);
+//            ensureClassInitialized(Cleaner.class);
         }
         ReferenceHandler(ThreadGroup g,String name){
             super(g,name);

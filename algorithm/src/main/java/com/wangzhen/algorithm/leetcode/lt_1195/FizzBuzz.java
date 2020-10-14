@@ -1,6 +1,6 @@
 package com.wangzhen.algorithm.leetcode.lt_1195;
 
-import org.junit.jupiter.api.Test;
+
 
 import java.util.concurrent.Semaphore;
 import java.util.function.IntConsumer;
