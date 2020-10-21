@@ -15,7 +15,8 @@ public class ParkAndUnPark {
             System.out.println("执行t2 线程");
             LockSupport.unpark(t1);
         });
-        t1.start();
         t2.start();
+        t1.start();
+
     }
 }
