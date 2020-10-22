@@ -53,6 +53,10 @@ public class Object {
 
     /**
      * 不能被重写，用于唤醒一个在因等待该对象（调用了wait方法）被处于等待状态（waiting 或 time_wait）的线程，该方法只能同步方法或同步块中调用
+     * 1.每一个 java 对象的对象头里都有锁相关的信息，所以每个Java 对象都可以设置为一个锁
+     * 2.在线程中调用该某一个对象的 wait 方法会将 该线程至于 waitset 集合中。
+     * 3.在掉用该对象的 notify 会唤醒该线程
+     *
      */
     public final native void notify();
 
@@ -76,7 +80,7 @@ public class Object {
             throw new IllegalArgumentException(
                     "nanosecond timeout value out of range");
         }
-
+        // 说明 nanos 设置了没有什么用的 只是将 timeout ++ 了，这代码写的 有一手的
         if (nanos > 0) {
             timeout++;
         }
@@ -96,6 +100,7 @@ public class Object {
 
     /**
      * 这个方法用于当对象被回收时调用，这个由JVM支持，Object的finalize方法默认是什么都没有做，如果子类需要在对象被回收时执行一些逻辑处理，则可以重写finalize方法。
+     * 像这种 protected 修饰的方法 一般就是永来 给子类继承修改的。
      */
     protected void finalize() throws Throwable {
     }
