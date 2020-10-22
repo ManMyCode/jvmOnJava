@@ -1,5 +1,8 @@
 package com.wangzhen.other;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Description:
  * Datetime:    2020/10/22   10:46
@@ -11,6 +14,7 @@ public class TestObject {
 
     @Override
     public boolean equals(Object o) {
+        List list = new ArrayList<>();
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
