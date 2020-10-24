@@ -15,6 +15,7 @@
         <module>algorithm</module>
         <module>netty</module>
         <module>javasrc</module>
+        <module>springx</module>
         <!--        <module>javasrc</module>-->
 
     </modules>
@@ -48,6 +49,7 @@
                 <jdk>1.8</jdk>
             </activation>
             <properties>
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
                 <maven.compiler.source>1.8</maven.compiler.source>
                 <maven.compiler.target>1.8</maven.compiler.target>
                 <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
