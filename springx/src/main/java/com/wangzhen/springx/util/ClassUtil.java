@@ -12,6 +12,9 @@ import java.net.URL;
  * @since 1.0
  */
 public class ClassUtil {
+    public static void main(String[] args) {
+        System.out.println(ClassUtil.getClassPath());
+    }
 
     private static final Logger logger = LoggerFactory.getLogger(ClassUtil.class);
 
@@ -24,6 +27,8 @@ public class ClassUtil {
 
     /**
      * 获取类路径
+     * 1,这个路径是 当前运行的类的类路径形如：
+     *   /Users/wangzhen/Desktop/workspace/java/jvm/jvmOnJava/springx/target/classes/
      */
     public static String getClassPath() {
         String classpath = "";
