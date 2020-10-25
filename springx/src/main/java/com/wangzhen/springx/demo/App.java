@@ -3,6 +3,10 @@ package com.wangzhen.springx.demo;
 
 import com.wangzhen.springx.core.ApplicationContext;
 import com.wangzhen.springx.demo.config.Config;
+import com.wangzhen.springx.demo.entity.User;
+import com.wangzhen.springx.demo.service.IUserService;
+import com.wangzhen.springx.demo.service.impl.UserService;
+import com.wangzhen.springx.demo.web.UserController;
 
 
 /**
@@ -13,6 +17,7 @@ import com.wangzhen.springx.demo.config.Config;
 public class App {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ApplicationContext(Config.class);
-        System.out.println(applicationContext.beanMap);
+        UserController userController = (UserController) applicationContext.getBean(UserController.class);
+        userController.sayName();
     }
 }

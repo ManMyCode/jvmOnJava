@@ -1,5 +1,6 @@
 package com.wangzhen.springx.demo.web;
 
+import com.wangzhen.springx.demo.entity.User;
 import com.wangzhen.springx.demo.service.IUserService;
 import com.wangzhen.springx.ioc.annotation.Autowired;
 import com.wangzhen.springx.ioc.annotation.Component;
@@ -14,4 +15,8 @@ public class UserController {
 
     @Autowired
     IUserService userService;
+
+    public void sayName(){
+        userService.sayName(new User("wangzhen",18));
+    }
 }

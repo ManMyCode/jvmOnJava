@@ -7,9 +7,9 @@ package com.wangzhen.springx.demo.entity;
  */
 public class User {
     String name;
-    String age;
+    int age;
 
-    public User(String name, String age) {
+    public User(String name, int age) {
         this.name = name;
         this.age = age;
     }
