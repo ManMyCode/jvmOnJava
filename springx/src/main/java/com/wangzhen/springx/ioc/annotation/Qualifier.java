@@ -1,4 +1,4 @@
-package com.wangzhen.springx.core.annotation;
+package com.wangzhen.springx.ioc.annotation;
 
 import java.lang.annotation.*;
 

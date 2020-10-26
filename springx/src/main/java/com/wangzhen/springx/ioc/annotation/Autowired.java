@@ -6,7 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Description:
+ * Description: 自动装配注解 默认按照名字来装配，
+ *              如果需要其他方式，那么需要 @Qualifier 配合使用
  * Datetime:    2020/10/25   4:49 下午
  * Author:   王震
  */

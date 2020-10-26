@@ -25,11 +25,6 @@ public class ApplicationContext {
         refresh(configClzs);
     }
 
-
-    public static void main(String[] args) {
-
-    }
-
     public Object getBean(Class<?> clz){
         return beanFactory.get(clz);
     }
@@ -42,7 +37,12 @@ public class ApplicationContext {
     public void refresh(Class ...configClzs){
         // 扫描所有的类 beanMap中
         scanClass(configClzs);
-        IocHelper.inject();
+        // 对所有扫描到的类依赖注入
+        try {
+            IocHelper.inject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void scanClass(Class ...configClzs){
@@ -51,6 +51,7 @@ public class ApplicationContext {
             scanBeanMap.put(clz.getName(),clz);
             // 如果该配置类上有这个注解的话，那么需要扫描该注解标示的包中的所有内容。
             if (clz.isAnnotationPresent(ComponentScan.class)) {
+                // 得到指定的注解
                 ComponentScan annotation = (ComponentScan) clz.getAnnotation(ComponentScan.class);
                 String[] basePackages = annotation.value();
                 for (String basePackage : basePackages) {

@@ -16,7 +16,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 /**
- * Description: 默认包扫描器
+ * Description: 默认包扫描器,扫描指定 包名下的类
  * Datetime:    2020/10/25   12:17 上午
  * Author:   王震
  */
