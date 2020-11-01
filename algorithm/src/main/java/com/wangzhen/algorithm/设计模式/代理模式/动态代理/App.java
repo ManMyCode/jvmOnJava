@@ -1,5 +1,7 @@
 package com.wangzhen.algorithm.设计模式.代理模式.动态代理;
 
+import net.sf.cglib.core.DebuggingClassWriter;
+
 import java.lang.reflect.Proxy;
 
 /**
@@ -9,13 +11,11 @@ import java.lang.reflect.Proxy;
  */
 public class App {
     public static void main(String[] args) {
-        HelloImpl helloImpl = new HelloImpl();
-        ClassLoader classLoader = helloImpl.getClass().getClassLoader();
-        Class<?>[] interfaces = helloImpl.getClass().getInterfaces();
-        LogHandler logHandler = new LogHandler(helloImpl);
-        Hello hello = (Hello) Proxy.newProxyInstance(classLoader, interfaces, logHandler);
-        hello.say();
-
+        // 会将jdk 动态代理生成的类 输出到磁盘上。
+        System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles","true");
+        ProxyTarget proxyTarget = new ProxyTarget(new HelloImpl());
+        Hello proxy = proxyTarget.getProxy(Hello.class);
+        proxy.say();
 
     }
 }
