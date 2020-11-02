@@ -32,9 +32,6 @@ public class XmlApplicationContext extends AbstractApplicationContext {
         resources.add(getResource(loc));
         XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader((BeanDefinitionRegistry) this.beanFactory);
 
-        // todo 这里这段代码写的很奇怪
-
-       // Resource [] aryay = (Resource[]) resources.toArray();
         Resource []resourceArray = new Resource[resources.size()];
         for (int i = 0; i < resourceArray.length; i++) {
             resourceArray[i] = resources.get(i);

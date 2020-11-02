@@ -1,7 +1,7 @@
-package com.wangzhen.springx.App.service.impl;
+package com.wangzhen.springx.demo.service.impl;
 
-import com.wangzhen.springx.App.entity.User;
-import com.wangzhen.springx.App.service.IUserService;
+import com.wangzhen.springx.demo.entity.User;
+import com.wangzhen.springx.demo.service.IUserService;
 import com.wangzhen.springx.ioc.annotation.Component;
 
 /**

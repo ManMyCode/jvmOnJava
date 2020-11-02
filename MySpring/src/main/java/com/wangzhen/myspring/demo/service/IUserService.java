@@ -1,6 +1,7 @@
-package com.wangzhen.springx.App.service;
+package com.wangzhen.myspring.demo.service;
 
-import com.wangzhen.springx.App.entity.User;
+
+import com.wangzhen.myspring.demo.entity.User;
 
 /**
  * Description:
