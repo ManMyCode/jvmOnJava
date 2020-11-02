@@ -1,4 +1,4 @@
-package java.com.wangzhen.myspring.bean.app;
+package com.wangzhen.myspring.bean.app;
 
 import com.wangzhen.myspring.context.app.ApplicationContext;
 import com.wangzhen.myspring.context.app.impl.XmlApplicationContext;
