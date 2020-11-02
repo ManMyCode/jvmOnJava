@@ -5,6 +5,8 @@ import com.wangzhen.myspring.context.resource.Resource;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * Description:
@@ -12,9 +14,15 @@ import java.io.InputStream;
  * Author:   王震
  */
 public class URLResource implements Resource {
+    private URL url;
+
+    public URLResource(String path) throws MalformedURLException {
+        this.url = new URL(path);
+    }
+
     @Override
     public boolean isExist() {
-        return false;
+        return url != null;
     }
 
     @Override
@@ -24,6 +32,6 @@ public class URLResource implements Resource {
 
     @Override
     public InputStream getInputStream() throws IOException {
-        return null;
+        return url.openStream();
     }
 }

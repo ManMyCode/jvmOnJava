@@ -43,6 +43,14 @@ public class ClasspathResource implements Resource {
 
     @Override
     public InputStream getInputStream() throws IOException {
+        if(StringUtils.isNotBlank(path)){
+            if(clazz != null){
+                return clazz.getResourceAsStream(path);
+            }else if(classLoader != null){
+                return classLoader.getResourceAsStream(path);
+            }
+            return this.getClass().getResourceAsStream(path);
+        }
         return null;
     }
 }

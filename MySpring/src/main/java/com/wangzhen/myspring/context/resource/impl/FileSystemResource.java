@@ -2,9 +2,7 @@ package com.wangzhen.myspring.context.resource.impl;
 
 import com.wangzhen.myspring.context.resource.Resource;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 /**
  * Description:
@@ -12,18 +10,24 @@ import java.io.InputStream;
  * Author:   王震
  */
 public class FileSystemResource  implements Resource {
+    private File file;
+
+    public FileSystemResource(String path) {
+        this.file = new File(path);
+    }
+
     @Override
     public boolean isExist() {
-        return false;
+        return file.exists();
     }
 
     @Override
     public File getFile() {
-        return null;
+        return file;
     }
 
     @Override
-    public InputStream getInputStream() throws IOException {
-        return null;
+    public InputStream getInputStream() throws FileNotFoundException {
+        return new FileInputStream(file);
     }
 }
