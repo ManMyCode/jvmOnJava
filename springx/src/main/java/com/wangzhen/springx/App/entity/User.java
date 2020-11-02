@@ -1,4 +1,4 @@
-package com.wangzhen.springx.demo.entity;
+package com.wangzhen.springx.App.entity;
 
 /**
  * Description:

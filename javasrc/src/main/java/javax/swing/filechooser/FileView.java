@@ -54,7 +54,7 @@ import javax.swing.*;
  * <p>
  *
  * For an example implementation of a simple file view, see
- * <code><i>yourJDK</i>/demo/jfc/FileChooserDemo/ExampleFileView.java</code>.
+ * <code><i>yourJDK</i>/app/jfc/FileChooserDemo/ExampleFileView.java</code>.
  * For more information and examples see
  * <a
  href="https://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html">How to Use File Choosers</a>,

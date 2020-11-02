@@ -1,4 +1,4 @@
-package com.wangzhen.springx.demo.config;
+package com.wangzhen.springx.App.config;
 
 import com.wangzhen.springx.core.annotation.ComponentScan;
 

@@ -122,7 +122,7 @@ import sun.swing.PrintingStatus;
  * as the base class for creating subclasses and the <code>DefaultTableModel</code>
  * when subclassing is not required.
  * <p>
- * The "TableExample" directory in the demo area of the source distribution
+ * The "TableExample" directory in the app area of the source distribution
  * gives a number of complete examples of <code>JTable</code> usage,
  * covering how the <code>JTable</code> can be used to provide an
  * editable view of data taken from a database and how to modify

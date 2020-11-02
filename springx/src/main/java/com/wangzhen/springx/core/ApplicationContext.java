@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ApplicationContext {
 
-    // 存放所有扫描到的类
+    // 存放所有扫描到的类,已类的全限定名 作为key, 类作为
     public static Map<String,Class<?>> scanBeanMap = new ConcurrentHashMap<>();
     // 存放我们需要的标注了注解的注解类
     public static Map<Class<?>,Object> beanFactory = new ConcurrentHashMap<>();

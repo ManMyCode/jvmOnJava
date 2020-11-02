@@ -10,7 +10,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Description: bio demo
+ * Description: bio app
  * Datetime:    2020/9/21   6:46 下午
  * Author:   王震
  */

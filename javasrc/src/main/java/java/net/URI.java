@@ -95,7 +95,7 @@ import java.lang.NullPointerException;  // for javadoc
  * <blockquote>
  * {@code http://java.sun.com/j2se/1.3/}<br>
  * {@code docs/guide/collections/designfaq.html#28}<br>
- * {@code ../../../demo/jfc/SwingSet2/src/SwingSet2.java}<br>
+ * {@code ../../../app/jfc/SwingSet2/src/SwingSet2.java}<br>
  * {@code file:///~/calendar}
  * </blockquote>
  *
@@ -194,7 +194,7 @@ import java.lang.NullPointerException;  // for javadoc
  * Resolving the relative URI
  *
  * <blockquote>
- * {@code ../../../demo/jfc/SwingSet2/src/SwingSet2.java}&nbsp;&nbsp;&nbsp;&nbsp;(2)
+ * {@code ../../../app/jfc/SwingSet2/src/SwingSet2.java}&nbsp;&nbsp;&nbsp;&nbsp;(2)
  * </blockquote>
  *
  * against this result yields, in turn,
@@ -211,7 +211,7 @@ import java.lang.NullPointerException;  // for javadoc
  * URI
  *
  * <blockquote>
- * {@code demo/jfc/SwingSet2/src/SwingSet2.java}
+ * {@code app/jfc/SwingSet2/src/SwingSet2.java}
  * </blockquote>
  *
  * <p> <i>Relativization</i>, finally, is the inverse of resolution: For any

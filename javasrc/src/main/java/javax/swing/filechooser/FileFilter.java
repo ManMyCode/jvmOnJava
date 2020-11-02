@@ -37,7 +37,7 @@ import java.io.File;
  * can be set on a <code>JFileChooser</code> to
  * keep unwanted files from appearing in the directory listing.
  * For an example implementation of a simple file filter, see
- * <code><i>yourJDK</i>/demo/jfc/FileChooserDemo/ExampleFileFilter.java</code>.
+ * <code><i>yourJDK</i>/app/jfc/FileChooserDemo/ExampleFileFilter.java</code>.
  * For more information and examples see
  * <a href="https://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html">How to Use File Choosers</a>,
  * a section in <em>The Java Tutorial</em>.

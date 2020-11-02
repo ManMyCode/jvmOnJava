@@ -16,7 +16,7 @@ import java.util.Arrays;
 /**
  *  使用说明：
  *  1.启动参数
- * -cp jvmx/target/classes/com/wangzhen/jvm  App
+ * -cp jvmx/target/classes/com/wangzhen/jvm  app
  */
 public class Main {
     public static void main(String[] args) {
@@ -50,8 +50,8 @@ public class Main {
                 System.out.println(Arrays.asList(jarParameters));
             }
 
-            // java -jar jvm.jar -cp classes/com/wangzhen/jvm/ App.class
-            // -cp cmd/target/classes/com/wangzhen/jvm App.class
+            // java -jar jvm.jar -cp classes/com/wangzhen/jvm/ app.class
+            // -cp cmd/target/classes/com/wangzhen/jvm app.class
             if(cli.hasOption("cp")){
                 String []cpParameters = cli.getOptionValues("cp");
                 DirEntry dirEntry = new DirEntry(cpParameters[0]);

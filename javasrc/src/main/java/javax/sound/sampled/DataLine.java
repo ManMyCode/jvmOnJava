@@ -435,7 +435,7 @@ public interface DataLine extends Line {
             Info dataLineInfo = (Info)info;
 
             // treat anything < 0 as NOT_SPECIFIED
-            // demo code in old Java Sound Demo used a wrong buffer calculation
+            // app code in old Java Sound Demo used a wrong buffer calculation
             // that would lead to arbitrary negative values
             if ((getMaxBufferSize() >= 0) && (dataLineInfo.getMaxBufferSize() >= 0)) {
                 if (getMaxBufferSize() > dataLineInfo.getMaxBufferSize()) {

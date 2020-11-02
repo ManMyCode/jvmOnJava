@@ -132,16 +132,16 @@ public class DefaultBeanFactory implements BeanFactory , BeanDefinitionRegistry 
      * 通过工厂方法创建类
      */
     private Object createBeanByFactoryMethod(BeanDefinition bd) {
-        Object o = null;
+        Object isntance = null;
         try{
             // 根据工厂类名 获取工厂对象
             Object factory = doGetBean(bd.getBeanFactory());
             Method method = factory.getClass().getMethod(bd.getCreateBeanMethod());
-            o = method.invoke(factory,null);
+            isntance = method.invoke(factory,null);
         }catch (Exception e){
             logger.error(e.getMessage());
         }
-        return o;
+        return isntance;
     }
 
     /**
@@ -227,8 +227,23 @@ public class DefaultBeanFactory implements BeanFactory , BeanDefinitionRegistry 
         return bdMap.get(beanName);
     }
 
+    // 销毁方法
     @Override
     public void close() throws IOException {
+        Set<Map.Entry<String, BeanDefinition>> entries = bdMap.entrySet();
+        for (Map.Entry<String, BeanDefinition> entry : entries) {
+            BeanDefinition bd = entry.getValue();
+            String beanDestoryMethodName = bd.getBeanDestoryMethodName();
+            try {
+                Method destoryMethod = bd.getBeanClass().getDeclaredMethod(beanDestoryMethodName, null);
+                // 调用类自己的 destory 方法 关闭
+                destoryMethod.invoke(bd,null);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+        }
 
     }
 }

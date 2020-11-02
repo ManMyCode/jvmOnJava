@@ -55,7 +55,7 @@ package java.util.concurrent;
  * made-up.)
  * <pre> {@code
  * interface ArchiveSearcher { String search(String target); }
- * class App {
+ * class app {
  *   ExecutorService executor = ...
  *   ArchiveSearcher searcher = ...
  *   void showSearch(final String target)
