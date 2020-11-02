@@ -1,7 +1,7 @@
 package com.wangzhen.myspring.context.app.impl;
 
-import java.bean.beandefinition.BeanDefinitionRegistry;
-import java.bean.postprocessor.AopPostProcessor;
+import com.wangzhen.myspring.bean.beandefinition.BeanDefinitionRegistry;
+import com.wangzhen.myspring.bean.postprocessor.AopPostProcessor;
 
 import com.wangzhen.myspring.context.reader.impl.XmlBeanDefinitionReader;
 import com.wangzhen.myspring.context.resource.Resource;
@@ -35,12 +35,16 @@ public class XmlApplicationContext extends AbstractApplicationContext {
         // todo 这里这段代码写的很奇怪
 
        // Resource [] aryay = (Resource[]) resources.toArray();
-        xmlBeanDefinitionReader.loadBeandefinition((Resource[]) resources.toArray());
+        Resource []resourceArray = new Resource[resources.size()];
+        for (int i = 0; i < resourceArray.length; i++) {
+            resourceArray[i] = resources.get(i);
+        }
+        xmlBeanDefinitionReader.loadBeandefinition(resourceArray);
     }
 
     @Override
     public Object getBean(String beanName) throws Exception {
-        return null;
+        return beanFactory.getBean(beanName);
     }
 
     @Override

@@ -1,9 +1,9 @@
-package java.bean.factory.impl;
+package com.wangzhen.myspring.bean.factory.impl;
 
-import java.bean.beandefinition.BeanDefinition;
-import java.bean.beandefinition.BeanDefinitionRegistry;
-import java.bean.factory.BeanFactory;
-import java.bean.postprocessor.AopPostProcessor;
+import com.wangzhen.myspring.bean.beandefinition.BeanDefinition;
+import com.wangzhen.myspring.bean.beandefinition.BeanDefinitionRegistry;
+import com.wangzhen.myspring.bean.factory.BeanFactory;
+import com.wangzhen.myspring.bean.postprocessor.AopPostProcessor;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.slf4j.Logger;
@@ -118,7 +118,7 @@ public class DefaultBeanFactory implements BeanFactory , BeanDefinitionRegistry 
     // 初始化对象
     private void doInit(BeanDefinition bd, Object instance) {
         Class<?> beanClass = instance.getClass();
-        if(!StringUtils.isNoneBlank(bd.getBeanInitMethodName())){
+        if(StringUtils.isNoneBlank(bd.getBeanInitMethodName())){
             try {
                 Method method = beanClass.getMethod(bd.getBeanInitMethodName(), null);
                 method.invoke(instance,null);

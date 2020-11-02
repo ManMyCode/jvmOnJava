@@ -1,4 +1,4 @@
-package java.com.wangzhen.myspring.bean;
+package com.wangzhen.myspring.bean;
 
 /**
  * Description:
@@ -8,6 +8,9 @@ package java.com.wangzhen.myspring.bean;
 public class User {
     String name;
     int age;
+
+    public User() {
+    }
 
     public User(String name, int age) {
         this.name = name;
@@ -28,5 +31,9 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public void sayName(){
+        System.out.println(this.name);
     }
 }

@@ -1,8 +1,8 @@
 package com.wangzhen.myspring.context.reader.impl;
 
-import java.bean.beandefinition.BeanDefinition;
-import java.bean.beandefinition.BeanDefinitionRegistry;
-import java.bean.beandefinition.impl.DefaultBeanDefinition;
+import com.wangzhen.myspring.bean.beandefinition.BeanDefinition;
+import com.wangzhen.myspring.bean.beandefinition.BeanDefinitionRegistry;
+import com.wangzhen.myspring.bean.beandefinition.impl.DefaultBeanDefinition;
 import com.wangzhen.myspring.context.resource.Resource;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
