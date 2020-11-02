@@ -1,4 +1,4 @@
-package com.wangzhen.myspring.bean;
+package java.com.wangzhen.myspring.bean;
 
 /**
  * Description:

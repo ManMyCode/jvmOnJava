@@ -1,4 +1,4 @@
-package com.wangzhen.myspring.bean.beanreference;
+package java.bean.beanreference;
 
 /**
  * Description: 包装属性依赖中的引用类型

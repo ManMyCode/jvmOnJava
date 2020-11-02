@@ -1,6 +1,6 @@
 package com.wangzhen.myspring.context.reader.impl;
 
-import com.wangzhen.myspring.bean.beandefinition.BeanDefinitionRegistry;
+import java.bean.beandefinition.BeanDefinitionRegistry;
 import com.wangzhen.myspring.context.reader.BeanDefinitionReader;
 
 /**

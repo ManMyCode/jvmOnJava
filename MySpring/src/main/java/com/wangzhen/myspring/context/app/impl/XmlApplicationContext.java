@@ -1,8 +1,8 @@
 package com.wangzhen.myspring.context.app.impl;
 
-import com.wangzhen.myspring.bean.beandefinition.BeanDefinitionRegistry;
-import com.wangzhen.myspring.bean.postprocessor.AopPostProcessor;
-import com.wangzhen.myspring.context.app.ApplicationContext;
+import java.bean.beandefinition.BeanDefinitionRegistry;
+import java.bean.postprocessor.AopPostProcessor;
+
 import com.wangzhen.myspring.context.reader.impl.XmlBeanDefinitionReader;
 import com.wangzhen.myspring.context.resource.Resource;
 

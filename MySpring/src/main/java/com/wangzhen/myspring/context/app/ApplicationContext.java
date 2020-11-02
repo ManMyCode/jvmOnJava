@@ -1,6 +1,6 @@
 package com.wangzhen.myspring.context.app;
 
-import com.wangzhen.myspring.bean.factory.BeanFactory;
+import java.bean.factory.BeanFactory;
 
 /**
  * Description:  对外暴露的接口 用户通过该接口将配置文件的位置传入

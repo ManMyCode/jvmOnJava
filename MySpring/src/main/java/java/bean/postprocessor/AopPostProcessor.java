@@ -1,4 +1,4 @@
-package com.wangzhen.myspring.bean.postprocessor;
+package java.bean.postprocessor;
 
 /**
  * Description: Aop 后置处理器

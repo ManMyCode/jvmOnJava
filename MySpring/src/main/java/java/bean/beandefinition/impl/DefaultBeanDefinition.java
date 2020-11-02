@@ -1,6 +1,6 @@
-package com.wangzhen.myspring.bean.beandefinition.impl;
+package java.bean.beandefinition.impl;
 
-import com.wangzhen.myspring.bean.beandefinition.BeanDefinition;
+import java.bean.beandefinition.BeanDefinition;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;

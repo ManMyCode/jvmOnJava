@@ -1,4 +1,4 @@
-package com.wangzhen.myspring.bean.aware;
+package java.bean.aware;
 
 /**
  * Description:

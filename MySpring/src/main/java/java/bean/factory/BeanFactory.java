@@ -1,6 +1,6 @@
-package com.wangzhen.myspring.bean.factory;
+package java.bean.factory;
 
-import com.wangzhen.myspring.bean.postprocessor.AopPostProcessor;
+import java.bean.postprocessor.AopPostProcessor;
 
 import java.util.Map;
 

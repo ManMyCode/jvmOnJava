@@ -1,9 +1,9 @@
-package com.wangzhen.myspring.bean.factory.impl;
+package java.bean.factory.impl;
 
-import com.wangzhen.myspring.bean.beandefinition.BeanDefinition;
-import com.wangzhen.myspring.bean.beandefinition.BeanDefinitionRegistry;
-import com.wangzhen.myspring.bean.factory.BeanFactory;
-import com.wangzhen.myspring.bean.postprocessor.AopPostProcessor;
+import java.bean.beandefinition.BeanDefinition;
+import java.bean.beandefinition.BeanDefinitionRegistry;
+import java.bean.factory.BeanFactory;
+import java.bean.postprocessor.AopPostProcessor;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.slf4j.Logger;

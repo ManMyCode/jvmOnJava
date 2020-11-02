@@ -1,4 +1,4 @@
-package com.wangzhen.myspring.bean.beandefinition;
+package java.bean.beandefinition;
 
 import org.apache.commons.lang3.StringUtils;
 

@@ -1,4 +1,4 @@
-package com.wangzhen.myspring.bean.beandefinition;
+package java.bean.beandefinition;
 
 /**
  * Description: 注册bean定义

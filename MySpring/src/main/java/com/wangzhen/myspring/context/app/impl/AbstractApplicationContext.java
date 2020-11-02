@@ -1,8 +1,8 @@
 package com.wangzhen.myspring.context.app.impl;
 
-import com.wangzhen.myspring.bean.factory.BeanFactory;
-import com.wangzhen.myspring.bean.factory.impl.DefaultBeanFactory;
-import com.wangzhen.myspring.bean.postprocessor.AopPostProcessor;
+import java.bean.factory.BeanFactory;
+import java.bean.factory.impl.DefaultBeanFactory;
+import java.bean.postprocessor.AopPostProcessor;
 import com.wangzhen.myspring.context.app.ApplicationContext;
 import com.wangzhen.myspring.context.resource.Resource;
 import com.wangzhen.myspring.context.resource.ResourceFactory;
